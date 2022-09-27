@@ -8,6 +8,10 @@
     background: transparent;
     overflow: hidden;
 
+    .inner {
+        max-width: initial;
+    }
+
     &._not-top {
         background-color: #fff;
     }
