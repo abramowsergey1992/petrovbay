@@ -1,0 +1,113 @@
+@keyframes timearrow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 1000;
+
+    &__logo {
+        border: 2px solid #856F5D;
+        border-radius: 50px;
+        width: 56px;
+        height: 75px;
+        position: relative;
+
+        &::after {
+            display: block;
+            content: '';
+            border-radius: 50%;
+            width: 4px;
+            height: 4px;
+            left: 50%;
+            top: 50%;
+            position: absolute;
+            margin-left: -2px;
+            margin-top: -2px;
+            background: #856F5D;
+        }
+    }
+
+    &__arrow-hours {
+        height: 20px;
+        width: 2px;
+        position: absolute;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -10px;
+        margin-left: -1px;
+        animation: timearrow 12s linear infinite;
+
+        span {
+            background-color: #856F5D;
+            position: absolute;
+            height: 50%;
+            width: 100%;
+        }
+    }
+
+    &__arrow-minuts {
+        height: 34px;
+        width: 2px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -17px;
+        margin-left: -1px;
+        animation: timearrow 1s linear infinite;
+
+        span {
+            background-color: #856F5D;
+            position: absolute;
+            height: 50%;
+            width: 100%;
+        }
+    }
+
+    &__text {
+        height: 0;
+        position: absolute;
+        top: 100px;
+        overflow: hidden;
+        transition: height 0.9s;
+        left: 50%;
+        transform: translateX(-50%);
+
+        img {
+            max-width: calc(100vw - 40px);
+        }
+
+        .preloader._start & {
+            height: 53px;
+        }
+    }
+
+    &__content {
+        position: relative;
+    }
+
+    &__flex {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
