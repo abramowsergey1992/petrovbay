@@ -2,6 +2,10 @@ $(function () {
 	// var controller = new ScrollMagic.Controller();
 	l = window.innerHeight;
 	if ($(".front-top").length) {
+		$(".traveline__date").click(function () {
+			$(".traveline__date-wrap").removeClass("_open");
+			$(this).closest(".traveline__date-wrap").addClass("_open");
+		});
 		if ($(".traveline").length) {
 			var t = new Date();
 			var d = new Date();
@@ -15,15 +19,10 @@ $(function () {
 					`${t.getDate()}.${t.getMonth() + 1}.${t.getFullYear()}`
 				);
 			}, 300);
-			$(".traveline__date.to").datepicker({
-				minDate: d,
-				startDate: t,
-				autoClose: true,
-			});
-			var to = $(".traveline__date.to").datepicker().data("datepicker");
-			$(".traveline__date.from").datepicker({
+			new AirDatepicker("#traveline__date-from", {
 				minDate: new Date(),
 				autoClose: true,
+				inline: true,
 				onSelect: function (formattedDate, date, inst) {
 					var d = new Date(date);
 					d.setDate(d.getDate() + 1);
@@ -41,8 +40,17 @@ $(function () {
 					}
 				},
 			});
-			console.log(to);
+			let to = "";
 
+			to = new AirDatepicker("#traveline__date-to", {
+				minDate: d,
+				startDate: t,
+				inline: true,
+				autoClose: true,
+			});
+			console.log("sx");
+
+			console.log("zzzz");
 			var container = $(".traveline__popup");
 			$(".traveline__go").click(function () {
 				var url = new URL($(this).data("link"));
@@ -83,6 +91,12 @@ $(function () {
 					$(".traveline__block._counter").has(e.target).length === 0
 				) {
 					container.removeClass("_show");
+				}
+				if (
+					$(e.target).hasClass(".traveline__date-wrap") &&
+					$(e.target).closest(".traveline__date-wrap")
+				) {
+					$(".traveline__date-wrap").removeClass("_open");
 				}
 			});
 			var val;
