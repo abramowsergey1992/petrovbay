@@ -50,6 +50,14 @@ color {
 	}
 }
 
+.page {
+	padding-top: 98px;
+
+	.front-page & {
+		padding-top: 0;
+	}
+}
+
 .inner {
 	padding: 0px 48px;
 	margin-left: auto;

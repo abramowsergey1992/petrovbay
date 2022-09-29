@@ -13,6 +13,7 @@ $(function () {
 			}
 		});
 	} else {
+		$("body").addClass("front-page");
 		if ($(window).scrollTop() >= $(".front-top").outerHeight()) {
 			$(".header").addClass("_not-top");
 		} else {

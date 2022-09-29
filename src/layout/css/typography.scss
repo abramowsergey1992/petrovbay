@@ -2,13 +2,14 @@ h1,
 .h1 {
 	font-family: "Manrope";
 	font-style: normal;
-	font-weight: 800;
+	font-weight: 400;
 	font-size: 48px;
-	line-height: 121.6%;
-	text-align: center;
-	letter-spacing: 6px;
+	line-height: 66px;
+	@include lh(48, 66);
+	margin-bottom: 20px;
+	letter-spacing: -0.02em;
 	text-transform: uppercase;
-	color: #5a6171;
+	text-transform: uppercase;
 
 	color {
 		color: $blue;

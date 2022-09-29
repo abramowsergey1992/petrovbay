@@ -1,45 +1,46 @@
 .breadcrumb {
-	font-weight: 400;
-	font-size: 14px;
-	line-height: 24px;
-	margin-bottom: 60px;
-	white-space: nowrap;
-	max-width: 100%;
+	padding: 20px 0;
 	overflow-x: auto;
+	border-top: 1px solid #BBBBBB;
+	border-bottom: 1px solid #BBBBBB;
+	margin-bottom: 20px;
+
 	&__list {
 		display: flex;
 		flex-direction: row;
 	}
 
 	&__item {
-		._top-bg .top & {
-			color: rgb(255, 255, 255);
-		}
 		color: #5a6171;
+		font-weight: 500;
+
 		&::after {
 			display: inline-block;
-			content: "/";
-			color: #5a6171;
-			margin: 0 6px;
-		}
-		&:last-child::after {
-			display: none;
+			content: "";
+			width: 24px;
+			height: 1px;
+			background: #A4A09D;
+			margin: 0 10px;
+			position: relative;
+			top: -4px;
 		}
 	}
+
+	&:last-child::after {
+		display: none;
+	}
+
+
 
 	&__link {
-		._top-bg .top & {
-			color: rgba(153, 153, 153, 1);
-			&:hover {
-				color: #fff;
-			}
-		}
+		color: #A4A09D;
 		text-decoration: none;
+		transition: color 0.3s;
+
 		&:hover {
-			color: $blue;
+			color: #2F2F2F;
 		}
 	}
 
-	&__link-current {
-	}
+
 }
