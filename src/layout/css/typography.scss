@@ -74,6 +74,7 @@ h2,
 		font-size: 32px;
 	}
 
+
 }
 
 .sub-title {
@@ -84,6 +85,38 @@ h2,
 
 	@media (max-width: 992px) {
 		font-size: 18px;
+	}
+}
+
+.text2 {
+
+	h3,
+	.h3,
+	.big {
+		font-weight: 400;
+		font-size: 48px;
+		line-height: 57px;
+		letter-spacing: -0.03em;
+		margin: 0;
+		margin-bottom: 20px;
+		text-transform: initial;
+	}
+
+	p {
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 133%;
+		letter-spacing: -0.03em;
+		margin-bottom: 40px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		@media (max-width: 992px) {
+			font-size: 16px;
+			margin-bottom: 20px;
+		}
 	}
 }
 

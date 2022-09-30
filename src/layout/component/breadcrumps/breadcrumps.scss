@@ -24,13 +24,13 @@
 			position: relative;
 			top: -4px;
 		}
+
+
+		&:last-child::after {
+			display: none;
+		}
+
 	}
-
-	&:last-child::after {
-		display: none;
-	}
-
-
 
 	&__link {
 		color: #A4A09D;
