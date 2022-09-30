@@ -438,27 +438,7 @@ $(function () {
 		// 	.addIndicators({ name: "1 (duration: 0)" }) // add indicators (requires plugin)
 		// 	.addTo(controller);
 	}
-	if ($(".front-residence-slider").length) {
-		let i = 0;
-		$(".front-residence-slider .swiper-slide").each(function () {
-			i++;
-			$(this)
-				.find(".front-residence__paginator-now")
-				.text(String(i).padStart(2, "0"));
-		});
-		$(".front-residence__paginator-all").text(String(i).padStart(2, "0"));
-		const frontResidenceSlider = new Swiper(".front-residence-slider", {
-			speed: 400,
-			spaceBetween: 0,
-			loop: true,
-			// effect: "fade",
 
-			navigation: {
-				nextEl: $(".front-residence-slider__nav-next")[0],
-				prevEl: $(".front-residence-slider__nav-prev")[0],
-			},
-		});
-	}
 	if ($(".front-services-slider-content").length) {
 		let i = 0;
 		$(".front-service.swiper-slide").each(function () {
