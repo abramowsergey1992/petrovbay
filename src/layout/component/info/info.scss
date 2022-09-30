@@ -1,5 +1,6 @@
 .info-grid {
     display: grid;
+    width: 100%;
     grid-gap: 22px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
@@ -12,10 +13,113 @@
     padding-bottom: 350px;
     position: relative;
     min-height: 498px;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+
+    &__text {
+        margin-right: auto;
+    }
+
+    &__text {}
+
+    &__link-wrap {
+        position: relative;
+        z-index: 10;
+    }
+
+    &__link {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 125%;
+        text-align: center;
+        text-decoration: none;
+        letter-spacing: -0.03em;
+        color: #2f2f2f;
+
+        &::before {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            width: 100vmax;
+            height: 100vmax;
+            display: block;
+            content: "";
+        }
+
+        &::after {
+            background-image: url("data:image/svg+xml,%3Csvg width='14' height='13' viewBox='0 0 14 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.21 1.40332H1.40332M12.21 1.40332V12.21M12.21 1.40332L1.40332 12.21' stroke='%232F2F2F' stroke-width='2'/%3E%3C/svg%3E%0A");
+            display: inline-block;
+            content: '';
+            width: 14px;
+            height: 13px;
+            margin-left: 6px;
+            transition: transform 0.3s;
+        }
+
+        &:hover {
+            &::after {
+                transform: rotate(45deg);
+            }
+        }
+    }
+
+    &._bg {
+        .info-item__link {
+            color: #fff;
+
+            &::after {
+                background-image: url("data:image/svg+xml,%3Csvg width='14' height='13' viewBox='0 0 14 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.21 1.40332H1.40332M12.21 1.40332V12.21M12.21 1.40332L1.40332 12.21' stroke='white' stroke-width='2'/%3E%3C/svg%3E%0A");
+
+            }
+        }
+
+        .info-item__text,
+        .info-item__link-wrap {
+            position: relative;
+            z-index: 4;
+            color: #fff;
+        }
+
+        .info-item__img {
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+
+            &::after {
+                background: rgba(47, 47, 47, 0.3);
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                display: block;
+                content: '';
+            }
+
+            img {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
 
     &._img-left {
         padding-right: 50%;
         padding-bottom: 22px;
+        flex-direction: column;
+
+        .info-item__text {
+            margin-bottom: auto;
+        }
     }
 
     &._img-left._w-100 {
@@ -60,6 +164,18 @@
         align-items: center;
         justify-items: center;
 
+        .info-item__link-wrap+& {
+            img {
+                transition: transform 0.3s;
+            }
+        }
+
+        .info-item__link-wrap:hover+& {
+            img {
+                transform: scale(1.1);
+            }
+        }
+
         .info-item._img-left & {
             position: absolute;
             width: calc(50% - 22px);
@@ -69,6 +185,8 @@
             left: initial;
             bottom: initial;
 
+
+
             img {
                 object-fit: cover;
                 position: absolute;
@@ -76,6 +194,8 @@
                 top: 0;
                 width: 100%;
                 height: 100%;
+
+
             }
         }
 
@@ -87,8 +207,11 @@
         }
 
         ._radius & {
+            border-radius: 1000px;
+            overflow: hidden;
+
             img {
-                border-radius: 1000px;
+
                 object-fit: cover;
                 position: absolute;
                 left: 0;
@@ -130,14 +253,20 @@
     }
 
     &._w-50 {
+        grid-column: span 10;
+    }
+
+    &._w-45 {
         grid-column: span 9
     }
 
     &._w-100 {
-        grid-column: span 20
+        grid-column: span 20;
+        flex-direction: column;
+
     }
 
-    &._w-20 {
+    &._w-25 {
         grid-column: span 5
     }
 }

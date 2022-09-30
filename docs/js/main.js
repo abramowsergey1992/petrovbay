@@ -1,4 +1,3 @@
-$(function(){})
 $(function () {
 	// var controller = new ScrollMagic.Controller();
 	l = window.innerHeight;
@@ -496,6 +495,25 @@ $(function () {
 
 $(function(){})
 $(function(){})
+$(function(){})
+$(function(){})
+$(function () {
+	$(".text p").each(function () {
+		$(this).attr("data-aos", "fade-up");
+	});
+	AOS.init({});
+	// document.addEventListener("aos:in", ({ detail }) => {
+	// 	if ($(detail).hasClass("audio-player")) {
+	// 		$(detail).find(".audio-player__play").trigger("click");
+	// 	}
+	// });
+	// document.addEventListener("aos:out", ({ detail }) => {
+	// 	if ($(detail).hasClass("audio-player")) {
+	// 		$(detail).find(".audio-player__stop").trigger("click");
+	// 	}
+	// });
+});
+
 $(function () {
 	$(".audio-player").each(function () {
 		$(this).html(
@@ -606,23 +624,6 @@ $(function () {
 });
 
 $(function () {
-	$(".text p").each(function () {
-		$(this).attr("data-aos", "fade-up");
-	});
-	AOS.init({});
-	// document.addEventListener("aos:in", ({ detail }) => {
-	// 	if ($(detail).hasClass("audio-player")) {
-	// 		$(detail).find(".audio-player__play").trigger("click");
-	// 	}
-	// });
-	// document.addEventListener("aos:out", ({ detail }) => {
-	// 	if ($(detail).hasClass("audio-player")) {
-	// 		$(detail).find(".audio-player__stop").trigger("click");
-	// 	}
-	// });
-});
-
-$(function () {
 	$(".btn").each(function () {
 		$(this).html(
 			`<span class="btn__bg"></span><span>${$(this).text()}</span>`
@@ -713,7 +714,6 @@ $(function () {
 	}
 });
 
-$(function(){})
 $(function(){})
 $(function () {
 	var rellax = new Rellax(".parallax", {
