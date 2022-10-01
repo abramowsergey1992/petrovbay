@@ -123,7 +123,7 @@
     }
 
     &._img-left._w-100 {
-        padding-right: 65%;
+        padding-right: calc(65% + 30px);
         padding-bottom: 22px;
     }
 

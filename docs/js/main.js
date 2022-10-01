@@ -1,6 +1,4 @@
 $(function(){})
-$(function(){})
-$(function(){})
 $(function () {
 	// var controller = new ScrollMagic.Controller();
 	l = window.innerHeight;
@@ -498,6 +496,9 @@ $(function () {
 
 $(function(){})
 $(function(){})
+$(function(){})
+$(function(){})
+$(function(){})
 $(function () {
 	$(".text p,.text ul").each(function () {
 		$(this).attr("data-aos", "fade-up");
@@ -684,7 +685,6 @@ $(function () {
 	});
 });
 
-$(function(){})
 $(function () {
 	if (!$(".front-top").length) {
 		if ($(window).scrollTop() >= 50) {
@@ -716,6 +716,7 @@ $(function () {
 	}
 });
 
+$(function(){})
 $(function () {
 	var rellax = new Rellax(".parallax", {
 		center: true,
