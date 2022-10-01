@@ -1,0 +1,39 @@
+.price-item {
+    background: #FFFFFF;
+    border-radius: 1000px;
+    padding: 60px 90px;
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: auto auto auto 200px;
+    margin-bottom: 22px;
+    align-items: center;
+
+    &__time {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 33px;
+        /* identical to box height */
+
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+    }
+
+    &__price {
+        font-weight: 600;
+        font-size: 48px;
+        line-height: 117%;
+        letter-spacing: -0.03em;
+        color: #F4CB78;
+    }
+
+    &__dops {
+        p {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 22px;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            color: #A19D9A;
+        }
+    }
+}

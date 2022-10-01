@@ -23,6 +23,18 @@ h1,
 		font-size: 32px;
 		letter-spacing: 6px;
 	}
+
+	small {
+		font-weight: 800;
+		font-size: 16px;
+		line-height: 22px;
+		/* identical to box height */
+
+		letter-spacing: -0.03em;
+		text-transform: uppercase;
+
+		color: #2F2F2F;
+	}
 }
 
 h2,
@@ -88,7 +100,7 @@ h2,
 	}
 }
 
-.text2 {
+.text {
 
 	h3,
 	.h3,
@@ -118,23 +130,37 @@ h2,
 			margin-bottom: 20px;
 		}
 	}
-}
 
-.text {
-	p {
-		font-weight: 400;
-		font-size: 20px;
-		line-height: 160%;
-		letter-spacing: -0.03em;
-		margin-bottom: 40px;
+	.front-page & {
+		p {
+			font-weight: 400;
+			font-size: 20px;
+			line-height: 160%;
+			letter-spacing: -0.03em;
+			margin-bottom: 40px;
 
-		&:last-child {
-			margin-bottom: 0;
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			@media (max-width: 992px) {
+				font-size: 16px;
+				margin-bottom: 20px;
+			}
+		}
+	}
+
+	._two-column ul {
+		column-count: 2;
+		column-gap: 30px;
+
+		li {
+			page-break-inside: avoid;
+			break-inside: avoid;
 		}
 
-		@media (max-width: 992px) {
-			font-size: 16px;
-			margin-bottom: 20px;
+		@media(max-width:992px) {
+			column-count: 1;
 		}
 	}
 
@@ -142,17 +168,21 @@ h2,
 		margin-bottom: 72px;
 
 		li {
-			background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 11.9546C0 18.5593 5.37623 23.909 11.9956 23.909V18.2697C8.49219 18.2697 5.6507 15.4379 5.6507 11.9465H0V11.9546Z' fill='%23364DE7'/%3E%3Cpath d='M18.341 11.9545H23.9998C23.9998 5.35778 18.6236 0 11.9961 0V5.63935C15.4995 5.63935 18.341 8.47109 18.341 11.9625V11.9545Z' fill='%23364DE7'/%3E%3C/svg%3E%0A");
-			background-position: top left;
-			background-repeat: no-repeat;
-			margin-bottom: 30px;
+			margin-bottom: 12px;
 			position: relative;
-			padding-top: 4px;
-			padding-left: 37px;
 			font-weight: 400;
-			font-size: 14px;
-			line-height: 157%;
-			color: #5a6171;
+			font-size: 24px;
+			line-height: 133%;
+			/* identical to box height, or  */
+			padding-left: 25px;
+			letter-spacing: -0.03em;
+
+			&::before {
+				content: '—';
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
 		}
 	}
 }

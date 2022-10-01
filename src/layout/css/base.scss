@@ -33,13 +33,58 @@ img {
 	}
 }
 
+.row {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-gap: 20px;
+
+	.col-lg-8 {
+		grid-column: span 8;
+	}
+
+	.col-lg-4 {
+		grid-column: span 4;
+	}
+}
+
 .page {
 	background: #DDDDDD;
 	overflow: hidden;
+
+	&__head {
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	h1,
+	.h1 {
+		margin-right: auto;
+	}
 }
 
 color {
 	color: $brown
+}
+
+.full-img {
+	overflow: hidden;
+
+	&._radius {
+		border-radius: 1000px;
+	}
+
+	img {
+		transition: transform 0.5s;
+		transform: scale(1.05);
+	}
+
+	&.aos-animate {
+		img {
+			transform: scale(1);
+		}
+	}
 }
 
 ._no-top-padding {

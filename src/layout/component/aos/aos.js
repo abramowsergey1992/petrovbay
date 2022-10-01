@@ -1,5 +1,5 @@
 $(function () {
-	$(".text p").each(function () {
+	$(".text p,.text ul").each(function () {
 		$(this).attr("data-aos", "fade-up");
 	});
 	AOS.init({});
