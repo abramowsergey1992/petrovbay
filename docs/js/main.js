@@ -1,4 +1,33 @@
-$(function(){})
+$(function () {
+	if ($("#contact-form").length) {
+		let validContacnt = $("#contact-form").validate({
+			errorPlacement: function (error, element) {},
+			submitHandler: function (form) {
+				$(".contact-form__btn").attr("disabled", "disabled");
+				$.ajax({
+					url: $(form).attr("action"),
+					data: $(form).serialize(),
+					method: "POST",
+					headers: {
+						"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+							"content"
+						),
+					},
+					context: document.body,
+					success: function () {
+						alert("Форма отправленна успешно");
+						$(".contact-form__btn").removeAttr("disabled");
+					},
+					error: function () {
+						alert("Ошибка");
+						$(".contact-form__btn").removeAttr("disabled");
+					},
+				});
+			},
+		});
+	}
+});
+
 $(function () {
 	// var controller = new ScrollMagic.Controller();
 	l = window.innerHeight;
@@ -499,6 +528,7 @@ $(function(){})
 $(function(){})
 $(function(){})
 $(function(){})
+$(function(){})
 $(function () {
 	$(".text p,.text ul").each(function () {
 		$(this).attr("data-aos", "fade-up");
@@ -718,6 +748,15 @@ $(function () {
 
 $(function(){})
 $(function () {
+	$("._mask-phone").each(function () {
+		Inputmask("+7 (999) 999-99-99").mask(this);
+	});
+	$("._mask-date").each(function () {
+		Inputmask("99.99.9999").mask(this);
+	});
+});
+
+$(function () {
 	var rellax = new Rellax(".parallax", {
 		center: true,
 	});
@@ -760,6 +799,23 @@ $(function () {
 		$(this).plaxmove({
 			reversed: true,
 		});
+	});
+});
+
+$(function () {
+	$("[data-popup]").click(function () {
+		let $popup = $($(this).data("popup"));
+		$popup.addClass("_display");
+		setTimeout(function () {
+			$popup.addClass("_animate");
+		}, 100);
+	});
+	$(".popup__close,.popup__overlay").click(function () {
+		let $popup = $(this).closest(".popup");
+		$popup.removeClass("_animate");
+		setTimeout(function () {
+			$popup.removeClass("_display");
+		}, 1000);
 	});
 });
 

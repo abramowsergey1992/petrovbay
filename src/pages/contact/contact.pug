@@ -1,0 +1,93 @@
+extends ../../layout/layout
+block title
+	title Бухта Петрова
+block content
+	.inner
+		+breadcrumb(['Главная'], 'Контакты')
+		.page__head 
+			h1 КАК ДО НАС ДОБРАТЬСЯ 
+				small и как с нами связаться
+		.block.contact-methods
+			.contact-methods__row
+				.contact-method._whatsApp
+					.contact-method__title Написать в WhatsApp
+					.contact-method__body
+						p  Служба бронирования
+							br
+							| и размещения
+					.contact-method__link
+						a(href="tel:+79140680351") +7 914 068-03-51
+				.contact-method
+					.contact-method__title Позвонить:
+					.contact-method__body
+						p  Служба бронирования
+					.contact-method__link
+						a(href="tel:+79397794040") +7 939 779-40-40
+					.contact-method__link
+						a(href="tel:+79140680351") +7 914 068-03-51
+				.contact-method._mail
+					.contact-method__title Написать на почту:
+					.contact-method__body
+						p  Для вопросов и предложений
+					.contact-method__link
+						a(href="mailto:mail@petrovabay.ru") mail@petrovabay.ru
+		.block
+			.block__head 
+				h2.sub-title На автомобиле
+			.contact
+				.contact__left.text
+					h3 Комплекс «Бухта Петрова» расположен в 330 км от Владивостока. Среднее время в пути на автомобиле — 5 часов.
+				.contact__right
+					blockquote GPS-координаты: 
+						br 
+						| Широта: 42.874296 
+						br 
+						| Долгота: 133.803304
+			+picture('contact','jpg')
+		.block
+			.block__head 
+				h2.sub-title Основные населённые пункты в пути следования:
+			.contact
+				.contact__left.text
+					p Новая Москва — Казанка — Фроловка — Сергеевка — Монакино — Лазо — Беневское — поворот на Преображение. Не доезжая до Преображения 7 км вы увидите указатель «Комплекс семейного отдыха „Бухта Петрова“.
+			
+					blockquote ВАЖНО: заезд на территорию курорта возможен только 
+						br
+						| с 09:00 до 20:00. В другое время проезда нет! 
+					p Время проезда регламентируется администрацией Лазовского заповедника для безопасности передвижения лесных жителей в ночное время. ]
+		.block
+			.block__head 
+				h2.sub-title на самолете
+			.contact
+				.contact__left.text
+					h3 Из Владивостока до Преображения можно добраться на самолете. Время в пути – 50 минут. 
+					p Рейсы из международного аэропорта Кневичи уходят каждый день кроме понедельника и среды. Приобрести билет и уточнить расписание можно на сайте авиакомпании: 
+						a(href="www.flyaurora.ru") www.flyaurora.ru
+					p Из Преображения до курорта можно добраться на такси или заказать трансфер. Приятной дороги!
+				.contact__right
+					blockquote Средняя стоимость билета – 1800 рублей.
+		.block
+			form#contact-form.contact-form(method='post',action="/")
+				
+				.contact-form__title ОСТАЛИСЬ ВОПРОСЫ ИЛИ ПРЕДЛОЖЕНИЯ?
+				.contact-form__desc
+					p Мы всегда рады обратной связи! 
+				.contact-form__row.row._gap-15 
+					.col-lg-6
+						label.form-input
+							input(data-rule-required, placeholder="Имя Фамилия",name="name",type="text")
+					.col-lg-6
+						label.form-input
+							input._mask-phone(data-rule-required, placeholder="Телефон",name="phone",type="text")
+					.col-lg-6
+						label.form-input
+							input(data-rule-required, data-rule-email, placeholder="Почта",name="mail",type="text")
+					.col-lg-12 
+						label.form-input 
+							textarea(data-rule-required, placeholder="Ваш вопрос или предложение")
+				.contact-form__bottom
+					p Нажимая кнопку “Отправить” вы соглашаетесь с 
+						a(href="#") политикой обработки персональных данных
+						| .
+				button.btn._big(type="submit") Отправить
+				+picture('contact-form','jpg').contact-form__bg

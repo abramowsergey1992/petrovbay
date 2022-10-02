@@ -129,6 +129,15 @@ h2,
 			font-size: 16px;
 			margin-bottom: 20px;
 		}
+
+		a {
+			color: #856F5D;
+			font-weight: 800;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
 	}
 
 	.front-page & {
@@ -184,5 +193,22 @@ h2,
 				top: 0;
 			}
 		}
+	}
+}
+
+blockquote {
+	padding: 18px;
+	padding-left: 24px;
+	padding-right: 0;
+	border-left: 6px solid #F4CB78;
+	font-weight: 800;
+	font-size: 20px;
+	line-height: 140%;
+	letter-spacing: -0.03em;
+	text-transform: uppercase;
+	margin-bottom: 40px;
+
+	&:last-child {
+		margin-bottom: 0;
 	}
 }

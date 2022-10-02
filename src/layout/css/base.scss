@@ -39,21 +39,63 @@ img {
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 	grid-gap: 20px;
 
-	.col-lg-8 {
-		grid-column: span 8;
+	&._gap {
+		grid-gap: 15;
+	}
+
+	.col-lg-1 {
+		grid-column: span 4;
+	}
+
+	.col-lg-2 {
+		grid-column: span 4;
+	}
+
+	.col-lg-3 {
+		grid-column: span 4;
 	}
 
 	.col-lg-4 {
 		grid-column: span 4;
 	}
 
+	.col-lg-5 {
+		grid-column: span 5;
+	}
+
+	.col-lg-6 {
+		grid-column: span 6;
+	}
+
 	.col-lg-7 {
 		grid-column: span 7;
 	}
 
-	.col-lg-5 {
-		grid-column: span 5;
+	.col-lg-8 {
+		grid-column: span 8;
 	}
+
+	.col-lg-9 {
+		grid-column: span 9;
+	}
+
+	.col-lg-10 {
+		grid-column: span 10;
+	}
+
+	.col-lg-11 {
+		grid-column: span 11;
+	}
+
+	.col-lg-12 {
+		grid-column: span 12;
+	}
+
+
+
+
+
+
 }
 
 .page {
@@ -172,4 +214,54 @@ color {
 
 ._blue-color {
 	color: #2573A9;
+}
+
+.form-input {
+	input {
+		background: #FFFFFF;
+		border: 1px solid #EAEAEA;
+		padding: 14px 20px;
+		font-weight: 400;
+		font-size: 16px;
+		@include lh(16, 22);
+		display: block;
+		width: 100%;
+
+		&:hover {
+			border-color: #2F2F2F;
+		}
+
+		&.error {
+			border-color: red;
+		}
+
+		&.valid {
+			border-color: green;
+		}
+	}
+
+	textarea {
+		font-family: 'Manrope';
+		background: #FFFFFF;
+		border: 1px solid #EAEAEA;
+		padding: 14px 20px;
+		font-weight: 400;
+		font-size: 16px;
+		@include lh(16, 22);
+		display: block;
+		width: 100%;
+		min-height: 122px;
+
+		&:hover {
+			border-color: #2F2F2F;
+		}
+
+		&.error {
+			border-color: red;
+		}
+
+		&.valid {
+			border-color: green;
+		}
+	}
 }

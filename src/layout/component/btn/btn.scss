@@ -15,6 +15,11 @@
     font-size: 16px;
     @include lh(16, 20);
 
+    &._big {
+        padding: 14px 30px;
+        border-radius: 30px;
+    }
+
     &._dark {
         background: #3D3C3A;
     }
