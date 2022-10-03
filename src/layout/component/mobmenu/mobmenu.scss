@@ -1,0 +1,47 @@
+.mobmenu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    padding-top: 97px;
+
+
+    .header__burger {
+        border-color: rgba(244, 203, 120, 1);
+    }
+
+    .header__row {
+        border-bottom: 1px solid #BBBBBB;
+    }
+
+    &__menu {
+        max-width: 50%;
+
+        li {
+            border-bottom: 1px solid #BBBBBB;
+            padding: 10px 0;
+
+            &:last-child {
+                border: 0 solid;
+            }
+
+            a {
+                font-weight: 400;
+                font-size: 40px;
+                line-height: 74px;
+                /* identical to box height, or 185% */
+                color: rgba(47, 47, 47, 1);
+                letter-spacing: -0.03em;
+                text-transform: uppercase;
+                text-decoration: none;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: rgba(244, 203, 120, 1);
+                }
+            }
+        }
+    }
+}
