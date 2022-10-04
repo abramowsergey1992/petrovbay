@@ -1,10 +1,10 @@
-.mobmenu._display._animate(style="display:none")
+.mobmenu(style="display:none;")
 	.mobmenu__flex
 		.header 
 			.inner 
 				.header__row 
 					.header__left
-						button.header__burger(type="button")
+						button.header__burger-close(type="button")
 							<svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M1.5 1L13.5 13M1.5 13L13.5 1" stroke="#F4CB78" stroke-width="2"/>
 							</svg>
@@ -22,16 +22,51 @@
 						a(href="tel:+79140680351").header__phone  +7 (914) 068 03 51
 					button.btn(type="button",data-popup="#feedback") Забронировать
 		.inner 
-			ul.mobmenu__menu
-				li 
-					a(href="about.html") О курорте 
-				li 
-					a(href="residence.html") проживание
-				li 
-					a(href="infrastructure.html") инфраструктура
-				li 
-					a(href="about.html") Питание
-				li 
-					a(href="services.html") услуги
-				li 
-					a(href="contact.html") контакты
+			.mobmenu__relative
+				ul.mobmenu__menu
+					li 
+						a(href="about.html") О курорте 
+					li 
+						a(href="residence.html") проживание
+					li 
+						a(href="infrastructure.html") инфраструктура
+					li 
+						a(href="about.html") Питание
+					li 
+						a(href="services.html") услуги
+					li 
+						a(href="contact.html") контакты
+				.mobmenu__gallerys
+					.mobmenu__gallery
+						.swiper-wrapper
+							.swiper-slide.mobmenu-gallery-it 
+									+picture('mob-1','jpg')
+							.swiper-slide.mobmenu-gallery-it 
+									+picture('mob-2','jpg')
+							.swiper-slide.mobmenu-gallery-it 
+									+picture('mob-3','jpg')
+							.swiper-slide.mobmenu-gallery-it 
+									+picture('mob-4','jpg')
+							.swiper-slide.mobmenu-gallery-it 
+									+picture('mob-5','jpg')
+							.swiper-slide.mobmenu-gallery-it 
+									+picture('mob-6','jpg')
+							.swiper-slide.mobmenu-gallery-it 
+									+picture('mob-7','jpg')
+					.mobmenu__gallery._right
+						.swiper-wrapper
+							.swiper-slide.mobmenu-gallery-it 
+									+picture('mob-1','jpg')
+							.swiper-slide.mobmenu-gallery-it 
+									+picture('mob-2','jpg')
+							.swiper-slide.mobmenu-gallery-it 
+									+picture('mob-3','jpg')
+							.swiper-slide.mobmenu-gallery-it 
+									+picture('mob-4','jpg')
+							.swiper-slide.mobmenu-gallery-it 
+									+picture('mob-5','jpg')
+							.swiper-slide.mobmenu-gallery-it 
+									+picture('mob-6','jpg')
+							.swiper-slide.mobmenu-gallery-it 
+									+picture('mob-7','jpg')
+				

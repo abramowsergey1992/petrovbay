@@ -259,7 +259,8 @@ $(function () {
 				$("#front-top").attr("state", "static");
 				setTimeout(function () {
 					animateplay = false;
-				}, 3000);
+					console.log("as");
+				}, 1000);
 			}
 		});
 		$("#front-top").swipe({
@@ -286,7 +287,7 @@ $(function () {
 						}
 						setTimeout(function () {
 							animateplay = false;
-						}, 3000);
+						}, 1000);
 					}
 				} else if (direction == "down") {
 					if (animateplay == false) {
@@ -303,7 +304,7 @@ $(function () {
 						}
 						setTimeout(function () {
 							animateplay = false;
-						}, 3000);
+						}, 1000);
 					}
 				}
 			},
@@ -325,7 +326,7 @@ $(function () {
 					}
 					setTimeout(function () {
 						animateplay = false;
-					}, 3000);
+					}, 1000);
 				}
 			} else {
 				if (animateplay == false) {
@@ -342,7 +343,7 @@ $(function () {
 					}
 					setTimeout(function () {
 						animateplay = false;
-					}, 3000);
+					}, 1000);
 				}
 			}
 		});

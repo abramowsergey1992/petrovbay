@@ -1,9 +1,15 @@
 $(function () {
+	Fancybox.defaults.backFocus = false;
+	$(".gallery-it__bg").click(function () {
+		console.log("asdas");
+	});
 	$(".gallery-slider ").each(function () {
 		let swiperGallery = new Swiper(this, {
 			slidesPerView: "auto",
 			// freemode: true,
 			// allowTouchMove: false,
+			preventClicks: false,
+			preventClicksPropagation: false,
 			slideToClickedSlide: false,
 			spaceBetween: 22,
 			watchSlidesProgress: true,

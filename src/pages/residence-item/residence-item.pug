@@ -26,30 +26,7 @@ block content
 				.h3
 					color 4 спальни с большими удобными кроватями и 2 ванные комнаты, что позволяет с комфортом разместится компании до 12 человек. Полы во всех комнатах тёплые. Просторная гостиная с камином, укомплектованная кухня, терраса с видом на море, а также отдельная зона в лесу с беседкой и мангалом.
 		.block
-			.swiper.gallery-slider
-				.swiper-wrapper 
-					.swiper-slide.gallery-it 
-						a.gallery-it__bg(href="img/r-1.jpg", data-fancybox="gallery" )
-							+picture('r-1','jpg')
-					.swiper-slide.gallery-it 
-						.gallery-it__bg(href="img/r-2.jpg", data-fancybox="gallery" )
-							+picture('r-2','jpg')
-					.swiper-slide.gallery-it 
-						a.gallery-it__bg(href="img/r-3.jpg", data-fancybox="gallery" )
-							+picture('r-3','jpg')
-					.swiper-slide.gallery-it 
-						a.gallery-it__bg(href="img/r-4.jpg", data-fancybox="gallery" )
-							+picture('r-4','jpg')
-					.swiper-slide.gallery-it 
-						a.gallery-it__bg(href="img/r-5.jpg", data-fancybox="gallery" )
-							+picture('r-5','jpg')
-					.swiper-slide.gallery-it 
-						a.gallery-it__bg(href="img/r-6.jpg", data-fancybox="gallery" )
-							+picture('r-6','jpg')
-					.swiper-slide.gallery-it 
-						a.gallery-it__bg(href="img/r-7.jpg", data-fancybox="gallery" )
-							+picture('r-7','jpg')
-				.gallery-slider__pagi
+			include ../../layout/component/gallery-slider/gallery-slider
 		.block 
 			.block__head
 				h2.sub-title о доме

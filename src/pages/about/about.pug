@@ -131,31 +131,7 @@ block content
 			.photogallery.block 
 				.block__head 
 					h2.sub-title Фото
-				.swiper.gallery-slider
-					.swiper-wrapper 
-						.swiper-slide.gallery-it 
-							a.gallery-it__bg(href="img/r-1.jpg", data-fancybox="gallery" )
-								+picture('r-1','jpg')
-						.swiper-slide.gallery-it 
-							.gallery-it__bg(href="img/r-2.jpg", data-fancybox="gallery" )
-								+picture('r-2','jpg')
-						.swiper-slide.gallery-it 
-							a.gallery-it__bg(href="img/r-3.jpg", data-fancybox="gallery" )
-								+picture('r-3','jpg')
-						.swiper-slide.gallery-it 
-							a.gallery-it__bg(href="img/r-4.jpg", data-fancybox="gallery" )
-								+picture('r-4','jpg')
-						.swiper-slide.gallery-it 
-							a.gallery-it__bg(href="img/r-5.jpg", data-fancybox="gallery" )
-								+picture('r-5','jpg')
-						.swiper-slide.gallery-it 
-							a.gallery-it__bg(href="img/r-6.jpg", data-fancybox="gallery" )
-								+picture('r-6','jpg')
-						.swiper-slide.gallery-it 
-							a.gallery-it__bg(href="img/r-7.jpg", data-fancybox="gallery" )
-								+picture('r-7','jpg')
-					.gallery-slider__pagi
-			
+				include ../../layout/component/gallery-slider/gallery-slider
 			.residence-slide.block
 				.block__head 
 					h2.sub-title  варианты размещения  
