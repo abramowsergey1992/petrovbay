@@ -69,13 +69,15 @@ img {
 	grid-gap: 20px;
 
 	@media(max-width:992px) {
-		grid-gap: 0px;
+		grid-gap: 10px 0px;
 	}
 
 	&._gap {
-		grid-gap: 15;
+		grid-gap: 15px;
 
-		@media(max-width:992px) {}
+		@media(max-width:992px) {
+			grid-gap: 5px 0;
+		}
 	}
 
 	.col-lg-1 {
@@ -201,16 +203,31 @@ color {
 	color: $brown
 }
 
+.btn-wrap {
+	@media(max-width:992px) {
+		text-align: center;
+		margin-top: 20px;
+	}
+}
+
 .full-img {
 	overflow: hidden;
+	line-height: 0;
 
 	&._radius {
 		border-radius: 1000px;
 	}
 
+	&._full-height img {
+		height: 584px;
+		object-fit: cover;
+	}
+
 	img {
 		transition: transform 0.5s;
 		transform: scale(1.05);
+
+
 	}
 
 	&.aos-animate {
@@ -230,6 +247,10 @@ color {
 
 .page {
 	padding-top: 98px;
+
+	@media (max-width:992px) {
+		padding-top: 90px;
+	}
 
 	.front-page & {
 		padding-top: 0;

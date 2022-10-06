@@ -39,6 +39,7 @@ h1,
 		@media (max-width: 992px) {
 			line-height: 19px;
 			font-size: 14px;
+			display: block;
 		}
 	}
 }
@@ -197,6 +198,10 @@ h2,
 			/* identical to box height, or  */
 			padding-left: 25px;
 			letter-spacing: -0.03em;
+
+			@media(max-width:992px) {
+				font-size: 16px;
+			}
 
 			&::before {
 				content: '—';

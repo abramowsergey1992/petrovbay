@@ -24,7 +24,7 @@ $(function () {
 		);
 	});
 	$(".parallax").each(function () {
-		console.log($(this).data("parallax"));
+		console.log("parallax", $(this).data("parallax"));
 		scenes.push(
 			new ScrollMagic.Scene({
 				triggerElement: this,

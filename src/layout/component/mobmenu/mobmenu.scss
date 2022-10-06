@@ -5,8 +5,59 @@
     width: 100%;
     height: 100%;
     background: #fff;
+    z-index: 1111;
+
+    &__weather {
+        position: absolute;
+        left: 00px;
+        bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        align-items: center;
+    }
+
+    &__cam {
+        min-width: 36px;
+        height: 36px;
+        border: 1.5px solid #2F2F2F;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: background 0.6s;
 
 
+
+        &:hover {
+            background-color: #fff;
+
+            path,
+            circle {
+                stroke: #2F2F2F;
+            }
+        }
+
+        path,
+        circle {
+            transition: stroke 0.6s;
+            stroke: #2F2F2F;
+        }
+    }
+
+    &__temp {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        /* identical to box height, or 125% */
+
+        letter-spacing: -0.03em;
+
+        color: #2F2F2F;
+
+
+    }
 
     .header__burger-close {
         border-color: rgba(244, 203, 120, 1);
@@ -19,9 +70,18 @@
     &__menu {
         max-width: 50%;
 
+        @media(max-width:992px) {
+            max-width: 100%;
+        }
+
         li {
             border-bottom: 1px solid #BBBBBB;
             padding: 10px 0;
+
+            @media(max-width:992px) {
+
+                padding: 20px 0;
+            }
 
             &:last-child {
                 border: 0 solid;
@@ -37,6 +97,12 @@
                 text-transform: uppercase;
                 text-decoration: none;
                 transition: color 0.3s;
+
+                @media(max-width:992px) {
+                    font-size: 24px;
+                    line-height: 28px;
+
+                }
 
                 &:hover {
                     color: rgba(244, 203, 120, 1);
@@ -80,6 +146,10 @@
         top: 0;
         max-width: calc(50% - 22px);
         width: 100%;
+
+        @media(max-width:992px) {
+            display: none;
+        }
 
         .swiper-wrapper {
             transition-timing-function: linear !important;

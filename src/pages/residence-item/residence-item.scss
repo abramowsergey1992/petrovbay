@@ -5,10 +5,10 @@
         display: flex;
         flex-direction: row;
         margin-right: auto;
+        flex-wrap: wrap;
 
         @media(max-width:992px) {
-            display: grid;
-            grid-template-columns: 1fr;
+            margin-right: 0;
         }
 
         li {
@@ -25,6 +25,8 @@
                 font-size: 14px;
             }
 
+            order:3;
+
             &::before {
                 display: block;
                 content: '';
@@ -37,6 +39,8 @@
             }
 
             &.icon-square {
+                order: 0;
+
                 &::before {
                     background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.5 1H15V15H1V1H5L8 3M7 15V8M4.5 8H9.5M12.5 8H15' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E%0A");
                 }
@@ -49,6 +53,8 @@
             }
 
             &.icon-room {
+                order: 2;
+
                 &::before {
                     background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 2V5H2C1.44772 5 1 5.44772 1 6V14C1 14.5523 1.44772 15 2 15H10C10.5523 15 11 14.5523 11 14V11H14C14.5523 11 15 10.5523 15 10V2C15 1.44772 14.5523 1 14 1H6C5.44772 1 5 1.44772 5 2Z' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E%0A");
                 }
@@ -68,10 +74,20 @@
     grid-template-columns: auto 405px;
     position: relative;
 
+    @media(max-width:992px) {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+    }
+
     &__stump {
         position: absolute;
         right: 100px;
-        top: 50%
+        top: 50%;
+
+        @media(max-width:992px) {
+            width: 200px;
+            right: 0;
+        }
     }
 
     &__right {
@@ -94,6 +110,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 22px;
+
+    @media(max-width:992px) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .other-number {
@@ -105,6 +125,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+
+    @media(max-width:992px) {
+        min-height: 120px;
+        padding: 40px 30px;
+    }
 
     &__bg {
         position: absolute;
@@ -161,7 +186,48 @@
         text-align: center;
         letter-spacing: -0.03em;
         text-transform: uppercase;
-
+        position: relative;
         color: #FFFFFF;
+
+        @media(max-width:992px) {
+            font-size: 20px;
+            line-height: 27px;
+
+            .other-number:first-child & {
+                text-align: right;
+                padding-left: 30px;
+
+                &::before {
+                    background-image: url("data:image/svg+xml,%3Csvg width='19' height='14' viewBox='0 0 19 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.53926 12.737L7.26163 13.4285L8.64465 11.9838L7.92228 11.2923L6.53926 12.737ZM2 7.00732L1.30849 6.28496L0.553888 7.00732L1.30849 7.72969L2 7.00732ZM7.92228 2.72237L8.64465 2.03086L7.26163 0.586123L6.53926 1.27763L7.92228 2.72237ZM7.92228 11.2923L2.69151 6.28496L1.30849 7.72969L6.53926 12.737L7.92228 11.2923ZM2.69151 7.72969L7.92228 2.72237L6.53926 1.27763L1.30849 6.28496L2.69151 7.72969ZM2 8.00732H19V6.00732H2V8.00732Z' fill='white'/%3E%3C/svg%3E%0A");
+                    width: 19px;
+                    height: 14px;
+                    position: absolute;
+                    left: 0px;
+                    top: 50%;
+                    margin-top: -7px;
+                    display: block;
+                    content: '';
+                }
+            }
+
+            .other-number:last-child & {
+                text-align: left;
+                padding-right: 30px;
+
+                &::before {
+                    display: block;
+                    content: '';
+                    transform: scale(-1);
+                    background-image: url("data:image/svg+xml,%3Csvg width='19' height='14' viewBox='0 0 19 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.53926 12.737L7.26163 13.4285L8.64465 11.9838L7.92228 11.2923L6.53926 12.737ZM2 7.00732L1.30849 6.28496L0.553888 7.00732L1.30849 7.72969L2 7.00732ZM7.92228 2.72237L8.64465 2.03086L7.26163 0.586123L6.53926 1.27763L7.92228 2.72237ZM7.92228 11.2923L2.69151 6.28496L1.30849 7.72969L6.53926 12.737L7.92228 11.2923ZM2.69151 7.72969L7.92228 2.72237L6.53926 1.27763L1.30849 6.28496L2.69151 7.72969ZM2 8.00732H19V6.00732H2V8.00732Z' fill='white'/%3E%3C/svg%3E%0A");
+                    width: 19px;
+                    height: 14px;
+                    position: absolute;
+                    right: 0px;
+                    top: 50%;
+                    margin-top: -7px;
+                }
+            }
+        }
+
     }
 }

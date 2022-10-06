@@ -16,7 +16,7 @@ let preloader = setInterval(function () {
 		(360 / 100) * (100 / (timeHoursMax / timeH))
 	}deg)`;
 	if (start) {
-		delta > 0 ? (delta -= step / 1000) : (delta = 0);
+		delta > 0 ? (delta -= step / 1000 / 2) : (delta = 0);
 	}
 	timeM < timeMinutMax ? (timeM += step * delta) : (timeM = 0);
 	timeH < timeHoursMax ? (timeH += step * delta) : (timeH = 0);
