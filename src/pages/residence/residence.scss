@@ -111,6 +111,10 @@
             }
 
             &.icon-square {
+                @media(max-width:992px) {
+                    order: 0
+                }
+
                 &::before {
                     background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.5 1H15V15H1V1H5L8 3M7 15V8M4.5 8H9.5M12.5 8H15' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E%0A");
                 }
@@ -123,6 +127,10 @@
             }
 
             &.icon-room {
+                @media(max-width:992px) {
+                    order: 1
+                }
+
                 &::before {
                     background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 2V5H2C1.44772 5 1 5.44772 1 6V14C1 14.5523 1.44772 15 2 15H10C10.5523 15 11 14.5523 11 14V11H14C14.5523 11 15 10.5523 15 10V2C15 1.44772 14.5523 1 14 1H6C5.44772 1 5 1.44772 5 2Z' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E%0A");
                 }
@@ -176,7 +184,7 @@
         text-transform: uppercase;
 
         @media(max-width:992px) {
-            font-size: 40px;
+            font-size: 24px;
         }
     }
 
@@ -188,7 +196,7 @@
             letter-spacing: -0.03em;
 
             @media(max-width:992px) {
-                font-size: 16px;
+                font-size: 14px;
             }
         }
     }

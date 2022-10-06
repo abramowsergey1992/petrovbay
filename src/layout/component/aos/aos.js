@@ -2,7 +2,7 @@ $(function () {
 	// $(".text p,.text ul").each(function () {
 	// 	$(this).attr("data-aos", "fade-up");
 	// });
-	AOS.init({});
+	// AOS.init({});
 
 	let controller = new ScrollMagic.Controller({
 		refreshInterval: 0,
@@ -39,7 +39,7 @@ $(function () {
 				.addTo(controller)
 		);
 	});
-	$(".bg-scale").each(function () {
+	$(".bg-scale,.full-img ").each(function () {
 		scenes.push(
 			new ScrollMagic.Scene({
 				triggerElement: this,
@@ -79,7 +79,8 @@ $(function () {
 	let y = 0;
 
 	// initial smooth-scrollbar
-	let scroll = Scrollbar.init(document.querySelector("#pagescroll"));
+	let scrollTag = document.querySelector("#pagescroll");
+	let scroll = Scrollbar.init(scrollTag);
 
 	let isChrome =
 		/Chrome/.test(navigator.userAgent) &&
@@ -97,6 +98,8 @@ $(function () {
 	if ($(".front-top").length) {
 		scrollHeader = $(".front-top").outerHeight();
 	}
+	scrollTag.setAttribute("scroll", y);
+
 	if (y >= scrollHeader) {
 		$(".header").addClass("_not-top");
 	} else {
@@ -105,7 +108,8 @@ $(function () {
 	// listener smooth-scrollbar, update controller
 	scroll.addListener(function (status) {
 		y = status.offset.y;
-		console.log("y", y, scrollHeader);
+		scrollTag.setAttribute("scroll", y);
+		// console.log("y", y, scrollHeader);
 		if (y >= scrollHeader) {
 			$(".header").addClass("_not-top");
 		} else {

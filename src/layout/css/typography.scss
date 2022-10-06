@@ -21,7 +21,8 @@ h1,
 
 	@media (max-width: 992px) {
 		font-size: 32px;
-		letter-spacing: 6px;
+		line-height: 44px;
+		letter-spacing: -0.02em;
 	}
 
 	small {
@@ -34,6 +35,11 @@ h1,
 		text-transform: uppercase;
 
 		color: #2F2F2F;
+
+		@media (max-width: 992px) {
+			line-height: 19px;
+			font-size: 14px;
+		}
 	}
 }
 
@@ -97,6 +103,7 @@ h2,
 
 	@media (max-width: 992px) {
 		font-size: 18px;
+		line-height: 25px;
 	}
 }
 
@@ -107,11 +114,16 @@ h2,
 	.big {
 		font-weight: 400;
 		font-size: 48px;
-		line-height: 57px;
+		line-height: 117%;
 		letter-spacing: -0.03em;
 		margin: 0;
 		margin-bottom: 20px;
 		text-transform: initial;
+
+		@media(max-width:992px) {
+			font-size: 24px;
+
+		}
 	}
 
 	p {
