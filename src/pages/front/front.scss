@@ -62,7 +62,7 @@
 }
 
 .front-top .traveline__count {
-
+	text-align: center;
 	cursor: pointer
 }
 
@@ -592,6 +592,10 @@
 			padding-top: 0;
 		}
 
+		@media(max-width:1450px) and(max-height:800px) {
+			padding-top: 0;
+		}
+
 		#front-top._animate & {
 			max-width: 100%;
 			top: 0;
@@ -717,43 +721,69 @@
 
 	}
 
+	&__bg-blur._top {
+		.front-top[state="top"] & {
+			opacity: 1;
+		}
+
+	}
+
+	&__bg-blur._down {
+		.front-top[state="end"] & {
+			opacity: 1;
+		}
+	}
+
+
 	&__bg-blur {
 		position: absolute;
 		left: 0;
 		top: 0;
+		opacity: 0;
 		width: 100%;
 		height: 100%;
 		background: #F4CB78;
 		// Проблема с блюром
-		backdrop-filter: blur(145px);
+		// backdrop-filter: blur(145px);
 		width: 1002px;
-
 		border-radius: 1100px;
 		left: 50%;
-		top: 50%;
-		margin-top: 210px;
+		top: 210px;
+		height: initial;
+
+		&._down {
+			top: initial;
+			bottom: 210px;
+
+			@media(max-width:992px) {
+				margin-top: 39px !important;
+				max-width: 94%;
+				transform: translateX(-50%);
+				top: 65px;
+			}
+		}
+
+
+		&::after {
+			display: block;
+			content: '';
+			padding-bottom: 147%;
+		}
 
 		@media(max-width:992px) {
 			margin-top: 39px !important;
 			max-width: 94%;
-			height: initial;
 			transform: translateX(-50%);
 			top: 65px;
-
-			&::after {
-				display: block;
-				content: '';
-				padding-bottom: 147%;
-			}
 		}
 
 		box-shadow: 0 0 150px 0 #F4CB78,
 		0 0 150px 0 #F4CB78;
-		transform: translateX(-50%) translateY(-50%);
-		transition: margin 1s,
+		transform: translateX(-50%);
+		transition: opacity 0.5s,
+		bottom 1s,
 		width 1s;
-		will-change: margin,
-		width;
+		will-change:opacity;
 
 		&-point {
 			width: 58%;
@@ -776,31 +806,7 @@
 			}
 		}
 
-		.front-top[state="top"] & {
-			margin-top: 220px;
 
-			@media (max-width:1100px) {
-				width: 94%;
-			}
-		}
-
-		.front-top[state="static"] & {
-			margin-top: 0px;
-			width: 103vw;
-
-			@media (max-width:1100px) {
-				width: 200%;
-			}
-		}
-
-		.front-top[state="end"] & {
-			margin-top: -220px;
-			width: 1002px;
-
-			@media (max-width:1100px) {
-				width: 94%;
-			}
-		}
 	}
 
 	&__bg-wrap {
@@ -813,6 +819,8 @@
 		body._no-scroll & {
 			overflow: hidden;
 		}
+
+
 
 		&::after {
 			position: absolute;

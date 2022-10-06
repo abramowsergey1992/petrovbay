@@ -115,9 +115,17 @@
         background: rgba($color: #fff, $alpha: 0.7)
     }
 
+    &.swiper-slide-active {}
+
     &:hover {
         &::after {
             opacity: 0;
         }
+    }
+}
+
+.mobmenu__gallery._left {
+    .swiper-slide-active::after {
+        opacity: 0 !important;
     }
 }

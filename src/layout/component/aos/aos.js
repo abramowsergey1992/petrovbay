@@ -93,10 +93,24 @@ $(function () {
 		});
 	}
 
+	let scrollHeader = 50;
+	if ($(".front-top").length) {
+		scrollHeader = $(".front-top").outerHeight();
+	}
+	if (y >= scrollHeader) {
+		$(".header").addClass("_not-top");
+	} else {
+		$(".header").removeClass("_not-top");
+	}
 	// listener smooth-scrollbar, update controller
 	scroll.addListener(function (status) {
 		y = status.offset.y;
-		console.log("status"), status;
+		console.log("y", y, scrollHeader);
+		if (y >= scrollHeader) {
+			$(".header").addClass("_not-top");
+		} else {
+			$(".header").removeClass("_not-top");
+		}
 		if (isChrome) {
 			controller.update(true);
 		} else {
@@ -171,6 +185,7 @@ $(function () {
 		let animateplay = false;
 		new rotationOfTheObjectTowardsTheCursor();
 		$("body").addClass("_no-scroll");
+		$("body").addClass("front-page");
 		setTimeout(function () {
 			$("html, body").scrollTop(0);
 		}, 1000);
