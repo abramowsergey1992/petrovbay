@@ -1,7 +1,9 @@
 $(function () {
-	var rellax = new Rellax(".parallax", {
-		center: true,
-	});
+	// var rellax = new Rellax(".parallax", {
+	// 	center: true,
+	// 	wrapper: "#pagescroll",
+	// });
+
 	$.fn.plaxmove = function (options) {
 		this.defaults = {
 			ratioH: 0.013,

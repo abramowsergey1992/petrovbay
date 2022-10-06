@@ -1,4 +1,3 @@
-$(function(){})
 $(function () {
 	if ($("#contact-form").length) {
 		let validContacnt = $("#contact-form").validate({
@@ -29,7 +28,6 @@ $(function () {
 	}
 });
 
-$(function(){})
 $(function () {
 	// var controller = new ScrollMagic.Controller();
 	l = window.innerHeight;
@@ -214,171 +212,6 @@ $(function () {
 			});
 		}
 
-		class rotationOfTheObjectTowardsTheCursor {
-			constructor() {
-				this.circle = Object;
-				this.line = Object;
-
-				this.circleRect = Object;
-
-				this.centerPosition = { x: 0, y: 0 };
-				this.angels = { actual: 0, target: 0 };
-
-				this.init();
-			}
-
-			init() {
-				this.circle = document.querySelector(".front-top__bg-blur");
-				this.line = document.querySelector(".front-top__bg-blur-point");
-
-				this.onResize();
-				window.onresize = (e) => this.onResize(e);
-
-				window.onmousemove = (e) => this.onMouseMove(e);
-
-				requestAnimationFrame(() => this.loop());
-			}
-
-			onResize() {
-				this.circleRect = this.circle.getBoundingClientRect();
-				this.centerPosition = {
-					x: this.circleRect.x + this.circleRect.width / 2,
-					y: this.circleRect.y + this.circleRect.height / 2,
-				};
-			}
-
-			onMouseMove(e) {
-				const atan2 = Math.atan2(
-					e.pageY - this.centerPosition.y,
-					e.pageX - this.centerPosition.x
-				);
-
-				this.angels.target = atan2;
-			}
-
-			loop() {
-				this.angels.actual = this.angleLerp(
-					this.angels.actual,
-					this.angels.target,
-					0.1
-				);
-
-				this.line.style.transform = `rotate(${this.angels.actual}rad)`;
-
-				requestAnimationFrame(() => this.loop());
-			}
-
-			angleLerp(a0, a1, t) {
-				const max = Math.PI * 2;
-				const da = (a1 - a0) % max;
-				return a0 + (((2 * da) % max) - da) * t;
-			}
-		}
-
-		let animateplay = false;
-		new rotationOfTheObjectTowardsTheCursor();
-		$("body").addClass("_no-scroll");
-		setTimeout(function () {
-			$("html, body").scrollTop(0);
-			console.log("sadasd");
-		}, 1000);
-		$("html, body").scrollTop(0);
-		$(".front-top").attr("state", "top");
-
-		$(".front-top__down").click(function () {
-			if (animateplay == false) {
-				animateplay = true;
-				$("#front-top").attr("state", "static");
-				setTimeout(function () {
-					animateplay = false;
-					console.log("as");
-				}, 1000);
-			}
-		});
-		$("#front-top").swipe({
-			//Generic swipe handler for all directions
-			swipe: function (
-				event,
-				direction,
-				distance,
-				duration,
-				fingerCount,
-				fingerData
-			) {
-				console.log("You swiped " + direction);
-				if (direction == "up") {
-					if (animateplay == false) {
-						animateplay = true;
-						if (state == "static") {
-							$("#front-top").attr("state", "top");
-						}
-						if (state == "end") {
-							$("html, body").animate({ scrollTop: 0 });
-							$("body").addClass("_no-scroll");
-							$("#front-top").attr("state", "static");
-						}
-						setTimeout(function () {
-							animateplay = false;
-						}, 1000);
-					}
-				} else if (direction == "down") {
-					if (animateplay == false) {
-						animateplay = true;
-
-						if (state == "end") {
-							$("body").removeClass("_no-scroll");
-						}
-						if (state == "static") {
-							$("#front-top").attr("state", "end");
-						}
-						if (state == "top") {
-							$("#front-top").attr("state", "static");
-						}
-						setTimeout(function () {
-							animateplay = false;
-						}, 1000);
-					}
-				}
-			},
-		});
-
-		$("#front-top").bind("mousewheel", function (e) {
-			let state = $("#front-top").attr("state");
-
-			if (e.originalEvent.wheelDelta / 120 > 0) {
-				if (animateplay == false) {
-					animateplay = true;
-					if (state == "static") {
-						$("#front-top").attr("state", "top");
-					}
-					if (state == "end") {
-						$("html, body").animate({ scrollTop: 0 });
-						$("body").addClass("_no-scroll");
-						$("#front-top").attr("state", "static");
-					}
-					setTimeout(function () {
-						animateplay = false;
-					}, 1000);
-				}
-			} else {
-				if (animateplay == false) {
-					animateplay = true;
-
-					if (state == "end") {
-						$("body").removeClass("_no-scroll");
-					}
-					if (state == "static") {
-						$("#front-top").attr("state", "end");
-					}
-					if (state == "top") {
-						$("#front-top").attr("state", "static");
-					}
-					setTimeout(function () {
-						animateplay = false;
-					}, 1000);
-				}
-			}
-		});
 		// const frontTop = new Swiper(".front-top-slider", {
 		// 	// slidesPerView: 1,
 		// 	direction: "vertical",
@@ -509,19 +342,30 @@ $(function () {
 		});
 	}
 	if ($(".front-environ").length) {
-		$(".front-environ__white-block").css(
-			"height",
-			$(".front-environ__divider").offset().top -
-				50 -
-				$(".front-environ__content ").offset().top
-		);
-		$(window).on("resize", function () {
+		const mediaQuery = window.matchMedia("(max-width: 992px)");
+		if (mediaQuery.matches) {
+			$(".front-environ__white-block").css(
+				"height",
+				$(".front-environ__row-2 .front-environ__left").height() + 300
+			);
+		} else {
 			$(".front-environ__white-block").css(
 				"height",
 				$(".front-environ__divider").offset().top -
 					50 -
 					$(".front-environ__content ").offset().top
 			);
+		}
+		$(window).on("resize", function () {
+			if (mediaQuery.matches) {
+			} else {
+				$(".front-environ__white-block").css(
+					"height",
+					$(".front-environ__divider").offset().top -
+						50 -
+						$(".front-environ__content ").offset().top
+				);
+			}
 		});
 	}
 });
@@ -530,11 +374,265 @@ $(function(){})
 $(function(){})
 $(function(){})
 $(function(){})
+$(function(){})
+$(function(){})
 $(function () {
-	$(".text p,.text ul").each(function () {
-		$(this).attr("data-aos", "fade-up");
-	});
+	// $(".text p,.text ul").each(function () {
+	// 	$(this).attr("data-aos", "fade-up");
+	// });
 	AOS.init({});
+
+	let controller = new ScrollMagic.Controller({
+		refreshInterval: 0,
+	});
+	let scenes = [];
+	$(".anim-block").each(function () {
+		scenes.push(
+			new ScrollMagic.Scene({
+				triggerElement: this,
+				duration: 400,
+			})
+				.triggerHook(1)
+				// animate color and top border in relation to scroll position
+				.setTween($(this).find(".block"), {
+					top: 0,
+				}) // the tween durtion can be omitted and defaults to 1
+				// .addIndicators({ name: "2 (duration: 300)" }) // add indicators (requires plugin)
+				.addTo(controller)
+		);
+	});
+	$(".parallax").each(function () {
+		console.log($(this).data("parallax"));
+		scenes.push(
+			new ScrollMagic.Scene({
+				triggerElement: this,
+				duration: window.innerHeight,
+			})
+				.triggerHook(1)
+				// animate color and top border in relation to scroll position
+				.setTween($(this).find("picture"), {
+					y: $(this).data("parallax"),
+				}) // the tween durtion can be omitted and defaults to 1
+				// .addIndicators({ name: "2 (duration: 300)" }) // add indicators (requires plugin)
+				.addTo(controller)
+		);
+	});
+	$(".bg-scale").each(function () {
+		scenes.push(
+			new ScrollMagic.Scene({
+				triggerElement: this,
+				duration: window.innerHeight,
+			})
+				.triggerHook(1)
+				// animate color and top border in relation to scroll position
+				.setTween($(this).find("img,video"), {
+					scale: 1,
+				}) // the tween durtion can be omitted and defaults to 1
+				// .addIndicators({ name: "2 (duration: 300)" }) // add indicators (requires plugin)
+				.addTo(controller)
+		);
+	});
+
+	$(".audio-player").each(function () {
+		let $th = $(this);
+		scenes.push(
+			new ScrollMagic.Scene({
+				triggerElement: this,
+				duration: window.innerHeight,
+			})
+				.triggerHook(1)
+				.addIndicators({ name: "2 (duration: 300)" }) // add indicators (requires plugin)
+				.on("enter", function () {
+					console.log("enter", $th);
+					$th.find(".audio-player__play").trigger("click");
+				})
+				.on("leave", function () {
+					console.log("leave", $th);
+					$th.find(".audio-player__stop").trigger("click");
+				})
+				.addTo(controller)
+		);
+	});
+
+	let y = 0;
+
+	// initial smooth-scrollbar
+	let scroll = Scrollbar.init(document.querySelector("#pagescroll"));
+
+	let isChrome =
+		/Chrome/.test(navigator.userAgent) &&
+		/Google Inc/.test(navigator.vendor);
+
+	console.log("is Chrome ? ", isChrome);
+	// update scrollY controller
+	if (isChrome) {
+		controller.scrollPos(function () {
+			return y;
+		});
+	}
+
+	// listener smooth-scrollbar, update controller
+	scroll.addListener(function (status) {
+		y = status.offset.y;
+		console.log("status"), status;
+		if (isChrome) {
+			controller.update(true);
+		} else {
+			scenes.forEach(function (scene) {
+				scene.refresh();
+			});
+		}
+	});
+
+	if ($(".front-top").length) {
+		class rotationOfTheObjectTowardsTheCursor {
+			constructor() {
+				this.circle = Object;
+				this.line = Object;
+
+				this.circleRect = Object;
+
+				this.centerPosition = { x: 0, y: 0 };
+				this.angels = { actual: 0, target: 0 };
+
+				this.init();
+			}
+
+			init() {
+				this.circle = document.querySelector(".front-top__bg-blur");
+				this.line = document.querySelector(".front-top__bg-blur-point");
+
+				this.onResize();
+				window.onresize = (e) => this.onResize(e);
+
+				window.onmousemove = (e) => this.onMouseMove(e);
+
+				requestAnimationFrame(() => this.loop());
+			}
+
+			onResize() {
+				this.circleRect = this.circle.getBoundingClientRect();
+				this.centerPosition = {
+					x: this.circleRect.x + this.circleRect.width / 2,
+					y: this.circleRect.y + this.circleRect.height / 2,
+				};
+			}
+
+			onMouseMove(e) {
+				const atan2 = Math.atan2(
+					e.pageY - this.centerPosition.y,
+					e.pageX - this.centerPosition.x
+				);
+
+				this.angels.target = atan2;
+			}
+
+			loop() {
+				this.angels.actual = this.angleLerp(
+					this.angels.actual,
+					this.angels.target,
+					0.1
+				);
+
+				this.line.style.transform = `rotate(${this.angels.actual}rad)`;
+
+				requestAnimationFrame(() => this.loop());
+			}
+
+			angleLerp(a0, a1, t) {
+				const max = Math.PI * 2;
+				const da = (a1 - a0) % max;
+				return a0 + (((2 * da) % max) - da) * t;
+			}
+		}
+
+		let animateplay = false;
+		new rotationOfTheObjectTowardsTheCursor();
+		$("body").addClass("_no-scroll");
+		setTimeout(function () {
+			$("html, body").scrollTop(0);
+		}, 1000);
+		$("html, body").scrollTop(0);
+		$(".front-top").attr("state", "top");
+
+		$(".front-top__down").click(function () {
+			FrontTopDown();
+		});
+		function FrontTopUp() {
+			if (animateplay == false) {
+				let state = $("#front-top").attr("state");
+				animateplay = true;
+				if (state == "static") {
+					$("#front-top").attr("state", "top");
+				}
+				if (state == "end") {
+					$("html, body").animate({ scrollTop: 0 });
+					$("body").addClass("_no-scroll");
+					$("#front-top").attr("state", "static");
+					// scroll.updatePluginOptions("modal", { open: true });
+				}
+				setTimeout(function () {
+					animateplay = false;
+				}, 1000);
+			}
+		}
+		function FrontTopDown() {
+			if (animateplay == false) {
+				animateplay = true;
+				let state = $("#front-top").attr("state");
+				if (state == "end") {
+					$("body").removeClass("_no-scroll");
+					// scroll.updatePluginOptions("modal", { open: false });
+				}
+				if (state == "static") {
+					$("#front-top").attr("state", "end");
+				}
+				if (state == "top") {
+					$("#front-top").attr("state", "static");
+				}
+				setTimeout(function () {
+					animateplay = false;
+				}, 1000);
+			}
+		}
+		$("#front-top").swipe({
+			//Generic swipe handler for all directions
+			swipe: function (
+				event,
+				direction,
+				distance,
+				duration,
+				fingerCount,
+				fingerData
+			) {
+				console.log("You swiped " + direction);
+				if (direction == "up") {
+					FrontTopUp();
+				} else if (direction == "down") {
+					FrontTopDown();
+				}
+			},
+		});
+
+		$("#front-top").on("mousewheel", function (e) {
+			let state = $("#front-top").attr("state");
+			console.log(e.originalEvent.wheelDelta);
+			if (e.originalEvent.wheelDelta / 120 > 0) {
+				FrontTopUp();
+			} else {
+				FrontTopDown();
+			}
+		});
+		$("#front-top").on("DOMMouseScroll", function (e) {
+			let state = $("#front-top").attr("state");
+			console.log(e.originalEvent.wheelDelta);
+			if (e.originalEvent.wheelDelta / 120 > 0) {
+				FrontTopUp();
+			} else {
+				FrontTopDown();
+			}
+		});
+	}
 	// document.addEventListener("aos:in", ({ detail }) => {
 	// 	if ($(detail).hasClass("audio-player")) {
 	// 		$(detail).find(".audio-player__play").trigger("click");
@@ -597,63 +695,6 @@ $(function () {
 		let audio = $(this).closest(".audio-player").find("audio")[0];
 		audio.pause();
 	});
-	function elem_in_visible_area(selector) {
-		let elem_p = selector,
-			elem_p_height = elem_p.height(),
-			offset_top_el = elem_p.offset().top,
-			offset_bottom_el = offset_top_el + elem_p.height(),
-			scrolled = $(window).scrollTop(),
-			scrolled_bottom = scrolled + $(window).height();
-		if (scrolled_bottom > offset_top_el && offset_bottom_el > scrolled) {
-			return true;
-		}
-		return false;
-	}
-	var Visible = function (target) {
-		// Все позиции элемента
-		var targetPosition = {
-				top: window.pageYOffset + target.getBoundingClientRect().top,
-				left: window.pageXOffset + target.getBoundingClientRect().left,
-				right:
-					window.pageXOffset + target.getBoundingClientRect().right,
-				bottom:
-					window.pageYOffset + target.getBoundingClientRect().bottom,
-			},
-			// Получаем позиции окна
-			windowPosition = {
-				top: window.pageYOffset,
-				left: window.pageXOffset,
-				right:
-					window.pageXOffset + document.documentElement.clientWidth,
-				bottom:
-					window.pageYOffset + document.documentElement.clientHeight,
-			};
-
-		if (
-			targetPosition.bottom > windowPosition.top && // Если позиция нижней части элемента больше позиции верхней чайти окна, то элемент виден сверху
-			targetPosition.top < windowPosition.bottom && // Если позиция верхней части элемента меньше позиции нижней чайти окна, то элемент виден снизу
-			targetPosition.right > windowPosition.left && // Если позиция правой стороны элемента больше позиции левой части окна, то элемент виден слева
-			targetPosition.left < windowPosition.right
-		) {
-			// Если позиция левой стороны элемента меньше позиции правой чайти окна, то элемент виден справа
-			// Если элемент полностью видно, то запускаем следующий код
-			return true;
-		} else {
-			// Если элемент не видно, то запускаем этот код
-			return false;
-		}
-	};
-	if ($(".audio-player").length) {
-		$(window).scroll(function () {
-			$(".audio-player").each(function () {
-				if (!Visible(this)) {
-					$(this).find(".audio-player__stop").trigger("click");
-				} else {
-					$(this).find(".audio-player__play").trigger("click");
-				}
-			});
-		});
-	}
 });
 
 $(function () {
@@ -809,9 +850,11 @@ $(function () {
 });
 
 $(function () {
-	var rellax = new Rellax(".parallax", {
-		center: true,
-	});
+	// var rellax = new Rellax(".parallax", {
+	// 	center: true,
+	// 	wrapper: "#pagescroll",
+	// });
+
 	$.fn.plaxmove = function (options) {
 		this.defaults = {
 			ratioH: 0.013,
@@ -871,13 +914,51 @@ $(function () {
 	});
 });
 
+let step = 50;
+let timeM = 0;
+let timeMinutMax = 1000;
+let timeH = 0;
+let timeHoursMax = timeMinutMax * 12;
+let delta = 1;
+let start = false;
+let hours = document.querySelector(".preloader__arrow-hours");
+let minuts = document.querySelector(".preloader__arrow-minuts");
+let preloader = setInterval(function () {
+	console.log(100 / (timeHoursMax / timeH));
+	minuts.style.transform = `rotate(${
+		(360 / 100) * (100 / (timeMinutMax / timeM))
+	}deg)`;
+	hours.style.transform = `rotate(${
+		(360 / 100) * (100 / (timeHoursMax / timeH))
+	}deg)`;
+	if (start) {
+		delta > 0 ? (delta -= step / 1000) : (delta = 0);
+	}
+	timeM < timeMinutMax ? (timeM += step * delta) : (timeM = 0);
+	timeH < timeHoursMax ? (timeH += step * delta) : (timeH = 0);
+}, step);
 $(function () {
-	$(".preloader").addClass("_start");
 	setTimeout(function () {
-		$(".preloader").fadeOut(1000, function () {
-			$("body").addClass("load");
-		});
+		start = true;
+		$(".preloader").addClass("_start");
+		setTimeout(function () {
+			$(".preloader").fadeOut(1000, function () {
+				$("body").addClass("load");
+				clearInterval(preloader);
+			});
+		}, 2000);
 	}, 1000);
+});
+
+var vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty("--vh", `${vh}px`);
+var width = window.innerWidth;
+window.addEventListener("resize", () => {
+	if (width != window.innerWidth) {
+		var vh = window.innerHeight * 0.01;
+		document.documentElement.style.setProperty("--vh", `${vh}px`);
+		width = window.innerWidth;
+	}
 });
 
 $(function () {
@@ -907,17 +988,6 @@ $(function () {
 				},
 			});
 		});
-	}
-});
-
-var vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty("--vh", `${vh}px`);
-var width = window.innerWidth;
-window.addEventListener("resize", () => {
-	if (width != window.innerWidth) {
-		var vh = window.innerHeight * 0.01;
-		document.documentElement.style.setProperty("--vh", `${vh}px`);
-		width = window.innerWidth;
 	}
 });
 

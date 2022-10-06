@@ -25,11 +25,12 @@ html(lang="ru")
 
     body
         include component/preloader/preloader
-        .page
-            include component/header/header
-            .container
-                block content
-            include component/footer/footer
+        #pagescroll
+            .page
+                include component/header/header
+                .container
+                    block content
+                include component/footer/footer
         include component/popup/popup
         include component/mobmenu/mobmenu
         block scripts

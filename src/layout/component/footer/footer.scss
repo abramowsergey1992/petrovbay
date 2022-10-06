@@ -5,11 +5,43 @@
     &__row {
         display: grid;
         grid-template-columns: 25% auto 250px;
+
+        @media(max-width:992px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }
 
-    &__logo {}
+    &__contact {
+        @media(max-width:992px) {
+            display: flex;
+            border-top: 1px solid #AFADA9;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 20px;
+            text-align: center;
+            align-items: center;
+            padding-top: 20px;
+
+            a {
+                font-size: 20px;
+            }
+        }
+
+        .btn {
+            @media(max-width:992px) {
+                display: none;
+            }
+        }
+
+    }
 
     &__menu {
+        @media(max-width:992px) {
+            display: none;
+        }
+
         ul {
             max-width: 350px;
             column-count: 2;
@@ -44,11 +76,32 @@
         display: flex;
         align-items: center;
         flex-direction: row;
+
+        @media(max-width:992px) {
+            border-top: 0px solid #AFADA9;
+            flex-direction: column;
+            text-align: center;
+            padding-top: 20px;
+            margin: 0;
+        }
     }
 
     &__copyright {
         color: #fff;
         margin-right: auto;
+
+        @media(max-width:992px) {
+            margin-right: 0;
+            border-bottom: 1px solid #AFADA9;
+            padding-bottom: 35px;
+            width: 100%;
+            margin-bottom: 20px;
+
+            p {
+                font-size: 10px;
+                line-height: 14px;
+            }
+        }
 
         p {
             font-weight: 500;

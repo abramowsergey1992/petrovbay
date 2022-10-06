@@ -182,171 +182,6 @@ $(function () {
 			});
 		}
 
-		class rotationOfTheObjectTowardsTheCursor {
-			constructor() {
-				this.circle = Object;
-				this.line = Object;
-
-				this.circleRect = Object;
-
-				this.centerPosition = { x: 0, y: 0 };
-				this.angels = { actual: 0, target: 0 };
-
-				this.init();
-			}
-
-			init() {
-				this.circle = document.querySelector(".front-top__bg-blur");
-				this.line = document.querySelector(".front-top__bg-blur-point");
-
-				this.onResize();
-				window.onresize = (e) => this.onResize(e);
-
-				window.onmousemove = (e) => this.onMouseMove(e);
-
-				requestAnimationFrame(() => this.loop());
-			}
-
-			onResize() {
-				this.circleRect = this.circle.getBoundingClientRect();
-				this.centerPosition = {
-					x: this.circleRect.x + this.circleRect.width / 2,
-					y: this.circleRect.y + this.circleRect.height / 2,
-				};
-			}
-
-			onMouseMove(e) {
-				const atan2 = Math.atan2(
-					e.pageY - this.centerPosition.y,
-					e.pageX - this.centerPosition.x
-				);
-
-				this.angels.target = atan2;
-			}
-
-			loop() {
-				this.angels.actual = this.angleLerp(
-					this.angels.actual,
-					this.angels.target,
-					0.1
-				);
-
-				this.line.style.transform = `rotate(${this.angels.actual}rad)`;
-
-				requestAnimationFrame(() => this.loop());
-			}
-
-			angleLerp(a0, a1, t) {
-				const max = Math.PI * 2;
-				const da = (a1 - a0) % max;
-				return a0 + (((2 * da) % max) - da) * t;
-			}
-		}
-
-		let animateplay = false;
-		new rotationOfTheObjectTowardsTheCursor();
-		$("body").addClass("_no-scroll");
-		setTimeout(function () {
-			$("html, body").scrollTop(0);
-			console.log("sadasd");
-		}, 1000);
-		$("html, body").scrollTop(0);
-		$(".front-top").attr("state", "top");
-
-		$(".front-top__down").click(function () {
-			if (animateplay == false) {
-				animateplay = true;
-				$("#front-top").attr("state", "static");
-				setTimeout(function () {
-					animateplay = false;
-					console.log("as");
-				}, 1000);
-			}
-		});
-		$("#front-top").swipe({
-			//Generic swipe handler for all directions
-			swipe: function (
-				event,
-				direction,
-				distance,
-				duration,
-				fingerCount,
-				fingerData
-			) {
-				console.log("You swiped " + direction);
-				if (direction == "up") {
-					if (animateplay == false) {
-						animateplay = true;
-						if (state == "static") {
-							$("#front-top").attr("state", "top");
-						}
-						if (state == "end") {
-							$("html, body").animate({ scrollTop: 0 });
-							$("body").addClass("_no-scroll");
-							$("#front-top").attr("state", "static");
-						}
-						setTimeout(function () {
-							animateplay = false;
-						}, 1000);
-					}
-				} else if (direction == "down") {
-					if (animateplay == false) {
-						animateplay = true;
-
-						if (state == "end") {
-							$("body").removeClass("_no-scroll");
-						}
-						if (state == "static") {
-							$("#front-top").attr("state", "end");
-						}
-						if (state == "top") {
-							$("#front-top").attr("state", "static");
-						}
-						setTimeout(function () {
-							animateplay = false;
-						}, 1000);
-					}
-				}
-			},
-		});
-
-		$("#front-top").bind("mousewheel", function (e) {
-			let state = $("#front-top").attr("state");
-
-			if (e.originalEvent.wheelDelta / 120 > 0) {
-				if (animateplay == false) {
-					animateplay = true;
-					if (state == "static") {
-						$("#front-top").attr("state", "top");
-					}
-					if (state == "end") {
-						$("html, body").animate({ scrollTop: 0 });
-						$("body").addClass("_no-scroll");
-						$("#front-top").attr("state", "static");
-					}
-					setTimeout(function () {
-						animateplay = false;
-					}, 1000);
-				}
-			} else {
-				if (animateplay == false) {
-					animateplay = true;
-
-					if (state == "end") {
-						$("body").removeClass("_no-scroll");
-					}
-					if (state == "static") {
-						$("#front-top").attr("state", "end");
-					}
-					if (state == "top") {
-						$("#front-top").attr("state", "static");
-					}
-					setTimeout(function () {
-						animateplay = false;
-					}, 1000);
-				}
-			}
-		});
 		// const frontTop = new Swiper(".front-top-slider", {
 		// 	// slidesPerView: 1,
 		// 	direction: "vertical",
@@ -477,19 +312,30 @@ $(function () {
 		});
 	}
 	if ($(".front-environ").length) {
-		$(".front-environ__white-block").css(
-			"height",
-			$(".front-environ__divider").offset().top -
-				50 -
-				$(".front-environ__content ").offset().top
-		);
-		$(window).on("resize", function () {
+		const mediaQuery = window.matchMedia("(max-width: 992px)");
+		if (mediaQuery.matches) {
+			$(".front-environ__white-block").css(
+				"height",
+				$(".front-environ__row-2 .front-environ__left").height() + 300
+			);
+		} else {
 			$(".front-environ__white-block").css(
 				"height",
 				$(".front-environ__divider").offset().top -
 					50 -
 					$(".front-environ__content ").offset().top
 			);
+		}
+		$(window).on("resize", function () {
+			if (mediaQuery.matches) {
+			} else {
+				$(".front-environ__white-block").css(
+					"height",
+					$(".front-environ__divider").offset().top -
+						50 -
+						$(".front-environ__content ").offset().top
+				);
+			}
 		});
 	}
 });

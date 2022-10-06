@@ -4,561 +4,573 @@ block title
 block content
 	.front-page
 		#front-top.front-top.block
-			.front-top__pin
-				.front-top__relative
-							.front-top__bg-wrap
-								.front-top__bg-blur
-									.front-top__bg-blur-point
-									
-								+picture('top-img','jpg').front-top__bg
-							.front-top__desc
-								ul 
-									li 
-										img(src="img/i-1.svg",alt="")
-										| 350 км до Владивостока
-									li 
-										img(src="img/i-2.svg",alt="")
-										| Берег Японского моря
-									li 
-										img(src="img/i-3.svg",alt="")
-										| на 1º южнее Cочи
+			
+			.front-top__relative
+						.front-top__bg-wrap
+							.front-top__bg-blur
+								.front-top__bg-blur-point
+								
+							+picture('top-img','jpg').front-top__bg
+						.front-top__desc
+							ul 
+								li 
+									img(src="img/i-1.svg",alt="")
+									| 350 км до Владивостока
+								li 
+									img(src="img/i-2.svg",alt="")
+									| Берег Японского моря
+								li 
+									img(src="img/i-3.svg",alt="")
+									| на 1º южнее Cочи
 
-							.front-top__content
-							
-								.front-top__slogan
-									.front-top__slogan-line._it-1
-										img(src="img/slogan-1.svg", alt="")
-									.front-top__slogan-line._it-2
-										img(src="img/slogan-2.svg", alt="")
-									.front-top__slogan-line._it-3
-										img(src="img/slogan-3.svg", alt="")
-								.front-top__down
-									<svg width="19" height="30" viewBox="0 0 19 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M18 19.3846L9.5 28M9.5 28L1 19.3846M9.5 28L9.5 0" stroke="white" stroke-width="2"/>
-									</svg>
-							.front-top__bottom
-								<div class="front-top__traveline-wrapper">
-									<div class="traveline" data-aos="fade-up" data-aos-duration="700" data-aos-delay="400"> 
-									<div class="traveline__block _arrival">
-										<div class="traveline__label"> <span class="_desc">Заезд</span><span class="_mob"> Заезд</span></div>
-										<div class="traveline__date-wrap" ><input class="traveline__date from " id="traveline__date-from" readonly  type="text" ></div>
+						.front-top__content
+						
+							.front-top__slogan
+								.front-top__slogan-line._it-1
+									img(src="img/slogan-1.svg", alt="")
+								.front-top__slogan-line._it-2
+									img(src="img/slogan-2.svg", alt="")
+								.front-top__slogan-line._it-3
+									img(src="img/slogan-3.svg", alt="")
+							.front-top__down._desc
+								<svg width="19" height="30" viewBox="0 0 19 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M18 19.3846L9.5 28M9.5 28L1 19.3846M9.5 28L9.5 0" stroke="white" stroke-width="2"/>
+								</svg>
+						.front-top__down._mob
+							<svg width="19" height="30" viewBox="0 0 19 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M18 19.3846L9.5 28M9.5 28L1 19.3846M9.5 28L9.5 0" stroke="white" stroke-width="2"/>
+							</svg>
+						.front-top__bottom
+							<div class="front-top__traveline-wrapper">
+								<div class="traveline" " data-aos-duration="700" data-aos-delay="400"> 
+								<div class="traveline__block _arrival">
+									<div class="traveline__label"> <span class="_desc">Заезд</span><span class="_mob"> Заезд</span></div>
+									<div class="traveline__date-wrap" ><input class="traveline__date from " id="traveline__date-from" readonly  type="text" ></div>
+								</div>
+								<div class="traveline__block _departure"> 
+									<div class="traveline__label"> <span class="_desc"> Выезд</span><span class="_mob"> Выезд</span></div>
+									<div class="traveline__date-wrap" ><input class="traveline__date to"  id="traveline__date-to" readonly type="text"  ></div>
+								</div>
+								<div class="traveline__block _counter"> 
+									<div class="traveline__label">Гости (в т.ч. дети)</div>
+									<input class="traveline__count" type="text" readonly value="01">
+									<div class="traveline__popup"> 
+									<div class="traveline__popup-head"> Количество гостей</div>
+									<div class="traveline__row"> 
+										<div class="traveline__col"> <span> Взрослые</span>
+										<div class="traveline__counter">
+											<div class="traveline__minus"> </div>
+											<input class="traveline__counter-inpt adults" type="text" readonly="" value="01">
+											<div class="traveline__plus"> </div>
+										</div>
+										</div>
+										<div class="traveline__col"> <span>Дети младше 10 лет</span>
+										<div class="traveline__counter">
+											<div class="traveline__minus"> </div>
+											<input class="traveline__counter-inpt children" type="text" readonly="" value="00">
+											<div class="traveline__plus"> </div>
+										</div>
+										</div>
 									</div>
-									<div class="traveline__block _departure"> 
-										<div class="traveline__label"> <span class="_desc"> Выезд</span><span class="_mob"> Выезд</span></div>
-										<div class="traveline__date-wrap" ><input class="traveline__date to"  id="traveline__date-to" readonly type="text"  ></div>
-									</div>
-									<div class="traveline__block _counter"> 
-										<div class="traveline__label">Гости (в т.ч. дети)</div>
-										<input class="traveline__count" type="text" readonly value="01">
-										<div class="traveline__popup"> 
-										<div class="traveline__popup-head"> Количество гостей</div>
+									<div class="traveline__childrens">
+										<div class="traveline__children">
 										<div class="traveline__row"> 
-											<div class="traveline__col"> <span> Взрослые</span>
-											<div class="traveline__counter">
-												<div class="traveline__minus"> </div>
-												<input class="traveline__counter-inpt adults" type="text" readonly="" value="01">
-												<div class="traveline__plus"> </div>
-											</div>
-											</div>
-											<div class="traveline__col"> <span>Дети младше 10 лет</span>
-											<div class="traveline__counter">
-												<div class="traveline__minus"> </div>
-												<input class="traveline__counter-inpt children" type="text" readonly="" value="00">
-												<div class="traveline__plus"> </div>
-											</div>
-											</div>
-										</div>
-										<div class="traveline__childrens">
-											<div class="traveline__children">
-											<div class="traveline__row"> 
-												<div class="traveline__col traveline__col__title"> Возраст 1 ребёнка</div>
-												<div class="traveline__col">
-												<select placeholder="Выбрать">
-													<option value="1">1 год </option>
-													<option value="2">2 года</option>
-													<option value="3">3 года </option>
-													<option value="4">4 года </option>
-													<option value="5">5 лет </option>
-													<option value="6">6 лет </option>
-													<option value="7">7 лет </option>
-													<option value="8">8 лет </option>
-													<option value="9">9 лет </option>
-													<option value="10">10 лет </option>
-													<option value="11">11 лет </option>
-													<option value="12">12 лет </option>
-													<option value="13">13 лет </option>
-													<option value="14">14 лет </option>
-												</select>
-												</div>
-											</div>
-											</div>
-											<div class="traveline__children">
-											<div class="traveline__row"> 
-												<div class="traveline__col traveline__col__title"> Возраст 2 ребёнка</div>
-												<div class="traveline__col">
-												<select placeholder="Выбрать">
-													<option value="1">1 год </option>
-													<option value="2">2 года</option>
-													<option value="3">3 года </option>
-													<option value="4">4 года </option>
-													<option value="5">5 лет </option>
-													<option value="6">6 лет </option>
-													<option value="7">7 лет </option>
-													<option value="8">8 лет </option>
-													<option value="9">9 лет </option>
-													<option value="10">10 лет </option>
-													<option value="11">11 лет </option>
-													<option value="12">12 лет </option>
-													<option value="13">13 лет </option>
-													<option value="14">14 лет </option>
-												</select>
-												</div>
-											</div>
-											</div>
-											<div class="traveline__children">
-											<div class="traveline__row"> 
-												<div class="traveline__col traveline__col__title"> Возраст 3 ребёнка</div>
-												<div class="traveline__col">
-												<select placeholder="Выбрать">
-													<option value="1">1 год </option>
-													<option value="2">2 года</option>
-													<option value="3">3 года </option>
-													<option value="4">4 года </option>
-													<option value="5">5 лет </option>
-													<option value="6">6 лет </option>
-													<option value="7">7 лет </option>
-													<option value="8">8 лет </option>
-													<option value="9">9 лет </option>
-													<option value="10">10 лет </option>
-													<option value="11">11 лет </option>
-													<option value="12">12 лет </option>
-													<option value="13">13 лет </option>
-													<option value="14">14 лет </option>
-												</select>
-												</div>
-											</div>
-											</div>
-											<div class="traveline__children">
-											<div class="traveline__row"> 
-												<div class="traveline__col traveline__col__title"> Возраст 4 ребёнка</div>
-												<div class="traveline__col">
-												<select placeholder="Выбрать">
-													<option value="1">1 год </option>
-													<option value="2">2 года</option>
-													<option value="3">3 года </option>
-													<option value="4">4 года </option>
-													<option value="5">5 лет </option>
-													<option value="6">6 лет </option>
-													<option value="7">7 лет </option>
-													<option value="8">8 лет </option>
-													<option value="9">9 лет </option>
-													<option value="10">10 лет </option>
-													<option value="11">11 лет </option>
-													<option value="12">12 лет </option>
-													<option value="13">13 лет </option>
-													<option value="14">14 лет </option>
-												</select>
-												</div>
-											</div>
-											</div>
-											<div class="traveline__children">
-											<div class="traveline__row"> 
-												<div class="traveline__col traveline__col__title"> Возраст 5 ребёнка</div>
-												<div class="traveline__col">
-												<select placeholder="Выбрать">
-													<option value="1">1 год </option>
-													<option value="2">2 года</option>
-													<option value="3">3 года </option>
-													<option value="4">4 года </option>
-													<option value="5">5 лет </option>
-													<option value="6">6 лет </option>
-													<option value="7">7 лет </option>
-													<option value="8">8 лет </option>
-													<option value="9">9 лет </option>
-													<option value="10">10 лет </option>
-													<option value="11">11 лет </option>
-													<option value="12">12 лет </option>
-													<option value="13">13 лет </option>
-													<option value="14">14 лет </option>
-												</select>
-												</div>
-											</div>
-											</div>
-											<div class="traveline__children">
-											<div class="traveline__row"> 
-												<div class="traveline__col traveline__col__title"> Возраст 6 ребёнка</div>
-												<div class="traveline__col">
-												<select placeholder="Выбрать">
-													<option value="1">1 год </option>
-													<option value="2">2 года</option>
-													<option value="3">3 года </option>
-													<option value="4">4 года </option>
-													<option value="5">5 лет </option>
-													<option value="6">6 лет </option>
-													<option value="7">7 лет </option>
-													<option value="8">8 лет </option>
-													<option value="9">9 лет </option>
-													<option value="10">10 лет </option>
-													<option value="11">11 лет </option>
-													<option value="12">12 лет </option>
-													<option value="13">13 лет </option>
-													<option value="14">14 лет </option>
-												</select>
-												</div>
-											</div>
-											</div>
-											<div class="traveline__children">
-											<div class="traveline__row"> 
-												<div class="traveline__col traveline__col__title"> Возраст 7 ребёнка</div>
-												<div class="traveline__col">
-												<select placeholder="Выбрать">
-													<option value="1">1 год </option>
-													<option value="2">2 года</option>
-													<option value="3">3 года </option>
-													<option value="4">4 года </option>
-													<option value="5">5 лет </option>
-													<option value="6">6 лет </option>
-													<option value="7">7 лет </option>
-													<option value="8">8 лет </option>
-													<option value="9">9 лет </option>
-													<option value="10">10 лет </option>
-													<option value="11">11 лет </option>
-													<option value="12">12 лет </option>
-													<option value="13">13 лет </option>
-													<option value="14">14 лет </option>
-												</select>
-												</div>
-											</div>
-											</div>
-											<div class="traveline__children">
-											<div class="traveline__row"> 
-												<div class="traveline__col traveline__col__title"> Возраст 8 ребёнка</div>
-												<div class="traveline__col">
-												<select placeholder="Выбрать">
-													<option value="1">1 год </option>
-													<option value="2">2 года</option>
-													<option value="3">3 года </option>
-													<option value="4">4 года </option>
-													<option value="5">5 лет </option>
-													<option value="6">6 лет </option>
-													<option value="7">7 лет </option>
-													<option value="8">8 лет </option>
-													<option value="9">9 лет </option>
-													<option value="10">10 лет </option>
-													<option value="11">11 лет </option>
-													<option value="12">12 лет </option>
-													<option value="13">13 лет </option>
-													<option value="14">14 лет </option>
-												</select>
-												</div>
-											</div>
-											</div>
-											<div class="traveline__children">
-											<div class="traveline__row"> 
-												<div class="traveline__col traveline__col__title"> Возраст 9 ребёнка</div>
-												<div class="traveline__col">
-												<select placeholder="Выбрать">
-													<option value="1">1 год </option>
-													<option value="2">2 года</option>
-													<option value="3">3 года </option>
-													<option value="4">4 года </option>
-													<option value="5">5 лет </option>
-													<option value="6">6 лет </option>
-													<option value="7">7 лет </option>
-													<option value="8">8 лет </option>
-													<option value="9">9 лет </option>
-													<option value="10">10 лет </option>
-													<option value="11">11 лет </option>
-													<option value="12">12 лет </option>
-													<option value="13">13 лет </option>
-													<option value="14">14 лет </option>
-												</select>
-												</div>
-											</div>
-											</div>
-											<div class="traveline__children">
-											<div class="traveline__row"> 
-												<div class="traveline__col traveline__col__title"> Возраст 10 ребёнка</div>
-												<div class="traveline__col">
-												<select placeholder="Выбрать">
-													<option value="1">1 год </option>
-													<option value="2">2 года</option>
-													<option value="3">3 года </option>
-													<option value="4">4 года </option>
-													<option value="5">5 лет </option>
-													<option value="6">6 лет </option>
-													<option value="7">7 лет </option>
-													<option value="8">8 лет </option>
-													<option value="9">9 лет </option>
-													<option value="10">10 лет </option>
-													<option value="11">11 лет </option>
-													<option value="12">12 лет </option>
-													<option value="13">13 лет </option>
-													<option value="14">14 лет </option>
-												</select>
-												</div>
-											</div>
+											<div class="traveline__col traveline__col__title"> Возраст 1 ребёнка</div>
+											<div class="traveline__col">
+											<select placeholder="Выбрать">
+												<option value="1">1 год </option>
+												<option value="2">2 года</option>
+												<option value="3">3 года </option>
+												<option value="4">4 года </option>
+												<option value="5">5 лет </option>
+												<option value="6">6 лет </option>
+												<option value="7">7 лет </option>
+												<option value="8">8 лет </option>
+												<option value="9">9 лет </option>
+												<option value="10">10 лет </option>
+												<option value="11">11 лет </option>
+												<option value="12">12 лет </option>
+												<option value="13">13 лет </option>
+												<option value="14">14 лет </option>
+											</select>
 											</div>
 										</div>
-										<div class="traveline__popup-footer">
-											<button class="traveline__child-finish"> Готово</button>
+										</div>
+										<div class="traveline__children">
+										<div class="traveline__row"> 
+											<div class="traveline__col traveline__col__title"> Возраст 2 ребёнка</div>
+											<div class="traveline__col">
+											<select placeholder="Выбрать">
+												<option value="1">1 год </option>
+												<option value="2">2 года</option>
+												<option value="3">3 года </option>
+												<option value="4">4 года </option>
+												<option value="5">5 лет </option>
+												<option value="6">6 лет </option>
+												<option value="7">7 лет </option>
+												<option value="8">8 лет </option>
+												<option value="9">9 лет </option>
+												<option value="10">10 лет </option>
+												<option value="11">11 лет </option>
+												<option value="12">12 лет </option>
+												<option value="13">13 лет </option>
+												<option value="14">14 лет </option>
+											</select>
+											</div>
+										</div>
+										</div>
+										<div class="traveline__children">
+										<div class="traveline__row"> 
+											<div class="traveline__col traveline__col__title"> Возраст 3 ребёнка</div>
+											<div class="traveline__col">
+											<select placeholder="Выбрать">
+												<option value="1">1 год </option>
+												<option value="2">2 года</option>
+												<option value="3">3 года </option>
+												<option value="4">4 года </option>
+												<option value="5">5 лет </option>
+												<option value="6">6 лет </option>
+												<option value="7">7 лет </option>
+												<option value="8">8 лет </option>
+												<option value="9">9 лет </option>
+												<option value="10">10 лет </option>
+												<option value="11">11 лет </option>
+												<option value="12">12 лет </option>
+												<option value="13">13 лет </option>
+												<option value="14">14 лет </option>
+											</select>
+											</div>
+										</div>
+										</div>
+										<div class="traveline__children">
+										<div class="traveline__row"> 
+											<div class="traveline__col traveline__col__title"> Возраст 4 ребёнка</div>
+											<div class="traveline__col">
+											<select placeholder="Выбрать">
+												<option value="1">1 год </option>
+												<option value="2">2 года</option>
+												<option value="3">3 года </option>
+												<option value="4">4 года </option>
+												<option value="5">5 лет </option>
+												<option value="6">6 лет </option>
+												<option value="7">7 лет </option>
+												<option value="8">8 лет </option>
+												<option value="9">9 лет </option>
+												<option value="10">10 лет </option>
+												<option value="11">11 лет </option>
+												<option value="12">12 лет </option>
+												<option value="13">13 лет </option>
+												<option value="14">14 лет </option>
+											</select>
+											</div>
+										</div>
+										</div>
+										<div class="traveline__children">
+										<div class="traveline__row"> 
+											<div class="traveline__col traveline__col__title"> Возраст 5 ребёнка</div>
+											<div class="traveline__col">
+											<select placeholder="Выбрать">
+												<option value="1">1 год </option>
+												<option value="2">2 года</option>
+												<option value="3">3 года </option>
+												<option value="4">4 года </option>
+												<option value="5">5 лет </option>
+												<option value="6">6 лет </option>
+												<option value="7">7 лет </option>
+												<option value="8">8 лет </option>
+												<option value="9">9 лет </option>
+												<option value="10">10 лет </option>
+												<option value="11">11 лет </option>
+												<option value="12">12 лет </option>
+												<option value="13">13 лет </option>
+												<option value="14">14 лет </option>
+											</select>
+											</div>
+										</div>
+										</div>
+										<div class="traveline__children">
+										<div class="traveline__row"> 
+											<div class="traveline__col traveline__col__title"> Возраст 6 ребёнка</div>
+											<div class="traveline__col">
+											<select placeholder="Выбрать">
+												<option value="1">1 год </option>
+												<option value="2">2 года</option>
+												<option value="3">3 года </option>
+												<option value="4">4 года </option>
+												<option value="5">5 лет </option>
+												<option value="6">6 лет </option>
+												<option value="7">7 лет </option>
+												<option value="8">8 лет </option>
+												<option value="9">9 лет </option>
+												<option value="10">10 лет </option>
+												<option value="11">11 лет </option>
+												<option value="12">12 лет </option>
+												<option value="13">13 лет </option>
+												<option value="14">14 лет </option>
+											</select>
+											</div>
+										</div>
+										</div>
+										<div class="traveline__children">
+										<div class="traveline__row"> 
+											<div class="traveline__col traveline__col__title"> Возраст 7 ребёнка</div>
+											<div class="traveline__col">
+											<select placeholder="Выбрать">
+												<option value="1">1 год </option>
+												<option value="2">2 года</option>
+												<option value="3">3 года </option>
+												<option value="4">4 года </option>
+												<option value="5">5 лет </option>
+												<option value="6">6 лет </option>
+												<option value="7">7 лет </option>
+												<option value="8">8 лет </option>
+												<option value="9">9 лет </option>
+												<option value="10">10 лет </option>
+												<option value="11">11 лет </option>
+												<option value="12">12 лет </option>
+												<option value="13">13 лет </option>
+												<option value="14">14 лет </option>
+											</select>
+											</div>
+										</div>
+										</div>
+										<div class="traveline__children">
+										<div class="traveline__row"> 
+											<div class="traveline__col traveline__col__title"> Возраст 8 ребёнка</div>
+											<div class="traveline__col">
+											<select placeholder="Выбрать">
+												<option value="1">1 год </option>
+												<option value="2">2 года</option>
+												<option value="3">3 года </option>
+												<option value="4">4 года </option>
+												<option value="5">5 лет </option>
+												<option value="6">6 лет </option>
+												<option value="7">7 лет </option>
+												<option value="8">8 лет </option>
+												<option value="9">9 лет </option>
+												<option value="10">10 лет </option>
+												<option value="11">11 лет </option>
+												<option value="12">12 лет </option>
+												<option value="13">13 лет </option>
+												<option value="14">14 лет </option>
+											</select>
+											</div>
+										</div>
+										</div>
+										<div class="traveline__children">
+										<div class="traveline__row"> 
+											<div class="traveline__col traveline__col__title"> Возраст 9 ребёнка</div>
+											<div class="traveline__col">
+											<select placeholder="Выбрать">
+												<option value="1">1 год </option>
+												<option value="2">2 года</option>
+												<option value="3">3 года </option>
+												<option value="4">4 года </option>
+												<option value="5">5 лет </option>
+												<option value="6">6 лет </option>
+												<option value="7">7 лет </option>
+												<option value="8">8 лет </option>
+												<option value="9">9 лет </option>
+												<option value="10">10 лет </option>
+												<option value="11">11 лет </option>
+												<option value="12">12 лет </option>
+												<option value="13">13 лет </option>
+												<option value="14">14 лет </option>
+											</select>
+											</div>
+										</div>
+										</div>
+										<div class="traveline__children">
+										<div class="traveline__row"> 
+											<div class="traveline__col traveline__col__title"> Возраст 10 ребёнка</div>
+											<div class="traveline__col">
+											<select placeholder="Выбрать">
+												<option value="1">1 год </option>
+												<option value="2">2 года</option>
+												<option value="3">3 года </option>
+												<option value="4">4 года </option>
+												<option value="5">5 лет </option>
+												<option value="6">6 лет </option>
+												<option value="7">7 лет </option>
+												<option value="8">8 лет </option>
+												<option value="9">9 лет </option>
+												<option value="10">10 лет </option>
+												<option value="11">11 лет </option>
+												<option value="12">12 лет </option>
+												<option value="13">13 лет </option>
+												<option value="14">14 лет </option>
+											</select>
+											</div>
 										</div>
 										</div>
 									</div>
-									<div class="traveline__block _submit"> 
-										<button class="traveline__go" data-link="/booking"> Забронировать</button>
+									<div class="traveline__popup-footer">
+										<button class="traveline__child-finish"> Готово</button>
 									</div>
 									</div>
 								</div>
-						
+								<div class="traveline__block _submit"> 
+									<button class="traveline__go" data-link="/booking"> Забронировать</button>
+								</div>
+								</div>
+							</div>
+					
 
 			
 			#front-top-mask-finish-trigger.front-top__mask-finish-trigger
 		.inner 
-			.front-about.block(data-relative-input="true" ,data-aos)
-				
-				.block__head 
-					h2.sub-title 
-						color о курорте
-					a(href="/").link-arrow Подробнее о курорте 
-				.front-about__row 
-					.front-about__left(data-aos="fade-up")
-						p 
-							color Бухта Петрова на берегу Японского моря — уникальное природное место 
-							| в 350 км от Владивостока. Лазурное море ласкает пляж, прозрачность воды достигает 30 м.
-								
-					.front-about__right
-						div(data-aos="fade-up")
-							p Когда ступаешь босыми ногами по белоснежному песку, можно услышать характерный свист — 
-								br 
-								| от этого местные прозвали бухту 
-								b «Поющие пески»
-								| . Этот укромный уголок окружен лесами Лазовского заповедника им. Л.Г. Капланова.
-						.audio-player(data-src="audio/a-1.mp3",data-aos="fade-up")
-				picture.front-about__stone.parallax(data-rellax-speed="-2")
-					source(type="image/webp", srcset="img/stone.webp")
-					img(alt="",src="img/stone.png" ,data-depth="0.2")
-				picture.front-about__shell.parallax(data-rellax-speed="2")
-					source(type="image/webp", srcset="img/shell.webp")
-					img(alt="",src="img/shell.png" ,data-depth="0.2")
-			.residence-slide.block
-				.block__head 
-					h2.sub-title проживание 
-					a(href="#").btn._dark Все номера 
-				.residence-slider.swiper(data-aos="fade-up")
-					.swiper-wrapper 
-						.swiper-slide.residence-slide
-							.residence-slide__bg 
-								+picture('aframe','jpg') 
-							.residence-slide__content
-								.residence-slide__head
-									ul.residence-slide__parametrs 
-										li.icon-square Площадь номера 30 м2
-										li.icon-capacity вместимость до трех мест 
-										li.icon-room 1 комната
-									.residence-slide__paginator 
-										.residence-slide__paginator-now
-										.residence-slide__divider
-										.residence-slide__paginator-all
-								.residence-slide__body
-									.residence-slide__title АФРЕЙМ
-									.residence-slide__desc 
-										p A-frame дом для уединённого отдыха с панорамным видом на море. 
-								.residence-slide__footer 
-										a(href="#").btn._white Забронировать
-										a(href="#").link-arrow._white Подробнее о номере
-					
-						.swiper-slide.residence-slide
-							.residence-slide__bg 
-								+picture('aframe','jpg') 
-							.residence-slide__content
-								.residence-slide__head
-									ul.residence-slide__parametrs 
-										li.icon-square Площадь номера 30 м2
-										li.icon-capacity вместимость до трех мест 
-										li.icon-room 1 комната
-									.residence-slide__paginator 
-										.residence-slide__paginator-now
-										.residence-slide__divider
-										.residence-slide__paginator-all
-								.residence-slide__body(data-aos="fade-up")
-									.residence-slide__title АФРЕЙМ 2
-									.residence-slide__desc 
-										p A-frame дом для уединённого отдыха с панорамным видом на море. 
-								.residence-slide__footer 
-										a(href="#").btn._white Забронировать
-										a(href="#").link-arrow._white Подробнее о номере
+			.front-about.anim-block
+				.block
+					.block__head 
+						h2.sub-title 
+							color о курорте
+						a(href="/").link-arrow._v-desc Подробнее о курорте 
+					.front-about__row 
+						.front-about__left
+							p 
+								color Бухта Петрова на берегу Японского моря — уникальное природное место 
+								| в 350 км от Владивостока. Лазурное море ласкает пляж, прозрачность воды достигает 30 м.
+									
+						.front-about__right
+							div
+								p Когда ступаешь босыми ногами по белоснежному песку, можно услышать характерный свист — 
+									br 
+									| от этого местные прозвали бухту 
+									b «Поющие пески»
+									| . Этот укромный уголок окружен лесами Лазовского заповедника им. Л.Г. Капланова.
+							.audio-player(data-src="audio/a-1.mp3")
+							a(href="/").link-arrow._v-mob Подробнее о курорте 
+				.front-about__stone.parallax(data-parallax="100")
+					picture
+						source(type="image/webp", srcset="img/stone.webp")
+						img(alt="",src="img/stone.png" ,data-depth="0.2")
+				.front-about__shell.parallax(data-parallax="-100")
+					picture
+						source(type="image/webp", srcset="img/shell.webp")
+						img(alt="",src="img/shell.png" ,data-depth="0.2")
+			.residence-slide.anim-block
+				.block
+					.block__head 
+						h2.sub-title проживание 
+						a(href="#").btn._dark Все номера 
+					.residence-slider.swiper
+						.swiper-wrapper 
+							.swiper-slide.residence-slide
+								.residence-slide__bg.bg-scale 
+									+picture('aframe','jpg') 
+								.residence-slide__content
+									.residence-slide__head
+										ul.residence-slide__parametrs 
+											li.icon-square Площадь номера 30 м2
+											li.icon-room 1 комната
+											li.icon-capacity вместимость до трех мест 
+											
+										.residence-slide__paginator 
+											.residence-slide__paginator-now
+											.residence-slide__divider
+											.residence-slide__paginator-all
+									.residence-slide__body
+										.residence-slide__title АФРЕЙМ
+										.residence-slide__desc 
+											p A-frame дом для уединённого отдыха с панорамным видом на море. 
+									.residence-slide__footer 
+											a(href="#").btn._white Забронировать
+											a(href="#").link-arrow._white Подробнее о номере
 						
-						.swiper-slide.residence-slide
-							.residence-slide__bg 
-								+picture('aframe','jpg') 
-							.residence-slide__content
-								.residence-slide__head
-									ul.residence-slide__parametrs 
-										li.icon-square Площадь номера 30 м2
-										li.icon-capacity вместимость до трех мест 
-										li.icon-room 1 комната
-									.residence-slide__paginator 
-										.residence-slide__paginator-now
-										.residence-slide__divider
-										.residence-slide__paginator-all
-								.residence-slide__body(data-aos="fade-up")
-									.residence-slide__title АФРЕЙМ 3
-									.residence-slide__desc 
-										p A-frame дом для уединённого отдыха с панорамным видом на море. 
-								.residence-slide__footer 
-										a(href="#").btn._white Забронировать
-										a(href="#").link-arrow._white Подробнее о номере
-						
-						.swiper-slide.residence-slide
-							.residence-slide__bg 
-								+picture('aframe','jpg') 
-							.residence-slide__content
-								.residence-slide__head
-									ul.residence-slide__parametrs 
-										li.icon-square Площадь номера 30 м2
-										li.icon-capacity вместимость до трех мест 
-										li.icon-room 1 комната
-									.residence-slide__paginator 
-										.residence-slide__paginator-now
-										.residence-slide__divider
-										.residence-slide__paginator-all
-								.residence-slide__body(data-aos="fade-up")
-									.residence-slide__title АФРЕЙМ
-									.residence-slide__desc 
-										p A-frame дом для уединённого отдыха с панорамным видом на море. 
-								.residence-slide__footer 
-										a(href="#").btn._white Забронировать
-										a(href="#").link-arrow._white Подробнее о номере
-						
-						.swiper-slide.residence-slide
-							.residence-slide__bg 
-								+picture('aframe','jpg') 
-							.residence-slide__content
-								.residence-slide__head
-									ul.residence-slide__parametrs 
-										li.icon-square Площадь номера 30 м2
-										li.icon-capacity вместимость до трех мест 
-										li.icon-room 1 комната
-									.residence-slide__paginator 
-										.residence-slide__paginator-now
-										.residence-slide__divider
-										.residence-slide__paginator-all
-								.residence-slide__body(data-aos="fade-up")
-									.residence-slide__title АФРЕЙМ
-									.residence-slide__desc 
-										p A-frame дом для уединённого отдыха с панорамным видом на море. 
-								.residence-slide__footer 
-										a(href="#").btn._white Забронировать
-										a(href="#").link-arrow._white Подробнее о номере
-						
-						.swiper-slide.residence-slide
-							.residence-slide__bg 
-								+picture('aframe','jpg') 
-							.residence-slide__content
-								.residence-slide__head
-									ul.residence-slide__parametrs 
-										li.icon-square Площадь номера 30 м2
-										li.icon-capacity вместимость до трех мест 
-										li.icon-room 1 комната
-									.residence-slide__paginator 
-										.residence-slide__paginator-now
-										.residence-slide__divider
-										.residence-slide__paginator-all
-								.residence-slide__body(data-aos="fade-up")
-									.residence-slide__title АФРЕЙМ
-									.residence-slide__desc 
-										p A-frame дом для уединённого отдыха с панорамным видом на море. 
-								.residence-slide__footer 
-										a(href="#").btn._white Забронировать
-										a(href="#").link-arrow._white Подробнее о номере
-						
-						.swiper-slide.residence-slide
-							.residence-slide__bg 
-								+picture('aframe','jpg') 
-							.residence-slide__content
-								.residence-slide__head
-									ul.residence-slide__parametrs 
-										li.icon-square Площадь номера 30 м2
-										li.icon-capacity вместимость до трех мест 
-										li.icon-room 1 комната
-									.residence-slide__paginator 
-										.residence-slide__paginator-now
-										.residence-slide__divider
-										.residence-slide__paginator-all
-								.residence-slide__body(data-aos="fade-up")
-									.residence-slide__title АФРЕЙМ
-									.residence-slide__desc 
-										p A-frame дом для уединённого отдыха с панорамным видом на море. 
-								.residence-slide__footer 
-										a(href="#").btn._white Забронировать
-										a(href="#").link-arrow._white Подробнее о номере
-						
-						.swiper-slide.residence-slide
-							.residence-slide__bg 
-								+picture('aframe','jpg') 
-							.residence-slide__content
-								.residence-slide__head
-									ul.residence-slide__parametrs 
-										li.icon-square Площадь номера 30 м2
-										li.icon-capacity вместимость до трех мест 
-										li.icon-room 1 комната
-									.residence-slide__paginator 
-										.residence-slide__paginator-now
-										.residence-slide__divider
-										.residence-slide__paginator-all
-								.residence-slide__body(data-aos="fade-up")
-									.residence-slide__title АФРЕЙМ
-									.residence-slide__desc 
-										p A-frame дом для уединённого отдыха с панорамным видом на море. 
-								.residence-slide__footer 
-										a(href="#").btn._white Забронировать
-										a(href="#").link-arrow._white Подробнее о номере
-						
-
-						
-					.residence-slider__nav 
-						.residence-slider__nav-prev
-							<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M2.2998 11.5L8.43314 5.3667M2.2998 11.5L8.43314 17.6334M2.2998 11.5H21.4665"  stroke-width="2"/>
-							</svg>
-
-						.residence-slider__nav-next
-							<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M20.7002 11.5L14.5669 5.3667M20.7002 11.5L14.5669 17.6334M20.7002 11.5H1.53353" stroke="" stroke-width="2"/>
-							</svg>
-
-			.front-environ.block
-				.block__head 
-					h2.sub-title окружение 
-				.front-environ__content 
-					.front-environ__white-block(data-aos="fade-up",data-aos-duration="1000")
-					.front-environ__row-1 
-						.front-environ__left
+							.swiper-slide.residence-slide
+								.residence-slide__bg.bg-scale
+									+picture('aframe','jpg') 
+								.residence-slide__content
+									.residence-slide__head
+										ul.residence-slide__parametrs 
+											li.icon-square Площадь номера 30 м2
+											li.icon-room 1 комната
+											li.icon-capacity вместимость до трех мест 
+										.residence-slide__paginator 
+											.residence-slide__paginator-now
+											.residence-slide__divider
+											.residence-slide__paginator-all
+									.residence-slide__body
+										.residence-slide__title АФРЕЙМ 2
+										.residence-slide__desc 
+											p A-frame дом для уединённого отдыха с панорамным видом на море. 
+									.residence-slide__footer 
+											a(href="#").btn._white Забронировать
+											a(href="#").link-arrow._white Подробнее о номере
 							
-							h2.title(data-aos="fade-up") Остров Петрова
-						.front-environ__right
-							.front-environ__alert(data-aos="fade-up") С мая по октябрь на острове ежедневно проводятся экскурсии, которые будут интересны взрослым и детям до 7-ми лет.
-					.front-environ__row-2 
-						
-						.front-environ__left
-							.front-environ__text.text
-								p Небольшой остров с тисовой рощей и разнообразной флорой и фауной привлекает своей богатой историей и легендами.
-								p Остров был обитаемым еще во времена нижнего неолита (около VIII—III тысячелетия до н.э.) вплоть до средневековья. Был резиденцией бохайцев — жителей древнего многонационального государства Бохай.
-							hr.front-environ__divider
-							.audio-player(data-src="audio/a-2.mp3",data-aos="fade-up") 
-						.front-environ__right.aos-bg-scale(data-aos)
-							+picture('island','jpg')
-				picture.front-environ__bark.parallax(data-rellax-speed="2")
-					source(type="image/webp", srcset="img/bark.webp")
-					img(alt="",src="img/bark.png" )
-		.front-waterfall
-			.front-waterfall__bg.aos-bg-scale(data-aos)
+							.swiper-slide.residence-slide
+								.residence-slide__bg.bg-scale 
+									+picture('aframe','jpg') 
+								.residence-slide__content
+									.residence-slide__head
+										ul.residence-slide__parametrs 
+											li.icon-square Площадь номера 30 м2
+											li.icon-room 1 комната
+											li.icon-capacity вместимость до трех мест 
+										.residence-slide__paginator 
+											.residence-slide__paginator-now
+											.residence-slide__divider
+											.residence-slide__paginator-all
+									.residence-slide__body
+										.residence-slide__title АФРЕЙМ 3
+										.residence-slide__desc 
+											p A-frame дом для уединённого отдыха с панорамным видом на море. 
+									.residence-slide__footer 
+											a(href="#").btn._white Забронировать
+											a(href="#").link-arrow._white Подробнее о номере
+							
+							.swiper-slide.residence-slide
+								.residence-slide__bg.bg-scale 
+									+picture('aframe','jpg') 
+								.residence-slide__content
+									.residence-slide__head
+										ul.residence-slide__parametrs 
+											li.icon-square Площадь номера 30 м2
+											li.icon-room 1 комната
+											li.icon-capacity вместимость до трех мест 
+										.residence-slide__paginator 
+											.residence-slide__paginator-now
+											.residence-slide__divider
+											.residence-slide__paginator-all
+									.residence-slide__body
+										.residence-slide__title АФРЕЙМ
+										.residence-slide__desc 
+											p A-frame дом для уединённого отдыха с панорамным видом на море. 
+									.residence-slide__footer 
+											a(href="#").btn._white Забронировать
+											a(href="#").link-arrow._white Подробнее о номере
+							
+							.swiper-slide.residence-slide
+								.residence-slide__bg.bg-scale
+									+picture('aframe','jpg') 
+								.residence-slide__content
+									.residence-slide__head
+										ul.residence-slide__parametrs 
+											li.icon-square Площадь номера 30 м2
+											li.icon-room 1 комната
+											li.icon-capacity вместимость до трех мест 
+										.residence-slide__paginator 
+											.residence-slide__paginator-now
+											.residence-slide__divider
+											.residence-slide__paginator-all
+									.residence-slide__body
+										.residence-slide__title АФРЕЙМ
+										.residence-slide__desc 
+											p A-frame дом для уединённого отдыха с панорамным видом на море. 
+									.residence-slide__footer 
+											a(href="#").btn._white Забронировать
+											a(href="#").link-arrow._white Подробнее о номере
+							
+							.swiper-slide.residence-slide
+								.residence-slide__bg.bg-scale
+									+picture('aframe','jpg') 
+								.residence-slide__content
+									.residence-slide__head
+										ul.residence-slide__parametrs 
+											li.icon-square Площадь номера 30 м2
+											li.icon-room 1 комната
+											li.icon-capacity вместимость до трех мест 
+										.residence-slide__paginator 
+											.residence-slide__paginator-now
+											.residence-slide__divider
+											.residence-slide__paginator-all
+									.residence-slide__body
+										.residence-slide__title АФРЕЙМ
+										.residence-slide__desc 
+											p A-frame дом для уединённого отдыха с панорамным видом на море. 
+									.residence-slide__footer 
+											a(href="#").btn._white Забронировать
+											a(href="#").link-arrow._white Подробнее о номере
+							
+							.swiper-slide.residence-slide
+								.residence-slide__bg.bg-scale
+									+picture('aframe','jpg') 
+								.residence-slide__content
+									.residence-slide__head
+										ul.residence-slide__parametrs 
+											li.icon-square Площадь номера 30 м2
+											li.icon-room 1 комната
+											li.icon-capacity вместимость до трех мест 
+										.residence-slide__paginator 
+											.residence-slide__paginator-now
+											.residence-slide__divider
+											.residence-slide__paginator-all
+									.residence-slide__body
+										.residence-slide__title АФРЕЙМ
+										.residence-slide__desc 
+											p A-frame дом для уединённого отдыха с панорамным видом на море. 
+									.residence-slide__footer 
+											a(href="#").btn._white Забронировать
+											a(href="#").link-arrow._white Подробнее о номере
+							
+							.swiper-slide.residence-slide
+								.residence-slide__bg.bg-scale
+									+picture('aframe','jpg') 
+								.residence-slide__content
+									.residence-slide__head
+										ul.residence-slide__parametrs 
+											li.icon-square Площадь номера 30 м2
+											li.icon-room 1 комната
+											li.icon-capacity вместимость до трех мест 
+										.residence-slide__paginator 
+											.residence-slide__paginator-now
+											.residence-slide__divider
+											.residence-slide__paginator-all
+									.residence-slide__body
+										.residence-slide__title АФРЕЙМ
+										.residence-slide__desc 
+											p A-frame дом для уединённого отдыха с панорамным видом на море. 
+									.residence-slide__footer 
+											a(href="#").btn._white Забронировать
+											a(href="#").link-arrow._white Подробнее о номере
+							
+
+							
+						.residence-slider__nav 
+							.residence-slider__nav-prev
+								<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2.2998 11.5L8.43314 5.3667M2.2998 11.5L8.43314 17.6334M2.2998 11.5H21.4665"  stroke-width="2"/>
+								</svg>
+
+							.residence-slider__nav-next
+								<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M20.7002 11.5L14.5669 5.3667M20.7002 11.5L14.5669 17.6334M20.7002 11.5H1.53353" stroke="" stroke-width="2"/>
+								</svg>
+			.front-environ.anim-block
+				.block
+					.block__head 
+						h2.sub-title окружение 
+					.front-environ__content 
+						.front-environ__white-block
+						.front-environ__row-1 
+							.front-environ__left
+								
+								h2.title Остров Петрова
+							.front-environ__right
+								.front-environ__alert._v-desc С мая по октябрь на острове ежедневно проводятся экскурсии, которые будут интересны взрослым и детям до 7-ми лет.
+						.front-environ__row-2 
+							
+							.front-environ__left
+								.front-environ__text.text
+									p Небольшой остров с тисовой рощей и разнообразной флорой и фауной привлекает своей богатой историей и легендами.
+									p Остров был обитаемым еще во времена нижнего неолита (около VIII—III тысячелетия до н.э.) вплоть до средневековья. Был резиденцией бохайцев — жителей древнего многонационального государства Бохай.
+								hr.front-environ__divider._v-desc
+								.audio-player(data-src="audio/a-2.mp3")
+							.front-environ__right.bg-scale
+								+picture('island','jpg')
+							.front-environ__alert._v-mob С мая по октябрь на острове ежедневно проводятся экскурсии, которые будут интересны взрослым и детям до 7-ми лет.
+
+				.front-environ__bark.parallax(data-parallax="300")
+					picture
+						source(type="image/webp", srcset="img/bark.webp")
+						img(alt="",src="img/bark.png" )
+		.front-waterfall.anim-block
+			.front-waterfall__bg.bg-scale
 				+picture('waterfall','jpg')
 			.inner
 				.front-waterfall__row 
 					.front-waterfall__left
-						h2.title(data-aos="fade-up")   Еломовские 
+						h2.title   Еломовские 
 							br 
 							| (Беневские) 
 							br 
@@ -567,242 +579,252 @@ block content
 						.text
 							p Завораживающие каскадные водопады расположены в живописном уголке  лесов Сихотэ-Алиня — месте обитания тигров и редких реликтовых растений.
 							p Главный водопад «Звезда Приморья» высотой 25 метров берет свое начало в Еломовском ключе. Вместе с другими водопадами образует базальтовое плато в каньонообразной долине, являя собой подножие горы Лысой (1600 м), с вершины которой видно всю долину. 
-						.audio-player._white(data-aos="fade-up",data-src="audio/a-3.mp3") 
-		.front-rockcomplex
+						.audio-player._white(data-src="audio/a-3.mp3") 
+		.front-rockcomplex.anim-block
 			.inner
 				.front-rockcomplex__row
 					.front-rockcomplex__left
-						.front-rockcomplex__img.aos-bg-scale(data-aos)
+						.front-rockcomplex__img.bg-scale
 							+picture('rockcomplex','jpg')
 					.front-rockcomplex__right
-						h2.title(data-aos="fade-up")  Скальный комплекс
+						h2.title  Скальный комплекс
 							br
 							| «Парк Драконов»
 						.text 
 							p Одна из легенд гласит, что причудливые скалы на вершине сопки — и есть окаменевшие драконы. Глядя на них с высоты действительно может показаться,  что они знают многое о том, какой была жизнь на земле до прихода людей. 
-						.front-rockcomplex__alert(data-aos="fade-up")  Проходя рядом со скалами, можно рассмотреть след дракона, голову и даже маленьких дракончиков. Маршрут займет около 1,5 часов по невероятно красивой лесной тропе. 
-				picture.front-rockcomplex__cone.parallax(data-rellax-speed="2")
-					source(type="image/webp", srcset="img/cone.webp")
-					img(alt="",src="img/cone.png" )
+						.front-rockcomplex__alert  Проходя рядом со скалами, можно рассмотреть след дракона, голову и даже маленьких дракончиков. Маршрут займет около 1,5 часов по невероятно красивой лесной тропе. 
+				.front-rockcomplex__cone.parallax(data-parallax="200")
+					picture
+						source(type="image/webp", srcset="img/cone.webp")
+						img(alt="",src="img/cone.png" )
 
 		.inner 
-			.front-maral.block
-				.front-maral__bg.aos-bg-scale(data-aos)
-					+picture('maral','jpg')
-				.front-maral__head 
-					h2.front-maral__title.title(data-aos="fade-up")  Мараловодческий
-						br
-						| комплекс
-						br
-						|  «Заповедная 
-						br
-						| долина»
-					.front-maral__alert(data-aos="fade-up")  Пятнистые олени и маралы, обитающие в заповеднике, всегда рады гостям. Их можно гладить, кормить с рук и фотографировать. 
-				.front-maral__body 
-					.text 
-						p В «Заповедной долине» живут около 300 маралов. В год рождается 30-50 малышей. Это первый на Дальнем Востоке проект по ассимиляции маралов, первых особей завезли сюда с Алтая.
-						p Выращивают их не ради мяса. Главная цель разведения — рога оленей (панты). Их широко используют в традиционных восточных системах врачевания для сохранения силы и молодости. При срезке пантов маралы не страдают.
-			.front-hotSpring.block
-				.front-hotSpring__row 
-					.front-hotSpring__left 
-						.front-hotSpring__bg.aos-bg-scale(data-aos)
-							+picture('hotSpring','jpg')
-					.front-hotSpring__right 
-						.front-hotSpring__alert(data-aos="fade-up")  Полноценный курс терапии получить здесь не получится, а вот сфотографироваться в чугунной ванне, подвешенной над костром, посреди дикой тайги — да. 
-						.front-hotSpring__content 
-							h2.title(data-aos="fade-up")  Радоновые ванны или Горячий ключ
-							.front-hotSpring__text.text
-								p Радон-222 — радиоактивное вещество, содержащееся в водах горячего источника Горячий ключ. Ванны с такой водой применяют в санаториях для лечения и профилактики многих заболеваний.
-								P Но это место примечательно не столько целебными источниками, сколько своей необычностью. 
-
-				picture.front-hotSpring__needles.parallax(data-rellax-speed="2")
-					source(type="image/webp", srcset="img/needles.webp")
-					img(alt="",src="img/needles.png" )
-			.front-bays.block
-				.front-bays__row 
-					.front-bay(data-aos="fade-up") 
-						.front-bay__bg 
-							+picture('bay-1','jpg')
-						.front-bay__title(data-aos="fade-up")  Бухта Тасовая
-						.front-bay__body.text
-							p Одна из самых живописных бухт Приморья с мелкой галькой, бирюзовой водой и кекурами причудливых форм. По берегам растут редкие виды растений, а под водой обитают невероятные морские жители.
-						a.front-bay__link(href="#")
-					.front-bay(data-aos="fade-up") 
-						.front-bay__bg 
-							+picture('bay-2','jpg')
-						.front-bay__title Бухты Заря  
+			.anim-block
+				.block.front-maral
+					.front-maral__bg.bg-scale
+						+picture('maral','jpg')
+					.front-maral__head 
+						h2.front-maral__title.title Мараловодческий
 							br
-							| и Тачингоуза
-						.front-bay__body.text
-							p Бухта Заря известна своим уникальным песком цвета рассветного неба, красивейшими скалами и камнями. Экскурсия на эту бухту объединена с посещением еще одной — Тачингоуза. 
-							p Свое поэтическое название она получила от китайского слова «дацингоуцзы», что означает «большая зеленая падь». Это место захватывает дух даже у самых заядлых путешественников. 
-						a.front-bay__link(href="#")
-			.front-services.block
-				.block__head 
-					h2.sub-title Услуги 
-					a(href="#").btn Все услуги
-				.front-services-sliders
-					.front-services-slider-bg.swiper 
-						.swiper-wrapper
-							.front-service-bg.swiper-slide
-								.front-service-bg__bg.aos-bg-scale(data-aos)
-									+picture('service','jpg')
-							.front-service-bg.swiper-slide
-								.front-service-bg__bg.aos-bg-scale(data-aos)
-									+picture('service','jpg')
-							.front-service-bg.swiper-slide
-								.front-service-bg__bg.aos-bg-scale(data-aos)
-									+picture('service','jpg')
-							.front-service-bg.swiper-slide
-								.front-service-bg__bg.aos-bg-scale(data-aos)
-									+picture('service','jpg')
-							.front-service-bg.swiper-slide
-								.front-service-bg__bg.aos-bg-scale(data-aos)
-									+picture('service','jpg')
-					.front-services-slider-content.swiper 
-						.swiper-wrapper
-							.front-service.swiper-slide
-								.front-service__content 
-									.front-service__pagi
-										.front-service__now 01
-										.front-service__divider
-										.front-service__count 07
-									.front-service__nav
-										button.front-service__prev
-											<svg width="22" height="15" viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M2.2998 7.49954L8.43314 1.36621M2.2998 7.49954L8.43314 13.6329M2.2998 7.49954H21.4665" stroke="" stroke-width="2"/>
-											</svg>
-										button.front-service__next
-											<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M20.7002 11.4995L14.5669 5.36621M20.7002 11.4995L14.5669 17.6329M20.7002 11.4995H1.53353"  stroke-width="2"/>
-											</svg>
-					
-									.front-service__title Русская баня
-									.front-service__body
-										p Баня построена из дикого сруба, изготовленного вручную сибирскими мастерами. Печь в парной наполнена жадеитом
-									.front-service__parametrs 
-										ul 
-											li Вместимость 6 человек
-												<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path d="M12.5 15H15V13.5C15 12.1193 13.8807 11 12.5 11M9 3.99804C9 5.65396 7.657 6.99609 6 6.99609C4.343 6.99609 3 5.65396 3 3.99804C3 2.34212 4.343 1 6 1C7.657 1 9 2.34212 9 3.99804ZM11 14.9909H1C1 14.2808 1 13.6053 1 12.9936C1 11.3368 2.34315 9.99414 4 9.99414H8C9.65685 9.99414 11 11.3368 11 12.9936C11 13.6053 11 14.2808 11 14.9909ZM12 9C10.8954 9 10 8.10457 10 7C10 5.89543 10.8954 5 12 5C13.1046 5 14 5.89543 14 7C14 8.10457 13.1046 9 12 9Z" stroke="#F4CB78" stroke-width="1.5"/>
+							| комплекс
+							br
+							|  «Заповедная 
+							br
+							| долина»
+						.front-maral__alert._v-desc Пятнистые олени и маралы, обитающие в заповеднике, всегда рады гостям. Их можно гладить, кормить с рук и фотографировать. 
+					.front-maral__body 
+						.text 
+							p В «Заповедной долине» живут около 300 маралов. В год рождается 30-50 малышей. Это первый на Дальнем Востоке проект по ассимиляции маралов, первых особей завезли сюда с Алтая.
+							p Выращивают их не ради мяса. Главная цель разведения — рога оленей (панты). Их широко используют в традиционных восточных системах врачевания для сохранения силы и молодости. При срезке пантов маралы не страдают.
+						.front-maral__alert._v-mob Пятнистые олени и маралы, обитающие в заповеднике, всегда рады гостям. Их можно гладить, кормить с рук и фотографировать. 
+			.anim-block.front-hotSpring
+				.block
+					.front-hotSpring__row 
+						.front-hotSpring__alert._v-mob  Полноценный курс терапии получить здесь не получится, а вот сфотографироваться в чугунной ванне, подвешенной над костром, посреди дикой тайги — да. 
+						.front-hotSpring__left 
+							.front-hotSpring__bg.bg-scale
+								+picture('hotSpring','jpg')
+						.front-hotSpring__right 
+							.front-hotSpring__alert._v-desc  Полноценный курс терапии получить здесь не получится, а вот сфотографироваться в чугунной ванне, подвешенной над костром, посреди дикой тайги — да. 
+							.front-hotSpring__content 
+								h2.title  Радоновые ванны или Горячий ключ
+								.front-hotSpring__text.text
+									p Радон-222 — радиоактивное вещество, содержащееся в водах горячего источника Горячий ключ. Ванны с такой водой применяют в санаториях для лечения и профилактики многих заболеваний.
+									P Но это место примечательно не столько целебными источниками, сколько своей необычностью. 
+
+				.front-hotSpring__needles.parallax(data-parallax="-100")
+					picture
+						source(type="image/webp", srcset="img/needles.webp")
+						img(alt="",src="img/needles.png" )
+			.anim-block
+				.front-bays.block
+					.front-bays__row 
+						.front-bay
+							.front-bay__bg.bg-scale 
+								+picture('bay-1','jpg')
+							.front-bay__title  Бухта Тасовая
+							.front-bay__body.text
+								p Одна из самых живописных бухт Приморья с мелкой галькой, бирюзовой водой и кекурами причудливых форм. По берегам растут редкие виды растений, а под водой обитают невероятные морские жители.
+							a.front-bay__link(href="#")
+						.front-bay
+							.front-bay__bg.bg-scale 
+								+picture('bay-2','jpg')
+							.front-bay__title Бухты Заря  
+								br
+								| и Тачингоуза
+							.front-bay__body.text
+								p Бухта Заря известна своим уникальным песком цвета рассветного неба, красивейшими скалами и камнями. Экскурсия на эту бухту объединена с посещением еще одной — Тачингоуза. 
+								p Свое поэтическое название она получила от китайского слова «дацингоуцзы», что означает «большая зеленая падь». Это место захватывает дух даже у самых заядлых путешественников. 
+							a.front-bay__link(href="#")
+			.anim-block
+				.front-services.block
+					.block__head 
+						h2.sub-title Услуги 
+						a(href="#").btn Все услуги
+					.front-services-sliders
+						
+						.front-services-slider-content.swiper 
+							.swiper-wrapper
+								.front-service.swiper-slide
+									.front-service__content 
+										.front-service__pagi
+											.front-service__now 01
+											.front-service__divider
+											.front-service__count 07
+										.front-service__nav
+											button.front-service__prev
+												<svg width="22" height="15" viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M2.2998 7.49954L8.43314 1.36621M2.2998 7.49954L8.43314 13.6329M2.2998 7.49954H21.4665" stroke="" stroke-width="2"/>
 												</svg>
-											li 2 500₽ - час
-												<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path d="M11.5 9H13V7.5M11.5 3H13V4.5M4.5 3H3V4.5M3 7.5V9H4.5M8 8C6.89543 8 6 7.10457 6 6C6 4.89543 6.89543 4 8 4C9.10457 4 10 4.89543 10 6C10 7.10457 9.10457 8 8 8ZM2 1H14C14.5523 1 15 1.44772 15 2V10C15 10.5523 14.5523 11 14 11H2C1.44772 11 1 10.5523 1 10V2C1 1.44772 1.44772 1 2 1Z" stroke="#F4CB78" stroke-width="1.5"/>
+											button.front-service__next
+												<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M20.7002 11.4995L14.5669 5.36621M20.7002 11.4995L14.5669 17.6329M20.7002 11.4995H1.53353"  stroke-width="2"/>
 												</svg>
-							.front-service.swiper-slide
-								.front-service__content 
-									.front-service__pagi
-										.front-service__now 01
-										.front-service__divider
-										.front-service__count 07
-									.front-service__nav
-										button.front-service__prev
-											<svg width="22" height="15" viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M2.2998 7.49954L8.43314 1.36621M2.2998 7.49954L8.43314 13.6329M2.2998 7.49954H21.4665" stroke="" stroke-width="2"/>
-											</svg>
-										button.front-service__next
-											<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M20.7002 11.4995L14.5669 5.36621M20.7002 11.4995L14.5669 17.6329M20.7002 11.4995H1.53353"  stroke-width="2"/>
-											</svg>
-					
-									.front-service__title Русская баня 2
-									.front-service__body
-										p Баня построена из дикого сруба, изготовленного вручную сибирскими мастерами. Печь в парной наполнена жадеитом
-									.front-service__parametrs 
-										ul 
-											li Вместимость 6 человек
-												<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path d="M12.5 15H15V13.5C15 12.1193 13.8807 11 12.5 11M9 3.99804C9 5.65396 7.657 6.99609 6 6.99609C4.343 6.99609 3 5.65396 3 3.99804C3 2.34212 4.343 1 6 1C7.657 1 9 2.34212 9 3.99804ZM11 14.9909H1C1 14.2808 1 13.6053 1 12.9936C1 11.3368 2.34315 9.99414 4 9.99414H8C9.65685 9.99414 11 11.3368 11 12.9936C11 13.6053 11 14.2808 11 14.9909ZM12 9C10.8954 9 10 8.10457 10 7C10 5.89543 10.8954 5 12 5C13.1046 5 14 5.89543 14 7C14 8.10457 13.1046 9 12 9Z" stroke="#F4CB78" stroke-width="1.5"/>
+						
+										.front-service__title Русская баня
+										.front-service__body
+											p Баня построена из дикого сруба, изготовленного вручную сибирскими мастерами. Печь в парной наполнена жадеитом
+										.front-service__parametrs 
+											ul 
+												li Вместимость 6 человек
+													<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M12.5 15H15V13.5C15 12.1193 13.8807 11 12.5 11M9 3.99804C9 5.65396 7.657 6.99609 6 6.99609C4.343 6.99609 3 5.65396 3 3.99804C3 2.34212 4.343 1 6 1C7.657 1 9 2.34212 9 3.99804ZM11 14.9909H1C1 14.2808 1 13.6053 1 12.9936C1 11.3368 2.34315 9.99414 4 9.99414H8C9.65685 9.99414 11 11.3368 11 12.9936C11 13.6053 11 14.2808 11 14.9909ZM12 9C10.8954 9 10 8.10457 10 7C10 5.89543 10.8954 5 12 5C13.1046 5 14 5.89543 14 7C14 8.10457 13.1046 9 12 9Z" stroke="#F4CB78" stroke-width="1.5"/>
+													</svg>
+												li 2 500₽ - час
+													<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M11.5 9H13V7.5M11.5 3H13V4.5M4.5 3H3V4.5M3 7.5V9H4.5M8 8C6.89543 8 6 7.10457 6 6C6 4.89543 6.89543 4 8 4C9.10457 4 10 4.89543 10 6C10 7.10457 9.10457 8 8 8ZM2 1H14C14.5523 1 15 1.44772 15 2V10C15 10.5523 14.5523 11 14 11H2C1.44772 11 1 10.5523 1 10V2C1 1.44772 1.44772 1 2 1Z" stroke="#F4CB78" stroke-width="1.5"/>
+													</svg>
+								.front-service.swiper-slide
+									.front-service__content 
+										.front-service__pagi
+											.front-service__now 01
+											.front-service__divider
+											.front-service__count 07
+										.front-service__nav
+											button.front-service__prev
+												<svg width="22" height="15" viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M2.2998 7.49954L8.43314 1.36621M2.2998 7.49954L8.43314 13.6329M2.2998 7.49954H21.4665" stroke="" stroke-width="2"/>
 												</svg>
-											li 2 500₽ - час
-												<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path d="M11.5 9H13V7.5M11.5 3H13V4.5M4.5 3H3V4.5M3 7.5V9H4.5M8 8C6.89543 8 6 7.10457 6 6C6 4.89543 6.89543 4 8 4C9.10457 4 10 4.89543 10 6C10 7.10457 9.10457 8 8 8ZM2 1H14C14.5523 1 15 1.44772 15 2V10C15 10.5523 14.5523 11 14 11H2C1.44772 11 1 10.5523 1 10V2C1 1.44772 1.44772 1 2 1Z" stroke="#F4CB78" stroke-width="1.5"/>
+											button.front-service__next
+												<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M20.7002 11.4995L14.5669 5.36621M20.7002 11.4995L14.5669 17.6329M20.7002 11.4995H1.53353"  stroke-width="2"/>
 												</svg>
-							.front-service.swiper-slide
-								.front-service__content 
-									.front-service__pagi
-										.front-service__now 01
-										.front-service__divider
-										.front-service__count 07
-									.front-service__nav
-										button.front-service__prev
-											<svg width="22" height="15" viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M2.2998 7.49954L8.43314 1.36621M2.2998 7.49954L8.43314 13.6329M2.2998 7.49954H21.4665" stroke="" stroke-width="2"/>
-											</svg>
-										button.front-service__next
-											<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M20.7002 11.4995L14.5669 5.36621M20.7002 11.4995L14.5669 17.6329M20.7002 11.4995H1.53353"  stroke-width="2"/>
-											</svg>
-					
-									.front-service__title Русская баня 3
-									.front-service__body
-										p Баня построена из дикого сруба, изготовленного вручную сибирскими мастерами. Печь в парной наполнена жадеитом
-									.front-service__parametrs 
-										ul 
-											li Вместимость 6 человек
-												<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path d="M12.5 15H15V13.5C15 12.1193 13.8807 11 12.5 11M9 3.99804C9 5.65396 7.657 6.99609 6 6.99609C4.343 6.99609 3 5.65396 3 3.99804C3 2.34212 4.343 1 6 1C7.657 1 9 2.34212 9 3.99804ZM11 14.9909H1C1 14.2808 1 13.6053 1 12.9936C1 11.3368 2.34315 9.99414 4 9.99414H8C9.65685 9.99414 11 11.3368 11 12.9936C11 13.6053 11 14.2808 11 14.9909ZM12 9C10.8954 9 10 8.10457 10 7C10 5.89543 10.8954 5 12 5C13.1046 5 14 5.89543 14 7C14 8.10457 13.1046 9 12 9Z" stroke="#F4CB78" stroke-width="1.5"/>
+						
+										.front-service__title Русская баня 2
+										.front-service__body
+											p Баня построена из дикого сруба, изготовленного вручную сибирскими мастерами. Печь в парной наполнена жадеитом
+										.front-service__parametrs 
+											ul 
+												li Вместимость 6 человек
+													<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M12.5 15H15V13.5C15 12.1193 13.8807 11 12.5 11M9 3.99804C9 5.65396 7.657 6.99609 6 6.99609C4.343 6.99609 3 5.65396 3 3.99804C3 2.34212 4.343 1 6 1C7.657 1 9 2.34212 9 3.99804ZM11 14.9909H1C1 14.2808 1 13.6053 1 12.9936C1 11.3368 2.34315 9.99414 4 9.99414H8C9.65685 9.99414 11 11.3368 11 12.9936C11 13.6053 11 14.2808 11 14.9909ZM12 9C10.8954 9 10 8.10457 10 7C10 5.89543 10.8954 5 12 5C13.1046 5 14 5.89543 14 7C14 8.10457 13.1046 9 12 9Z" stroke="#F4CB78" stroke-width="1.5"/>
+													</svg>
+												li 2 500₽ - час
+													<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M11.5 9H13V7.5M11.5 3H13V4.5M4.5 3H3V4.5M3 7.5V9H4.5M8 8C6.89543 8 6 7.10457 6 6C6 4.89543 6.89543 4 8 4C9.10457 4 10 4.89543 10 6C10 7.10457 9.10457 8 8 8ZM2 1H14C14.5523 1 15 1.44772 15 2V10C15 10.5523 14.5523 11 14 11H2C1.44772 11 1 10.5523 1 10V2C1 1.44772 1.44772 1 2 1Z" stroke="#F4CB78" stroke-width="1.5"/>
+													</svg>
+								.front-service.swiper-slide
+									.front-service__content 
+										.front-service__pagi
+											.front-service__now 01
+											.front-service__divider
+											.front-service__count 07
+										.front-service__nav
+											button.front-service__prev
+												<svg width="22" height="15" viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M2.2998 7.49954L8.43314 1.36621M2.2998 7.49954L8.43314 13.6329M2.2998 7.49954H21.4665" stroke="" stroke-width="2"/>
 												</svg>
-											li 2 500₽ - час
-												<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path d="M11.5 9H13V7.5M11.5 3H13V4.5M4.5 3H3V4.5M3 7.5V9H4.5M8 8C6.89543 8 6 7.10457 6 6C6 4.89543 6.89543 4 8 4C9.10457 4 10 4.89543 10 6C10 7.10457 9.10457 8 8 8ZM2 1H14C14.5523 1 15 1.44772 15 2V10C15 10.5523 14.5523 11 14 11H2C1.44772 11 1 10.5523 1 10V2C1 1.44772 1.44772 1 2 1Z" stroke="#F4CB78" stroke-width="1.5"/>
+											button.front-service__next
+												<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M20.7002 11.4995L14.5669 5.36621M20.7002 11.4995L14.5669 17.6329M20.7002 11.4995H1.53353"  stroke-width="2"/>
 												</svg>
-							.front-service.swiper-slide
-								.front-service__content 
-									.front-service__pagi
-										.front-service__now 01
-										.front-service__divider
-										.front-service__count 07
-									.front-service__nav
-										button.front-service__prev
-											<svg width="22" height="15" viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M2.2998 7.49954L8.43314 1.36621M2.2998 7.49954L8.43314 13.6329M2.2998 7.49954H21.4665" stroke="" stroke-width="2"/>
-											</svg>
-										button.front-service__next
-											<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M20.7002 11.4995L14.5669 5.36621M20.7002 11.4995L14.5669 17.6329M20.7002 11.4995H1.53353"  stroke-width="2"/>
-											</svg>
-					
-									.front-service__title Русская баня 4
-									.front-service__body
-										p Баня построена из дикого сруба, изготовленного вручную сибирскими мастерами. Печь в парной наполнена жадеитом
-									.front-service__parametrs 
-										ul 
-											li Вместимость 6 человек
-												<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path d="M12.5 15H15V13.5C15 12.1193 13.8807 11 12.5 11M9 3.99804C9 5.65396 7.657 6.99609 6 6.99609C4.343 6.99609 3 5.65396 3 3.99804C3 2.34212 4.343 1 6 1C7.657 1 9 2.34212 9 3.99804ZM11 14.9909H1C1 14.2808 1 13.6053 1 12.9936C1 11.3368 2.34315 9.99414 4 9.99414H8C9.65685 9.99414 11 11.3368 11 12.9936C11 13.6053 11 14.2808 11 14.9909ZM12 9C10.8954 9 10 8.10457 10 7C10 5.89543 10.8954 5 12 5C13.1046 5 14 5.89543 14 7C14 8.10457 13.1046 9 12 9Z" stroke="#F4CB78" stroke-width="1.5"/>
+						
+										.front-service__title Русская баня 3
+										.front-service__body
+											p Баня построена из дикого сруба, изготовленного вручную сибирскими мастерами. Печь в парной наполнена жадеитом
+										.front-service__parametrs 
+											ul 
+												li Вместимость 6 человек
+													<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M12.5 15H15V13.5C15 12.1193 13.8807 11 12.5 11M9 3.99804C9 5.65396 7.657 6.99609 6 6.99609C4.343 6.99609 3 5.65396 3 3.99804C3 2.34212 4.343 1 6 1C7.657 1 9 2.34212 9 3.99804ZM11 14.9909H1C1 14.2808 1 13.6053 1 12.9936C1 11.3368 2.34315 9.99414 4 9.99414H8C9.65685 9.99414 11 11.3368 11 12.9936C11 13.6053 11 14.2808 11 14.9909ZM12 9C10.8954 9 10 8.10457 10 7C10 5.89543 10.8954 5 12 5C13.1046 5 14 5.89543 14 7C14 8.10457 13.1046 9 12 9Z" stroke="#F4CB78" stroke-width="1.5"/>
+													</svg>
+												li 2 500₽ - час
+													<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M11.5 9H13V7.5M11.5 3H13V4.5M4.5 3H3V4.5M3 7.5V9H4.5M8 8C6.89543 8 6 7.10457 6 6C6 4.89543 6.89543 4 8 4C9.10457 4 10 4.89543 10 6C10 7.10457 9.10457 8 8 8ZM2 1H14C14.5523 1 15 1.44772 15 2V10C15 10.5523 14.5523 11 14 11H2C1.44772 11 1 10.5523 1 10V2C1 1.44772 1.44772 1 2 1Z" stroke="#F4CB78" stroke-width="1.5"/>
+													</svg>
+								.front-service.swiper-slide
+									.front-service__content 
+										.front-service__pagi
+											.front-service__now 01
+											.front-service__divider
+											.front-service__count 07
+										.front-service__nav
+											button.front-service__prev
+												<svg width="22" height="15" viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M2.2998 7.49954L8.43314 1.36621M2.2998 7.49954L8.43314 13.6329M2.2998 7.49954H21.4665" stroke="" stroke-width="2"/>
 												</svg>
-											li 2 500₽ - час
-												<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path d="M11.5 9H13V7.5M11.5 3H13V4.5M4.5 3H3V4.5M3 7.5V9H4.5M8 8C6.89543 8 6 7.10457 6 6C6 4.89543 6.89543 4 8 4C9.10457 4 10 4.89543 10 6C10 7.10457 9.10457 8 8 8ZM2 1H14C14.5523 1 15 1.44772 15 2V10C15 10.5523 14.5523 11 14 11H2C1.44772 11 1 10.5523 1 10V2C1 1.44772 1.44772 1 2 1Z" stroke="#F4CB78" stroke-width="1.5"/>
+											button.front-service__next
+												<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M20.7002 11.4995L14.5669 5.36621M20.7002 11.4995L14.5669 17.6329M20.7002 11.4995H1.53353"  stroke-width="2"/>
 												</svg>
-							.front-service.swiper-slide
-								.front-service__content 
-									.front-service__pagi
-										.front-service__now 01
-										.front-service__divider
-										.front-service__count 07
-									.front-service__nav
-										button.front-service__prev
-											<svg width="22" height="15" viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M2.2998 7.49954L8.43314 1.36621M2.2998 7.49954L8.43314 13.6329M2.2998 7.49954H21.4665" stroke="" stroke-width="2"/>
-											</svg>
-										button.front-service__next
-											<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M20.7002 11.4995L14.5669 5.36621M20.7002 11.4995L14.5669 17.6329M20.7002 11.4995H1.53353"  stroke-width="2"/>
-											</svg>
-					
-									.front-service__title Русская баня 5
-									.front-service__body
-										p Баня построена из дикого сруба, изготовленного вручную сибирскими мастерами. Печь в парной наполнена жадеитом
-									.front-service__parametrs 
-										ul 
-											li Вместимость 6 человек
-												<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path d="M12.5 15H15V13.5C15 12.1193 13.8807 11 12.5 11M9 3.99804C9 5.65396 7.657 6.99609 6 6.99609C4.343 6.99609 3 5.65396 3 3.99804C3 2.34212 4.343 1 6 1C7.657 1 9 2.34212 9 3.99804ZM11 14.9909H1C1 14.2808 1 13.6053 1 12.9936C1 11.3368 2.34315 9.99414 4 9.99414H8C9.65685 9.99414 11 11.3368 11 12.9936C11 13.6053 11 14.2808 11 14.9909ZM12 9C10.8954 9 10 8.10457 10 7C10 5.89543 10.8954 5 12 5C13.1046 5 14 5.89543 14 7C14 8.10457 13.1046 9 12 9Z" stroke="#F4CB78" stroke-width="1.5"/>
+						
+										.front-service__title Русская баня 4
+										.front-service__body
+											p Баня построена из дикого сруба, изготовленного вручную сибирскими мастерами. Печь в парной наполнена жадеитом
+										.front-service__parametrs 
+											ul 
+												li Вместимость 6 человек
+													<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M12.5 15H15V13.5C15 12.1193 13.8807 11 12.5 11M9 3.99804C9 5.65396 7.657 6.99609 6 6.99609C4.343 6.99609 3 5.65396 3 3.99804C3 2.34212 4.343 1 6 1C7.657 1 9 2.34212 9 3.99804ZM11 14.9909H1C1 14.2808 1 13.6053 1 12.9936C1 11.3368 2.34315 9.99414 4 9.99414H8C9.65685 9.99414 11 11.3368 11 12.9936C11 13.6053 11 14.2808 11 14.9909ZM12 9C10.8954 9 10 8.10457 10 7C10 5.89543 10.8954 5 12 5C13.1046 5 14 5.89543 14 7C14 8.10457 13.1046 9 12 9Z" stroke="#F4CB78" stroke-width="1.5"/>
+													</svg>
+												li 2 500₽ - час
+													<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M11.5 9H13V7.5M11.5 3H13V4.5M4.5 3H3V4.5M3 7.5V9H4.5M8 8C6.89543 8 6 7.10457 6 6C6 4.89543 6.89543 4 8 4C9.10457 4 10 4.89543 10 6C10 7.10457 9.10457 8 8 8ZM2 1H14C14.5523 1 15 1.44772 15 2V10C15 10.5523 14.5523 11 14 11H2C1.44772 11 1 10.5523 1 10V2C1 1.44772 1.44772 1 2 1Z" stroke="#F4CB78" stroke-width="1.5"/>
+													</svg>
+								.front-service.swiper-slide
+									.front-service__content 
+										.front-service__pagi
+											.front-service__now 01
+											.front-service__divider
+											.front-service__count 07
+										.front-service__nav
+											button.front-service__prev
+												<svg width="22" height="15" viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M2.2998 7.49954L8.43314 1.36621M2.2998 7.49954L8.43314 13.6329M2.2998 7.49954H21.4665" stroke="" stroke-width="2"/>
 												</svg>
-											li 2 500₽ - час
-												<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path d="M11.5 9H13V7.5M11.5 3H13V4.5M4.5 3H3V4.5M3 7.5V9H4.5M8 8C6.89543 8 6 7.10457 6 6C6 4.89543 6.89543 4 8 4C9.10457 4 10 4.89543 10 6C10 7.10457 9.10457 8 8 8ZM2 1H14C14.5523 1 15 1.44772 15 2V10C15 10.5523 14.5523 11 14 11H2C1.44772 11 1 10.5523 1 10V2C1 1.44772 1.44772 1 2 1Z" stroke="#F4CB78" stroke-width="1.5"/>
+											button.front-service__next
+												<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M20.7002 11.4995L14.5669 5.36621M20.7002 11.4995L14.5669 17.6329M20.7002 11.4995H1.53353"  stroke-width="2"/>
 												</svg>
+						
+										.front-service__title Русская баня 5
+										.front-service__body
+											p Баня построена из дикого сруба, изготовленного вручную сибирскими мастерами. Печь в парной наполнена жадеитом
+										.front-service__parametrs 
+											ul 
+												li Вместимость 6 человек
+													<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M12.5 15H15V13.5C15 12.1193 13.8807 11 12.5 11M9 3.99804C9 5.65396 7.657 6.99609 6 6.99609C4.343 6.99609 3 5.65396 3 3.99804C3 2.34212 4.343 1 6 1C7.657 1 9 2.34212 9 3.99804ZM11 14.9909H1C1 14.2808 1 13.6053 1 12.9936C1 11.3368 2.34315 9.99414 4 9.99414H8C9.65685 9.99414 11 11.3368 11 12.9936C11 13.6053 11 14.2808 11 14.9909ZM12 9C10.8954 9 10 8.10457 10 7C10 5.89543 10.8954 5 12 5C13.1046 5 14 5.89543 14 7C14 8.10457 13.1046 9 12 9Z" stroke="#F4CB78" stroke-width="1.5"/>
+													</svg>
+												li 2 500₽ - час
+													<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M11.5 9H13V7.5M11.5 3H13V4.5M4.5 3H3V4.5M3 7.5V9H4.5M8 8C6.89543 8 6 7.10457 6 6C6 4.89543 6.89543 4 8 4C9.10457 4 10 4.89543 10 6C10 7.10457 9.10457 8 8 8ZM2 1H14C14.5523 1 15 1.44772 15 2V10C15 10.5523 14.5523 11 14 11H2C1.44772 11 1 10.5523 1 10V2C1 1.44772 1.44772 1 2 1Z" stroke="#F4CB78" stroke-width="1.5"/>
+													</svg>
+						.front-services-slider-bg.swiper 
+							.swiper-wrapper
+								.front-service-bg.swiper-slide
+									.front-service-bg__bg.bg-scale
+										+picture('service','jpg')
+								.front-service-bg.swiper-slide
+									.front-service-bg__bg.bg-scale
+										+picture('service','jpg')
+								.front-service-bg.swiper-slide
+									.front-service-bg__bg.bg-scale
+										+picture('service','jpg')
+								.front-service-bg.swiper-slide
+									.front-service-bg__bg.bg-scale
+										+picture('service','jpg')
+								.front-service-bg.swiper-slide
+									.front-service-bg__bg.bg-scale
+										+picture('service','jpg')
+
