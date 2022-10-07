@@ -219,14 +219,14 @@ color {
 	}
 
 	&._full-height img {
-		height: 584px;
+		min-height: 584px;
 		object-fit: cover;
 	}
 
 	img {
 		transition: transform 0.5s;
 		transform: scale(1.05);
-
+		width: 100%;
 
 	}
 

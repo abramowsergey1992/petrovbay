@@ -4,25 +4,38 @@ $(function () {
 	// });
 	// AOS.init({});
 	if ($(".gallery-slider__wrapper").length) {
-		var galleryController = new ScrollMagic.Controller({
-			container: ".gallery-slider__wrapper",
-			vertical: false,
-		});
-		let galleryScenes = [];
-		$(".gallery-it ").each(function () {
-			galleryScenes.push(
-				new ScrollMagic.Scene({
-					triggerElement: this,
-					duration: $(window).width(),
-				})
-					.triggerHook(1)
-					// animate color and top border in relation to scroll position
-					.setTween($(this).find(".gallery-it__bg"), {
-						x: -500,
-					}) // the tween durtion can be omitted and defaults to 1
-					// .addIndicators({ name: "2 (duration: 300)" }) // add indicators (requires plugin)
-					.addTo(galleryController)
-			);
+		$(".gallery-slider__wrapper").each(function () {
+			element = this;
+			element.addEventListener("wheel", (event) => {
+				event.preventDefault();
+
+				element.scrollBy({
+					left: event.deltaY < 0 ? -30 : 30,
+				});
+			});
+			var galleryController = new ScrollMagic.Controller({
+				container: element,
+				vertical: false,
+			});
+
+			let galleryScenes = [];
+			$(element)
+				.find(".gallery-it ")
+				.each(function () {
+					galleryScenes.push(
+						new ScrollMagic.Scene({
+							triggerElement: this,
+							duration: $(window).width(),
+						})
+							.triggerHook(1)
+							// animate color and top border in relation to scroll position
+							.setTween($(this).find(".gallery-it__bg"), {
+								x: -500,
+							}) // the tween durtion can be omitted and defaults to 1
+							// .addIndicators({ name: "2 (duration: 300)" }) // add indicators (requires plugin)
+							.addTo(galleryController)
+					);
+				});
 		});
 	}
 	let controller = new ScrollMagic.Controller({
