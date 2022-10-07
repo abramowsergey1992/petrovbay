@@ -777,6 +777,8 @@
 		height: initial;
 		transform: translateX(-50%) scale(1.1);
 
+
+
 		&._down {
 			top: initial;
 			bottom: 210px;
@@ -803,10 +805,8 @@
 			top: 65px;
 		}
 
-		filter: blur(125px);
-		// box-shadow: 0 0 200px 0 #F4CB78,
-		// 0 0 200px 0 #F4CB78,
-		// 0 0 100px 0 #F4CB78;
+		filter: blur(44px);
+		box-shadow: 0 0 200px 0 #F4CB78;
 		transform: translateX(-50%) scale(1.1);
 		transition: opacity 0.5s,
 		bottom 1s,
