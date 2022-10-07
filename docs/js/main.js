@@ -1,35 +1,5 @@
 $(function(){})
 $(function () {
-	if ($("#contact-form").length) {
-		let validContacnt = $("#contact-form").validate({
-			errorPlacement: function (error, element) {},
-			submitHandler: function (form) {
-				$(".contact-form__btn").attr("disabled", "disabled");
-				$.ajax({
-					url: $(form).attr("action"),
-					data: $(form).serialize(),
-					method: "POST",
-					headers: {
-						"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
-							"content"
-						),
-					},
-					context: document.body,
-					success: function () {
-						alert("Форма отправленна успешно");
-						$(".contact-form__btn").removeAttr("disabled");
-					},
-					error: function () {
-						alert("Ошибка");
-						$(".contact-form__btn").removeAttr("disabled");
-					},
-				});
-			},
-		});
-	}
-});
-
-$(function () {
 	// var controller = new ScrollMagic.Controller();
 	l = window.innerHeight;
 	if ($(".front-top").length) {
@@ -371,6 +341,36 @@ $(function () {
 	}
 });
 
+$(function () {
+	if ($("#contact-form").length) {
+		let validContacnt = $("#contact-form").validate({
+			errorPlacement: function (error, element) {},
+			submitHandler: function (form) {
+				$(".contact-form__btn").attr("disabled", "disabled");
+				$.ajax({
+					url: $(form).attr("action"),
+					data: $(form).serialize(),
+					method: "POST",
+					headers: {
+						"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+							"content"
+						),
+					},
+					context: document.body,
+					success: function () {
+						alert("Форма отправленна успешно");
+						$(".contact-form__btn").removeAttr("disabled");
+					},
+					error: function () {
+						alert("Ошибка");
+						$(".contact-form__btn").removeAttr("disabled");
+					},
+				});
+			},
+		});
+	}
+});
+
 $(function(){})
 $(function(){})
 $(function(){})
@@ -381,29 +381,32 @@ $(function () {
 	// 	$(this).attr("data-aos", "fade-up");
 	// });
 	// AOS.init({});
-	var galleryController = new ScrollMagic.Controller({
-		container: ".gallery-slider__wrapper",
-		vertical: false,
-	});
+	if ($("..gallery-slider__wrapper").length) {
+		var galleryController = new ScrollMagic.Controller({
+			container: ".gallery-slider__wrapper",
+			vertical: false,
+		});
+		let galleryScenes = [];
+		$(".gallery-it ").each(function () {
+			galleryScenes.push(
+				new ScrollMagic.Scene({
+					triggerElement: this,
+					duration: $(window).width(),
+				})
+					.triggerHook(1)
+					// animate color and top border in relation to scroll position
+					.setTween($(this).find(".gallery-it__bg"), {
+						x: -500,
+					}) // the tween durtion can be omitted and defaults to 1
+					// .addIndicators({ name: "2 (duration: 300)" }) // add indicators (requires plugin)
+					.addTo(galleryController)
+			);
+		});
+	}
 	let controller = new ScrollMagic.Controller({
 		refreshInterval: 0,
 	});
-	let galleryScenes = [];
-	$(".gallery-it ").each(function () {
-		galleryScenes.push(
-			new ScrollMagic.Scene({
-				triggerElement: this,
-				duration: $(window).width(),
-			})
-				.triggerHook(1)
-				// animate color and top border in relation to scroll position
-				.setTween($(this).find(".gallery-it__bg"), {
-					x: -500,
-				}) // the tween durtion can be omitted and defaults to 1
-				// .addIndicators({ name: "2 (duration: 300)" }) // add indicators (requires plugin)
-				.addTo(galleryController)
-		);
-	});
+
 	let scenes = [];
 	$(".anim-block").each(function () {
 		scenes.push(
