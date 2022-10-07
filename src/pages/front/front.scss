@@ -430,6 +430,10 @@
 		height: 450px;
 		width: 100%;
 
+		[state="static"] & {
+			z-index: 100;
+		}
+
 		@media(max-width:992px) {
 			height: 600px
 		}
@@ -588,6 +592,7 @@
 		padding-top: 100px;
 		transform: translateX(-50%);
 		transition: max-width 0.3s, top 0.3s;
+		z-index: 12;
 
 		@media(max-width:992px) {
 			padding-top: 0;
