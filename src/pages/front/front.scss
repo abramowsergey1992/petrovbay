@@ -664,7 +664,7 @@
 	}
 
 	&__bg {
-		object-fit: cover;
+
 		width: 100vw;
 		max-width: 100vw;
 		height: calc(var(--vh, 1vh)*100);
@@ -679,8 +679,27 @@
 		transition: mask 1s;
 		will-change: mask-size, mask-position;
 
+		img,
+		video {
+			object-fit: cover;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
 
+		}
 
+		&::after {
+			display: block;
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba($color: #000000, $alpha: 0.2);
+		}
 
 		.front-top[state="top"] & {
 			mask-position: center 210px;
