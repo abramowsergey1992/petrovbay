@@ -111,14 +111,14 @@
 	align-items: center;
 	text-align: center;
 	cursor: pointer;
-	border-radius: 3px;
-	font-size: 14px;
-	height: 40px;
-	width: 120px;
-	margin-left: auto;
-	background: #6639b6 !important;
-	color: #fff !important;
-	font-weight: 600
+	// border-radius: 3px;
+	// font-size: 14px;
+	// height: 40px;
+	// width: 120px;
+	// margin-left: auto;
+	// background: #6639b6 !important;
+	// color: #fff !important;
+	// font-weight: 600
 }
 
 .front-top .traveline__popup-head {
@@ -145,6 +145,7 @@
 	display: none;
 	width: 300px;
 	padding: 20px;
+	bottom: 53px;
 	border-radius: 5px;
 	transform: translateX(-75px);
 	text-align: left;
@@ -750,6 +751,7 @@
 		left: 50%;
 		top: 210px;
 		height: initial;
+		transform: translateX(-50%) scale(1.1);
 
 		&._down {
 			top: initial;
@@ -758,7 +760,7 @@
 			@media(max-width:992px) {
 				margin-top: 39px !important;
 				max-width: 94%;
-				transform: translateX(-50%);
+				transform: translateX(-50%) scale(1.1);
 				top: 65px;
 			}
 		}
@@ -777,9 +779,11 @@
 			top: 65px;
 		}
 
-		box-shadow: 0 0 150px 0 #F4CB78,
-		0 0 150px 0 #F4CB78;
-		transform: translateX(-50%);
+		filter: blur(125px);
+		// box-shadow: 0 0 200px 0 #F4CB78,
+		// 0 0 200px 0 #F4CB78,
+		// 0 0 100px 0 #F4CB78;
+		transform: translateX(-50%) scale(1.1);
 		transition: opacity 0.5s,
 		bottom 1s,
 		width 1s;
@@ -1738,4 +1742,12 @@
 
 .front-services-slider {
 	overflow: visible;
+}
+
+.front-top[state="end"] {
+	overflow: visible;
+
+	.front-top__relative {
+		overflow: visible;
+	}
 }

@@ -377,72 +377,39 @@ $(function(){})
 $(function(){})
 $(function(){})
 $(function () {
-	$(".audio-player").each(function () {
-		$(this).html(
-			`<div class="audio-player__stop"></div><div class="audio-player__play"></div><audio controls><source src="${$(
-				this
-			).data(
-				"src"
-			)}" type="audio/mpeg"></audio><div class="audio-player__body"> <div class="audio-player__progress"><div class="audio-player__mute"><svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5783 11.5L4.83137 11.0688L4.71418 11H4.5783V11.5ZM4.5783 4.5V5H4.71418L4.83137 4.93122L4.5783 4.5ZM10.5421 1H11.0421C11.0421 0.820732 10.9462 0.655183 10.7906 0.566101C10.635 0.47702 10.4437 0.47804 10.2891 0.568776L10.5421 1ZM10.5421 15L10.2891 15.4312C10.4437 15.522 10.635 15.523 10.7906 15.4339C10.9462 15.3448 11.0421 15.1793 11.0421 15H10.5421ZM4.5783 11H2.19277V12H4.5783V11ZM2.19277 11C1.79885 11 1.5 10.692 1.5 10.3333H0.5C0.5 11.2649 1.26748 12 2.19277 12V11ZM1.5 10.3333V5.66657H0.5V10.3333H1.5ZM1.5 5.66657C1.5 5.30797 1.79877 5 2.19277 5V4C1.26756 4 0.5 4.73484 0.5 5.66657H1.5ZM2.19277 5H4.5783V4H2.19277V5ZM4.83137 4.93122L10.7952 1.43122L10.2891 0.568776L4.32523 4.06878L4.83137 4.93122ZM10.0421 1V15H11.0421V1H10.0421ZM10.7952 14.5688L4.83137 11.0688L4.32523 11.9312L10.2891 15.4312L10.7952 14.5688ZM13.2769 6.70777L16.6501 10.0071L17.3493 9.29223L13.9762 5.99288L13.2769 6.70777ZM16.6504 5.99288L13.2772 9.29223L13.9765 10.0071L17.3496 6.70777L16.6504 5.99288Z" fill="#2F2F2F"/></svg></div><div class="audio-player__line"><div class="audio-player__line-progress"></div></div> <div class="audio-player__status">0:00</div></div>`
-		);
-	});
-	let audioPlay;
-
-	$(".audio-player__mute").click(function () {
-		let audio = $(this).closest(".audio-player").find("audio")[0];
-		if (audio.muted) {
-			audio.muted = false;
-			$(this).removeClass("_muted");
-		} else {
-			audio.muted = true;
-			$(this).addClass("_muted");
-		}
-	});
-
-	$(".audio-player__play").click(function () {
-		let audio = $(this).closest(".audio-player").find("audio")[0];
-		let progress = $(this)
-			.closest(".audio-player")
-			.find(".audio-player__line-progress")[0];
-		let $time = $(this)
-			.closest(".audio-player")
-			.find(".audio-player__status");
-		$(this).closest(".audio-player").addClass("_stop");
-		audio.play();
-		audioPlay = setInterval(function () {
-			let audioTime = Math.round(audio.currentTime);
-			let audioLength = Math.round(audio.duration);
-			progress.style.width = (audioTime * 100) / audioLength + "%";
-			let sec = Math.floor(audioTime) % 60;
-			if (sec <= 9) {
-				sec = "0" + sec;
-			}
-			$time.text(Math.floor(audioTime / 60) + ":" + sec);
-		}, 10);
-	});
-	$(".audio-player__stop").click(function () {
-		$(this).closest(".audio-player").removeClass("_stop");
-
-		let audio = $(this).closest(".audio-player").find("audio")[0];
-		audio.pause();
-	});
-});
-
-$(function () {
 	// $(".text p,.text ul").each(function () {
 	// 	$(this).attr("data-aos", "fade-up");
 	// });
 	// AOS.init({});
-
+	var galleryController = new ScrollMagic.Controller({
+		container: ".gallery-slider__wrapper",
+		vertical: false,
+	});
 	let controller = new ScrollMagic.Controller({
 		refreshInterval: 0,
+	});
+	let galleryScenes = [];
+	$(".gallery-it ").each(function () {
+		galleryScenes.push(
+			new ScrollMagic.Scene({
+				triggerElement: this,
+				duration: $(window).width(),
+			})
+				.triggerHook(1)
+				// animate color and top border in relation to scroll position
+				.setTween($(this).find(".gallery-it__bg"), {
+					x: -500,
+				}) // the tween durtion can be omitted and defaults to 1
+				// .addIndicators({ name: "2 (duration: 300)" }) // add indicators (requires plugin)
+				.addTo(galleryController)
+		);
 	});
 	let scenes = [];
 	$(".anim-block").each(function () {
 		scenes.push(
 			new ScrollMagic.Scene({
 				triggerElement: this,
-				duration: 400,
+				duration: 800,
 			})
 				.triggerHook(1)
 				// animate color and top border in relation to scroll position
@@ -555,69 +522,90 @@ $(function () {
 	});
 
 	if ($(".front-top").length) {
-		class rotationOfTheObjectTowardsTheCursor {
-			constructor() {
-				this.circle = Object;
-				this.line = Object;
+		// Add event listener
+		document.addEventListener("mousemove", parallax);
+		const elem = document.querySelector(".front-top__bg-blur._top");
+		const elem2 = document.querySelector(".front-top__bg-blur._down");
+		// Magic happens here
+		function parallax(e) {
+			let _w = window.innerWidth / 2;
+			let _h = window.innerHeight / 2;
+			let _mouseX = e.clientX;
+			let _mouseY = e.clientY;
+			let _depth1 = `${(_mouseX - _w) * 0.005}%`;
+			let _depth2 = `${(_mouseY - _h) * 0.005}%`;
 
-				this.circleRect = Object;
-
-				this.centerPosition = { x: 0, y: 0 };
-				this.angels = { actual: 0, target: 0 };
-
-				this.init();
-			}
-
-			init() {
-				this.circle = document.querySelector(".front-top__bg-blur");
-				this.line = document.querySelector(".front-top__bg-blur-point");
-
-				this.onResize();
-				window.onresize = (e) => this.onResize(e);
-
-				window.onmousemove = (e) => this.onMouseMove(e);
-
-				requestAnimationFrame(() => this.loop());
-			}
-
-			onResize() {
-				this.circleRect = this.circle.getBoundingClientRect();
-				this.centerPosition = {
-					x: this.circleRect.x + this.circleRect.width / 2,
-					y: this.circleRect.y + this.circleRect.height / 2,
-				};
-			}
-
-			onMouseMove(e) {
-				const atan2 = Math.atan2(
-					e.pageY - this.centerPosition.y,
-					e.pageX - this.centerPosition.x
-				);
-
-				this.angels.target = atan2;
-			}
-
-			loop() {
-				this.angels.actual = this.angleLerp(
-					this.angels.actual,
-					this.angels.target,
-					0.1
-				);
-
-				this.line.style.transform = `rotate(${this.angels.actual}rad)`;
-
-				requestAnimationFrame(() => this.loop());
-			}
-
-			angleLerp(a0, a1, t) {
-				const max = Math.PI * 2;
-				const da = (a1 - a0) % max;
-				return a0 + (((2 * da) % max) - da) * t;
-			}
+			let x = `translateX(${_depth1}) translateY(${_depth2})`;
+			console.log(x);
+			elem.style.marginLeft = _depth1;
+			elem.style.marginTop = _depth2;
+			elem2.style.marginLeft = _depth1;
+			elem2.style.marginTop = _depth2;
 		}
 
+		// class rotationOfTheObjectTowardsTheCursor {
+		// 	constructor() {
+		// 		this.circle = Object;
+		// 		this.line = Object;
+
+		// 		this.circleRect = Object;
+
+		// 		this.centerPosition = { x: 0, y: 0 };
+		// 		this.angels = { actual: 0, target: 0 };
+
+		// 		this.init();
+		// 	}
+
+		// 	init() {
+		// 		this.circle = document.querySelector(".front-top__bg-blur");
+		// 		this.line = document.querySelector(".front-top__bg-blur-point");
+
+		// 		this.onResize();
+		// 		window.onresize = (e) => this.onResize(e);
+
+		// 		window.onmousemove = (e) => this.onMouseMove(e);
+
+		// 		requestAnimationFrame(() => this.loop());
+		// 	}
+
+		// 	onResize() {
+		// 		this.circleRect = this.circle.getBoundingClientRect();
+		// 		this.centerPosition = {
+		// 			x: this.circleRect.x + this.circleRect.width / 2,
+		// 			y: this.circleRect.y + this.circleRect.height / 2,
+		// 		};
+		// 	}
+
+		// 	onMouseMove(e) {
+		// 		const atan2 = Math.atan2(
+		// 			e.pageY - this.centerPosition.y,
+		// 			e.pageX - this.centerPosition.x
+		// 		);
+
+		// 		this.angels.target = atan2;
+		// 	}
+
+		// 	loop() {
+		// 		this.angels.actual = this.angleLerp(
+		// 			this.angels.actual,
+		// 			this.angels.target,
+		// 			0.1
+		// 		);
+
+		// 		this.line.style.transform = `rotate(${this.angels.actual}rad)`;
+
+		// 		requestAnimationFrame(() => this.loop());
+		// 	}
+
+		// 	angleLerp(a0, a1, t) {
+		// 		const max = Math.PI * 2;
+		// 		const da = (a1 - a0) % max;
+		// 		return a0 + (((2 * da) % max) - da) * t;
+		// 	}
+		// }
+		// new rotationOfTheObjectTowardsTheCursor();
 		let animateplay = false;
-		new rotationOfTheObjectTowardsTheCursor();
+
 		$("body").addClass("_no-scroll");
 		$("body").addClass("front-page");
 		setTimeout(function () {
@@ -717,6 +705,58 @@ $(function () {
 });
 
 $(function () {
+	$(".audio-player").each(function () {
+		$(this).html(
+			`<div class="audio-player__stop"></div><div class="audio-player__play"></div><audio controls><source src="${$(
+				this
+			).data(
+				"src"
+			)}" type="audio/mpeg"></audio><div class="audio-player__body"> <div class="audio-player__progress"><div class="audio-player__mute"><svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5783 11.5L4.83137 11.0688L4.71418 11H4.5783V11.5ZM4.5783 4.5V5H4.71418L4.83137 4.93122L4.5783 4.5ZM10.5421 1H11.0421C11.0421 0.820732 10.9462 0.655183 10.7906 0.566101C10.635 0.47702 10.4437 0.47804 10.2891 0.568776L10.5421 1ZM10.5421 15L10.2891 15.4312C10.4437 15.522 10.635 15.523 10.7906 15.4339C10.9462 15.3448 11.0421 15.1793 11.0421 15H10.5421ZM4.5783 11H2.19277V12H4.5783V11ZM2.19277 11C1.79885 11 1.5 10.692 1.5 10.3333H0.5C0.5 11.2649 1.26748 12 2.19277 12V11ZM1.5 10.3333V5.66657H0.5V10.3333H1.5ZM1.5 5.66657C1.5 5.30797 1.79877 5 2.19277 5V4C1.26756 4 0.5 4.73484 0.5 5.66657H1.5ZM2.19277 5H4.5783V4H2.19277V5ZM4.83137 4.93122L10.7952 1.43122L10.2891 0.568776L4.32523 4.06878L4.83137 4.93122ZM10.0421 1V15H11.0421V1H10.0421ZM10.7952 14.5688L4.83137 11.0688L4.32523 11.9312L10.2891 15.4312L10.7952 14.5688ZM13.2769 6.70777L16.6501 10.0071L17.3493 9.29223L13.9762 5.99288L13.2769 6.70777ZM16.6504 5.99288L13.2772 9.29223L13.9765 10.0071L17.3496 6.70777L16.6504 5.99288Z" fill="#2F2F2F"/></svg></div><div class="audio-player__line"><div class="audio-player__line-progress"></div></div> <div class="audio-player__status">0:00</div></div>`
+		);
+	});
+	let audioPlay;
+
+	$(".audio-player__mute").click(function () {
+		let audio = $(this).closest(".audio-player").find("audio")[0];
+		if (audio.muted) {
+			audio.muted = false;
+			$(this).removeClass("_muted");
+		} else {
+			audio.muted = true;
+			$(this).addClass("_muted");
+		}
+	});
+
+	$(".audio-player__play").click(function () {
+		let audio = $(this).closest(".audio-player").find("audio")[0];
+		let progress = $(this)
+			.closest(".audio-player")
+			.find(".audio-player__line-progress")[0];
+		let $time = $(this)
+			.closest(".audio-player")
+			.find(".audio-player__status");
+		$(this).closest(".audio-player").addClass("_stop");
+		audio.play();
+		audioPlay = setInterval(function () {
+			let audioTime = Math.round(audio.currentTime);
+			let audioLength = Math.round(audio.duration);
+			progress.style.width = (audioTime * 100) / audioLength + "%";
+			let sec = Math.floor(audioTime) % 60;
+			if (sec <= 9) {
+				sec = "0" + sec;
+			}
+			$time.text(Math.floor(audioTime / 60) + ":" + sec);
+		}, 10);
+	});
+	$(".audio-player__stop").click(function () {
+		$(this).closest(".audio-player").removeClass("_stop");
+
+		let audio = $(this).closest(".audio-player").find("audio")[0];
+		audio.pause();
+	});
+});
+
+$(function () {
 	$(".btn").each(function () {
 		$(this).html(
 			`<span class="btn__bg"></span><span>${$(this).text()}</span>`
@@ -734,52 +774,62 @@ $(function () {
 $(function(){})
 $(function () {
 	Fancybox.defaults.backFocus = false;
-	$(".gallery-it__bg").click(function () {
-		console.log("asdas");
-	});
-	$(".gallery-slider ").each(function () {
-		let swiperGallery = new Swiper(this, {
-			slidesPerView: "auto",
-			// freemode: true,
-			// allowTouchMove: false,
-			preventClicks: false,
-			preventClicksPropagation: false,
-			slideToClickedSlide: false,
-			spaceBetween: 22,
-			watchSlidesProgress: true,
-			// mousewheel: {
-			// 	forceToAxis: true,
-			// },
-			pagination: {
-				el: $(this).find(".gallery-slider__pagi")[0],
-				type: "custom",
-				renderCustom: function (swiper, current, total) {
-					let i = current ? current : 0;
-					return `${("0" + i).slice(-2)} / ${("0" + total).slice(
-						-2
-					)}`;
-				},
-			},
-		});
-		const interleaveOffset = 0.1;
-		swiperGallery.on("progress", function (swiper, progress) {
-			for (let i = 0; i < swiper.slides.length; i++) {
-				let slideProgress = swiper.slides[i].progress;
-				let innerOffset = swiper.width * interleaveOffset;
-				let innerTranslate = slideProgress * innerOffset;
+	$(" .gallery-slider__padding ").css(
+		"min-width",
+		($(" .page ").innerWidth() - $(" .gallery-slider ").innerWidth()) / 2
+	);
+	window.onresize = function (event) {
+		$(" .gallery-slider__padding ").css(
+			"min-width",
+			($(" .page ").innerWidth() - $(" .gallery-slider ").innerWidth()) /
+				2
+		);
+	};
+	// $(".gallery-slider ").each(function () {
+	// 	let swiperGallery = new Swiper(this, {
+	// 		slidesPerView: 3,
+	// 		// centeredSlides: true,
+	// 		freemode: true,
+	// 		// allowTouchMove: false,
+	// 		preventClicks: false,
+	// 		preventClicksPropagation: false,
+	// 		slideToClickedSlide: false,
+	// 		spaceBetween: 22,
+	// 		watchSlidesProgress: true,
+	// 		mousewheel: {
+	// 			forceToAxis: true,
+	// 			sensitivity: 0.5,
+	// 		},
+	// 		pagination: {
+	// 			el: $(this).find(".gallery-slider__pagi")[0],
+	// 			type: "custom",
+	// 			renderCustom: function (swiper, current, total) {
+	// 				let i = current ? current : 0;
+	// 				return `${("0" + i).slice(-2)} / ${("0" + total).slice(
+	// 					-2
+	// 				)}`;
+	// 			},
+	// 		},
+	// 	});
+	// 	const interleaveOffset = 0.1;
+	// 	swiperGallery.on("progress", function (swiper, progress) {
+	// 		for (let i = 0; i < swiper.slides.length; i++) {
+	// 			let slideProgress = swiper.slides[i].progress;
+	// 			let innerOffset = swiper.width * interleaveOffset;
+	// 			let innerTranslate = slideProgress * innerOffset;
 
-				//TweenMax.set(swiper.slides[i], {
-				//skewY: `${innerTranslate*0.025}deg`,
-				//});
-				TweenMax.set(
-					swiper.slides[i].querySelector(".gallery-it__bg"),
-					{
-						x: innerTranslate,
-					}
-				);
-			}
-		});
-	});
+	// 			//TweenMax.set(swiper.slides[i], {
+	// 			//skewY: `${innerTranslate*0.025}deg`,
+	// 			//});
+	// 			TweenMax.set(
+	// 				swiper.slides[i].querySelector(".gallery-it__bg"),
+	// 				{
+	// 					x: innerTranslate,
+	// 				}
+	// 			);
+	// 		}
+	// 	});
+	// });
 });
 
 $(function () {

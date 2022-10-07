@@ -3,16 +3,35 @@ $(function () {
 	// 	$(this).attr("data-aos", "fade-up");
 	// });
 	// AOS.init({});
-
+	var galleryController = new ScrollMagic.Controller({
+		container: ".gallery-slider__wrapper",
+		vertical: false,
+	});
 	let controller = new ScrollMagic.Controller({
 		refreshInterval: 0,
+	});
+	let galleryScenes = [];
+	$(".gallery-it ").each(function () {
+		galleryScenes.push(
+			new ScrollMagic.Scene({
+				triggerElement: this,
+				duration: $(window).width(),
+			})
+				.triggerHook(1)
+				// animate color and top border in relation to scroll position
+				.setTween($(this).find(".gallery-it__bg"), {
+					x: -500,
+				}) // the tween durtion can be omitted and defaults to 1
+				// .addIndicators({ name: "2 (duration: 300)" }) // add indicators (requires plugin)
+				.addTo(galleryController)
+		);
 	});
 	let scenes = [];
 	$(".anim-block").each(function () {
 		scenes.push(
 			new ScrollMagic.Scene({
 				triggerElement: this,
-				duration: 400,
+				duration: 800,
 			})
 				.triggerHook(1)
 				// animate color and top border in relation to scroll position
@@ -125,69 +144,90 @@ $(function () {
 	});
 
 	if ($(".front-top").length) {
-		class rotationOfTheObjectTowardsTheCursor {
-			constructor() {
-				this.circle = Object;
-				this.line = Object;
+		// Add event listener
+		document.addEventListener("mousemove", parallax);
+		const elem = document.querySelector(".front-top__bg-blur._top");
+		const elem2 = document.querySelector(".front-top__bg-blur._down");
+		// Magic happens here
+		function parallax(e) {
+			let _w = window.innerWidth / 2;
+			let _h = window.innerHeight / 2;
+			let _mouseX = e.clientX;
+			let _mouseY = e.clientY;
+			let _depth1 = `${(_mouseX - _w) * 0.005}%`;
+			let _depth2 = `${(_mouseY - _h) * 0.005}%`;
 
-				this.circleRect = Object;
-
-				this.centerPosition = { x: 0, y: 0 };
-				this.angels = { actual: 0, target: 0 };
-
-				this.init();
-			}
-
-			init() {
-				this.circle = document.querySelector(".front-top__bg-blur");
-				this.line = document.querySelector(".front-top__bg-blur-point");
-
-				this.onResize();
-				window.onresize = (e) => this.onResize(e);
-
-				window.onmousemove = (e) => this.onMouseMove(e);
-
-				requestAnimationFrame(() => this.loop());
-			}
-
-			onResize() {
-				this.circleRect = this.circle.getBoundingClientRect();
-				this.centerPosition = {
-					x: this.circleRect.x + this.circleRect.width / 2,
-					y: this.circleRect.y + this.circleRect.height / 2,
-				};
-			}
-
-			onMouseMove(e) {
-				const atan2 = Math.atan2(
-					e.pageY - this.centerPosition.y,
-					e.pageX - this.centerPosition.x
-				);
-
-				this.angels.target = atan2;
-			}
-
-			loop() {
-				this.angels.actual = this.angleLerp(
-					this.angels.actual,
-					this.angels.target,
-					0.1
-				);
-
-				this.line.style.transform = `rotate(${this.angels.actual}rad)`;
-
-				requestAnimationFrame(() => this.loop());
-			}
-
-			angleLerp(a0, a1, t) {
-				const max = Math.PI * 2;
-				const da = (a1 - a0) % max;
-				return a0 + (((2 * da) % max) - da) * t;
-			}
+			let x = `translateX(${_depth1}) translateY(${_depth2})`;
+			console.log(x);
+			elem.style.marginLeft = _depth1;
+			elem.style.marginTop = _depth2;
+			elem2.style.marginLeft = _depth1;
+			elem2.style.marginTop = _depth2;
 		}
 
+		// class rotationOfTheObjectTowardsTheCursor {
+		// 	constructor() {
+		// 		this.circle = Object;
+		// 		this.line = Object;
+
+		// 		this.circleRect = Object;
+
+		// 		this.centerPosition = { x: 0, y: 0 };
+		// 		this.angels = { actual: 0, target: 0 };
+
+		// 		this.init();
+		// 	}
+
+		// 	init() {
+		// 		this.circle = document.querySelector(".front-top__bg-blur");
+		// 		this.line = document.querySelector(".front-top__bg-blur-point");
+
+		// 		this.onResize();
+		// 		window.onresize = (e) => this.onResize(e);
+
+		// 		window.onmousemove = (e) => this.onMouseMove(e);
+
+		// 		requestAnimationFrame(() => this.loop());
+		// 	}
+
+		// 	onResize() {
+		// 		this.circleRect = this.circle.getBoundingClientRect();
+		// 		this.centerPosition = {
+		// 			x: this.circleRect.x + this.circleRect.width / 2,
+		// 			y: this.circleRect.y + this.circleRect.height / 2,
+		// 		};
+		// 	}
+
+		// 	onMouseMove(e) {
+		// 		const atan2 = Math.atan2(
+		// 			e.pageY - this.centerPosition.y,
+		// 			e.pageX - this.centerPosition.x
+		// 		);
+
+		// 		this.angels.target = atan2;
+		// 	}
+
+		// 	loop() {
+		// 		this.angels.actual = this.angleLerp(
+		// 			this.angels.actual,
+		// 			this.angels.target,
+		// 			0.1
+		// 		);
+
+		// 		this.line.style.transform = `rotate(${this.angels.actual}rad)`;
+
+		// 		requestAnimationFrame(() => this.loop());
+		// 	}
+
+		// 	angleLerp(a0, a1, t) {
+		// 		const max = Math.PI * 2;
+		// 		const da = (a1 - a0) % max;
+		// 		return a0 + (((2 * da) % max) - da) * t;
+		// 	}
+		// }
+		// new rotationOfTheObjectTowardsTheCursor();
 		let animateplay = false;
-		new rotationOfTheObjectTowardsTheCursor();
+
 		$("body").addClass("_no-scroll");
 		$("body").addClass("front-page");
 		setTimeout(function () {
