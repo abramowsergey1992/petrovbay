@@ -3,7 +3,7 @@ $(function () {
 	// 	$(this).attr("data-aos", "fade-up");
 	// });
 	// AOS.init({});
-	if ($("..gallery-slider__wrapper").length) {
+	if ($(".gallery-slider__wrapper").length) {
 		var galleryController = new ScrollMagic.Controller({
 			container: ".gallery-slider__wrapper",
 			vertical: false,
