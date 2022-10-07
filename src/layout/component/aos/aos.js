@@ -34,7 +34,7 @@ $(function () {
 		scenes.push(
 			new ScrollMagic.Scene({
 				triggerElement: this,
-				duration: 800,
+				duration: 500,
 			})
 				.triggerHook(1)
 				// animate color and top border in relation to scroll position
@@ -82,10 +82,10 @@ $(function () {
 		scenes.push(
 			new ScrollMagic.Scene({
 				triggerElement: this,
-				duration: window.innerHeight,
+				duration: 300,
 			})
-				.triggerHook(1)
-				.addIndicators({ name: "2 (duration: 300)" }) // add indicators (requires plugin)
+				.triggerHook(0.7)
+				// .addIndicators({ name: "2 (duration: 300)" }) // add indicators (requires plugin)
 				.on("enter", function () {
 					console.log("enter", $th);
 					$th.find(".audio-player__play").trigger("click");

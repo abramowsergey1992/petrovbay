@@ -39,6 +39,8 @@
         position: absolute;
         left: 20px;
         top: 50%;
+        width: 14px;
+        height: 14px;
         transform: translateY(-50%);
         line-height: 0%;
         cursor: pointer;
@@ -48,6 +50,27 @@
             .audio-player._white & {
                 fill: #FFF !important;
             }
+        }
+
+        &-on {
+            display: none;
+        }
+
+        &._muted {
+            .audio-player__mute-off {
+                display: none;
+            }
+
+            .audio-player__mute-on {
+                display: block;
+            }
+        }
+
+        svg {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
         }
 
         &:hover {

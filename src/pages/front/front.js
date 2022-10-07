@@ -4,6 +4,8 @@ $(function () {
 	if ($(".front-top").length) {
 		$(".traveline__date").click(function () {
 			$(".traveline__date-wrap").removeClass("_open");
+
+			$(".traveline__popup").removeClass("_show");
 			$(this).closest(".traveline__date-wrap").addClass("_open");
 		});
 		if ($(".traveline").length) {
@@ -82,6 +84,7 @@ $(function () {
 			});
 			$(".traveline__count").click(function () {
 				container.addClass("_show");
+				$(".traveline__date-wrap").removeClass("_open");
 			});
 			$(".traveline__child-finish").click(function (e) {
 				container.removeClass("_show");

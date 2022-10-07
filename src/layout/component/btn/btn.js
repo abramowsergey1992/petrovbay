@@ -1,7 +1,9 @@
 $(function () {
 	$(".btn").each(function () {
 		$(this).html(
-			`<span class="btn__bg"></span><span>${$(this).text()}</span>`
+			`<span class="btn__bg"></span><span class="btn__text">${$(
+				this
+			).text()}</span>`
 		);
 	});
 	$(".link-arrow").each(function () {
