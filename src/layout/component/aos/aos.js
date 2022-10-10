@@ -157,14 +157,24 @@ $(function () {
 				scene.refresh();
 			});
 		}
+		if (y + window.innerHeight >= $(".page").innerHeight() - 300) {
+			$(".page").addClass("_page-end ");
+		} else {
+			$(".page").removeClass("_page-end ");
+		}
 	});
-
+	$(".page-up").click(function () {
+		scroll.scrollTo(0, 0, 1000, {
+			callback: () => console.log("done!"),
+		});
+	});
 	if ($(".front-top").length) {
 		// Add event listener
 		document.addEventListener("mousemove", parallax);
 		const elem = document.querySelector(".front-top__bg-blur._top");
 		const elem2 = document.querySelector(".front-top__bg-blur._down");
 		// Magic happens here
+
 		function parallax(e) {
 			let _w = window.innerWidth / 2;
 			let _h = window.innerHeight / 2;
@@ -278,7 +288,6 @@ $(function () {
 		function FrontTopDown() {
 			if (animateplay == false) {
 				animateplay = true;
-				console.log("asxxx");
 				let state = $("#front-top").attr("state");
 				if (state == "end") {
 					$("body").removeClass("_no-scroll");
