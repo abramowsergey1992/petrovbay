@@ -263,7 +263,9 @@ $(function () {
 					$("#front-top").attr("state", "top");
 				}
 				if (state == "end") {
-					$("html, body").animate({ scrollTop: 0 });
+					scroll.scrollTo(0, 0, 0, {
+						callback: () => console.log("done!"),
+					});
 					$("body").addClass("_no-scroll");
 					$("#front-top").attr("state", "static");
 					// scroll.updatePluginOptions("modal", { open: true });
@@ -304,9 +306,9 @@ $(function () {
 			) {
 				console.log("You swiped " + direction);
 				if (direction == "up") {
-					FrontTopUp();
-				} else if (direction == "down") {
 					FrontTopDown();
+				} else if (direction == "down") {
+					FrontTopUp();
 				}
 			},
 		});
