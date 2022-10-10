@@ -73,27 +73,27 @@ block content
 						blockquote Средняя стоимость билета – 1800 рублей.
 		.anim-block
 			.block
-			form#contact-form.contact-form(method='post',action="/")
-				
-				.contact-form__title ОСТАЛИСЬ ВОПРОСЫ ИЛИ ПРЕДЛОЖЕНИЯ?
-				.contact-form__desc
-					p Мы всегда рады обратной связи! 
-				.contact-form__row.row._gap-15 
-					.col-lg-6
-						label.form-input
-							input(data-rule-required, placeholder="Имя Фамилия",name="name",type="text")
-					.col-lg-6
-						label.form-input
-							input._mask-phone(data-rule-required, placeholder="Телефон",name="phone",type="text")
-					.col-lg-6
-						label.form-input
-							input(data-rule-required, data-rule-email, placeholder="Почта",name="mail",type="text")
-					.col-lg-12 
-						label.form-input 
-							textarea(data-rule-required, placeholder="Ваш вопрос или предложение")
-				.contact-form__bottom
-					p Нажимая кнопку “Отправить” вы соглашаетесь с 
-						a(href="#") политикой обработки персональных данных
-						| .
-				button.btn._big(type="submit") Отправить
-				+picture('contact-form','jpg').contact-form__bg
+				form#contact-form.contact-form(method='post',action="/")
+					
+					.contact-form__title ОСТАЛИСЬ ВОПРОСЫ ИЛИ ПРЕДЛОЖЕНИЯ?
+					.contact-form__desc
+						p Мы всегда рады обратной связи! 
+					.contact-form__row.row._gap-15 
+						.col-lg-6
+							label.form-input
+								input(data-rule-required, placeholder="Имя Фамилия",name="name",type="text")
+						.col-lg-6
+							label.form-input
+								input._mask-phone(data-rule-required, placeholder="Телефон",name="phone",type="text")
+						.col-lg-6
+							label.form-input
+								input(data-rule-required, data-rule-email, placeholder="Почта",name="mail",type="text")
+						.col-lg-12 
+							label.form-input 
+								textarea(data-rule-required, placeholder="Ваш вопрос или предложение")
+					.contact-form__bottom
+						p Нажимая кнопку “Отправить” вы соглашаетесь с 
+							a(href="#") политикой обработки персональных данных
+							| .
+					button.btn._big(type="submit") Отправить
+					+picture('contact-form','jpg').contact-form__bg

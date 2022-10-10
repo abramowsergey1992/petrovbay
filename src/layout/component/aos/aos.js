@@ -157,7 +157,7 @@ $(function () {
 				scene.refresh();
 			});
 		}
-		if (y + window.innerHeight >= $(".page").innerHeight() - 300) {
+		if (y + window.innerHeight >= $(".page").innerHeight() - 100) {
 			$(".page").addClass("_page-end ");
 		} else {
 			$(".page").removeClass("_page-end ");
