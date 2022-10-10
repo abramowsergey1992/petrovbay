@@ -278,10 +278,19 @@ $(function () {
 		function FrontTopDown() {
 			if (animateplay == false) {
 				animateplay = true;
+				console.log("asxxx");
 				let state = $("#front-top").attr("state");
 				if (state == "end") {
+					const mediaQuery = window.matchMedia("(max-width: 992px)");
+					if (mediaQuery.matches) {
+						if (!$("body").hasClass("_no-scroll")) {
+							console.log("asdasdasd");
+							scroll.scrollTo(0, window.innerHeight, 500, {
+								callback: () => console.log("done!"),
+							});
+						}
+					}
 					$("body").removeClass("_no-scroll");
-					// scroll.updatePluginOptions("modal", { open: false });
 				}
 				if (state == "static") {
 					$("#front-top").attr("state", "end");
@@ -315,7 +324,6 @@ $(function () {
 
 		$("#front-top").on("mousewheel", function (e) {
 			let state = $("#front-top").attr("state");
-			console.log(e.originalEvent.wheelDelta);
 			if (e.originalEvent.wheelDelta / 120 > 0) {
 				FrontTopUp();
 			} else {

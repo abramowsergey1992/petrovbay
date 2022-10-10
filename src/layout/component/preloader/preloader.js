@@ -8,7 +8,6 @@ let start = false;
 let hours = document.querySelector(".preloader__arrow-hours");
 let minuts = document.querySelector(".preloader__arrow-minuts");
 let preloader = setInterval(function () {
-	console.log(100 / (timeHoursMax / timeH));
 	minuts.style.transform = `rotate(${
 		(360 / 100) * (100 / (timeMinutMax / timeM))
 	}deg)`;
