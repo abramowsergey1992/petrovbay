@@ -60,9 +60,7 @@
                 }
             }
 
-            &:last-child {
-                margin-right: 0;
-            }
+            &:last-child {}
         }
     }
 
@@ -82,7 +80,7 @@
     &__stump {
         position: absolute;
         right: 100px;
-        top: 50%;
+        top: 70%;
 
         @media(max-width:992px) {
             width: 200px;

@@ -14,13 +14,13 @@ $(function () {
 	$(".gallery-swiper ").each(function () {
 		let swiperGallery = new Swiper(this, {
 			slidesPerView: 4,
-			centeredSlides: true,
+			// centeredSlides: true,
 			freeMode: {
 				enabled: true,
 				// sticky: true,
 				momentumBounce: false,
 			},
-			initialSlide: 2,
+			// initialSlide: 2,
 			allowTouchMove: false,
 			preventClicks: false,
 			preventClicksPropagation: false,

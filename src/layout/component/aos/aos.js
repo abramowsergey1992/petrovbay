@@ -281,15 +281,6 @@ $(function () {
 				console.log("asxxx");
 				let state = $("#front-top").attr("state");
 				if (state == "end") {
-					const mediaQuery = window.matchMedia("(max-width: 992px)");
-					if (mediaQuery.matches) {
-						if (!$("body").hasClass("_no-scroll")) {
-							console.log("asdasdasd");
-							scroll.scrollTo(0, window.innerHeight, 500, {
-								callback: () => console.log("done!"),
-							});
-						}
-					}
 					$("body").removeClass("_no-scroll");
 				}
 				if (state == "static") {
@@ -304,6 +295,7 @@ $(function () {
 			}
 		}
 		$("#front-top").swipe({
+			preventDefaultEvents: false,
 			//Generic swipe handler for all directions
 			swipe: function (
 				event,
