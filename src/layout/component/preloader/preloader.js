@@ -31,5 +31,5 @@ $(function () {
 				clearInterval(preloader);
 			});
 		}, 2000);
-	}, 1000);
+	}, 2000);
 });
