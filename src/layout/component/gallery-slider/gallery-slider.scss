@@ -2,6 +2,10 @@
 .gallery-it,
 .gallery-slider__wrapper {
     height: 560px !important;
+
+    @media(max-width:992px) {
+        height: 330px !important;
+    }
 }
 
 .gallery-swiper,
@@ -41,8 +45,8 @@
 
     .gallery-it {
         margin-right: 20px;
-        width: 400px;
-        min-width: 400px;
+        // width: 400px;
+        // min-width: 400px;
         position: relative;
         overflow: hidden;
         cursor: pointer;

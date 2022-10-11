@@ -317,11 +317,12 @@ $(function () {
 				fingerCount,
 				fingerData
 			) {
-				console.log("You swiped " + direction);
-				if (direction == "up") {
-					FrontTopDown();
-				} else if (direction == "down") {
-					FrontTopUp();
+				if (distance >= 50) {
+					if (direction == "up") {
+						FrontTopDown();
+					} else if (direction == "down") {
+						FrontTopUp();
+					}
 				}
 			},
 		});

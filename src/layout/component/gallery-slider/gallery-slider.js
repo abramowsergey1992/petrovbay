@@ -21,7 +21,6 @@ $(function () {
 				momentumBounce: false,
 			},
 			// initialSlide: 2,
-			allowTouchMove: false,
 			preventClicks: false,
 			preventClicksPropagation: false,
 			slideToClickedSlide: false,
@@ -32,7 +31,7 @@ $(function () {
 			},
 			breakpoints: {
 				320: {
-					slidesPerView: 1.3,
+					slidesPerView: 1.2,
 				},
 				480: {
 					slidesPerView: 1.6,
