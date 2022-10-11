@@ -1,12 +1,12 @@
 @keyframes mask-play {
 	from {
-		filter: blur(100px);
-		// opacity: 0;
+		// filter: blur(100px);
+		opacity: 0;
 	}
 
 	to {
-		// opacity: 1;
-		filter: blur(0px);
+		opacity: 1;
+		// filter: blur(0px);
 	}
 }
 
@@ -908,7 +908,8 @@
 			animation-fill-mode: forwards;
 		}
 
-		filter: blur(100px);
+		opacity: 0;
+		// filter: blur(100px);
 		transition: opacity 0.5s 0.5s,
 		transform 0.5s 0.5s;
 
