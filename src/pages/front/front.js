@@ -1,4 +1,12 @@
 $(function () {
+	function declination(number, titles) {
+		cases = [2, 0, 1, 1, 1, 2];
+		return titles[
+			number % 100 > 4 && number % 100 < 20
+				? 2
+				: cases[number % 10 < 5 ? number % 10 : 5]
+		];
+	}
 	// var controller = new ScrollMagic.Controller();
 	l = window.innerHeight;
 	if ($(".front-top").length) {
@@ -116,18 +124,24 @@ $(function () {
 						$counter.val(`${val}`);
 					}
 				}
-				var count =
-					Number.parseInt(
-						$(".traveline__counter-inpt.adults").val()
-					) +
-					Number.parseInt(
-						$(".traveline__counter-inpt.children").val()
-					);
-				if (count < 10) {
-					$(".traveline__count").val("0" + count);
-				} else {
-					$(".traveline__count").val(count);
-				}
+				let adultsCounts = Number.parseInt(
+					$(".traveline__counter-inpt.adults").val()
+				);
+				let childrenCounts = Number.parseInt(
+					$(".traveline__counter-inpt.children").val()
+				);
+
+				$(".traveline__count").val(
+					`${adultsCounts} ${declination(adultsCounts, [
+						" взрослый",
+						" взрослых",
+						" взрослых",
+					])},${childrenCounts} ${declination(childrenCounts, [
+						" ребенок",
+						" ребенка",
+						" детей",
+					])}`
+				);
 				if ($counter.hasClass("children")) {
 					var i = 1,
 						child = Number.parseInt(
@@ -161,11 +175,24 @@ $(function () {
 					Number.parseInt(
 						$(".traveline__counter-inpt.children").val()
 					);
-				if (count < 10) {
-					$(".traveline__count").val("0" + count);
-				} else {
-					$(".traveline__count").val(count);
-				}
+				let adultsCounts = Number.parseInt(
+					$(".traveline__counter-inpt.adults").val()
+				);
+				let childrenCounts = Number.parseInt(
+					$(".traveline__counter-inpt.children").val()
+				);
+
+				$(".traveline__count").val(
+					`${adultsCounts} ${declination(adultsCounts, [
+						" взрослый",
+						" взрослых",
+						" взрослых",
+					])},${childrenCounts} ${declination(childrenCounts, [
+						" ребенок",
+						" ребенка",
+						" детей",
+					])}`
+				);
 
 				if ($counter.hasClass("children")) {
 					var i = 1,
@@ -287,31 +314,71 @@ $(function () {
 				.text(String(i).padStart(2, "0"));
 		});
 		$(".front-service__count").text(String(i).padStart(2, "0"));
+		let slide = 1;
+		let slideLenght = $(".front-service-bg__bg").length;
+
 		const frontServicesSlider = new Swiper(
 			".front-services-slider-content",
 			{
-				speed: 400,
-				spaceBetween: 500,
+				speed: 1,
+				spaceBetween: 0,
 				loop: true,
-				effect: "fade",
-				fadeEffect: {
-					crossFade: true,
-				},
+				allowTouchMove: false,
+				// effect: "fade",
+
+				// fadeEffect: {
+				// 	crossFade: true,
+				// },
 			}
 		);
+
 		const frontServicesSliderBg = new Swiper(".front-services-slider-bg", {
 			speed: 800,
+			allowTouchMove: true,
 			spaceBetween: 500,
 			loop: true,
+			watchSlidesProgress: true,
+			thumbs: {
+				swiper: frontServicesSlider,
+			},
+			// effect: "creative",
+			// creativeEffect: {
+			// 	prev: {
+			// 		shadow: false,
+			// 		translate: ["-120%", 0, -500],
+			// 	},
+			// 	next: {
+			// 		shadow: false,
+			// 		translate: ["120%", 0, -500],
+			// 	},
+			// },
 		});
-		frontServicesSlider.on("slideChange", function (swiper) {
-			frontServicesSliderBg.slideTo(swiper.activeIndex);
+		frontServicesSliderBg.on("slideChange", function (swiper) {
+			frontServicesSlider.slideTo(swiper.realIndex + 1);
+			// console.log(
+			// 	frontServicesSlider.activeIndex,
+			// 	frontServicesSliderBg.activeIndex
+			// );
 		});
-		$(".front-service__prev").click(function () {
-			frontServicesSlider.slidePrev();
+		$(document).on("click", ".front-service__prev", function () {
+			// console.log("front-service__prev", slide);
+			// frontServicesSlider.slidePrev();
+			frontServicesSliderBg.slidePrev();
+			// slide--;
+			// slide == -1 ? (slide = slideLenght - 1) : (slide = slide);
+			// frontServicesSliderBg.slideTo(slide);
+			// frontServicesSlider.slideTo(slide);
+			// console.log("slide", slide);
 		});
-		$(".front-service__next").click(function () {
-			frontServicesSlider.slideNext();
+		$(document).on("click", ".front-service__next", function () {
+			// frontServicesSlider.slideNext();
+			frontServicesSliderBg.slideNext();
+			// slide++;
+			// slide == slideLenght ? (slide = 0) : (slide = slide);
+
+			// frontServicesSliderBg.slideTo(slide);
+			// frontServicesSlider.slideTo(slide);
+			// console.log("slide", slide);
 		});
 	}
 	if ($(".front-environ").length) {

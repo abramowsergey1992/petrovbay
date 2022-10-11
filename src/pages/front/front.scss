@@ -12,7 +12,7 @@
 
 .front-top__traveline-wrapper {
 	width: 100%;
-	max-width: 976px;
+	max-width: 976px + 30px;
 	display: flex;
 	padding: 0 15px;
 	flex-direction: row;
@@ -23,6 +23,11 @@
 	bottom: -244px;
 	opacity: 0;
 	transition: bottom 0.4s, opacity 0.4s;
+
+	button,
+	input {
+		font-family: "Manrope", sans-serif;
+	}
 
 	.front-top[state="static"] & {
 		bottom: 44px;
@@ -64,8 +69,8 @@
 }
 
 .front-top .traveline__count {
-	text-align: center;
-	cursor: pointer
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .front-top.traveline__children {
@@ -230,9 +235,7 @@
 }
 
 .front-top .traveline__block._departure {
-	&::after {
-		display: none;
-	}
+	&::after {}
 }
 
 .traveline__block._submit {
@@ -273,8 +276,24 @@
 	}
 }
 
-.front-top .traveline__block._counter,
+.traveline__go {
+	white-space: nowrap;
+}
+
 .front-top .traveline__block._submit {
+	max-width: initial;
+	width: initial;
+
+	text-align: center;
+
+	@media(max-width:992px) {
+		grid-column: span 2;
+		max-width: 100%;
+		width: 100%;
+	}
+}
+
+.front-top .traveline__block._counter {
 	max-width: 100%;
 	width: 100%;
 
@@ -308,6 +327,7 @@
 	margin-bottom: 4px;
 	letter-spacing: -.04em;
 	text-transform: uppercase;
+	text-align: left;
 
 	@media(max-width:992px) {
 		font-size: 10px;
@@ -326,6 +346,7 @@
 	cursor: pointer;
 	font-weight: 600;
 	font-size: 20px;
+	letter-spacing: -0.03em;
 	line-height: 24px;
 	background: transparent;
 
@@ -1562,6 +1583,8 @@
 
 .front-services-slider-bg {
 	overflow: visible;
+	position: relative;
+
 }
 
 .front-service-bg {

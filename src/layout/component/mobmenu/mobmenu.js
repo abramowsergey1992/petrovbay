@@ -1,15 +1,16 @@
 $(function () {
 	var mobGallery = new Swiper(".mobmenu__gallery", {
-		speed: 9000,
+		speed: 2000,
 		loop: true,
 		loopAdditionalSlides: 5,
 		allowTouchMove: false,
+		centeredSlides: true,
 		observer: true,
 		observeParents: true,
 		direction: "vertical",
-		slidesPerView: 2,
+		slidesPerView: "auto",
 		autoplay: {
-			delay: 1,
+			delay: 3000,
 		},
 		breakpoints: {
 			991: {
@@ -20,16 +21,17 @@ $(function () {
 	$(".header__burger").click(function () {
 		$(".mobmenu").fadeIn();
 		var mobGallery = new Swiper(".mobmenu__gallery", {
-			speed: 9000,
+			speed: 2000,
 			loop: true,
+			centeredSlides: true,
 			loopAdditionalSlides: 5,
 			allowTouchMove: false,
 			observer: true,
 			observeParents: true,
 			direction: "vertical",
-			slidesPerView: 2,
+			slidesPerView: "auto",
 			autoplay: {
-				delay: 1,
+				delay: 3000,
 			},
 			breakpoints: {
 				991: {

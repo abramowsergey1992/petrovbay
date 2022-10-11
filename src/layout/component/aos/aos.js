@@ -172,11 +172,9 @@ $(function () {
 		});
 	});
 	if ($(".front-top").length) {
-		// Add event listener
 		document.addEventListener("mousemove", parallax);
 		const elem = document.querySelector(".front-top__bg-blur._top");
 		const elem2 = document.querySelector(".front-top__bg-blur._down");
-		// Magic happens here
 
 		function parallax(e) {
 			let _w = window.innerWidth / 2;
@@ -187,7 +185,6 @@ $(function () {
 			let _depth2 = `${(_mouseY - _h) * 0.005}%`;
 
 			let x = `translateX(${_depth1}) translateY(${_depth2})`;
-			console.log(x);
 			elem.style.marginLeft = _depth1;
 			elem.style.marginTop = _depth2;
 			elem2.style.marginLeft = _depth1;

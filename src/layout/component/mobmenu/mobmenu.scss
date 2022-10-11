@@ -1,3 +1,8 @@
+#mobmenu .header__left .header__burger-close {
+    cursor: pointer;
+    border-color: #f4cb78 !important;
+}
+
 .mobmenu {
     position: fixed;
     left: 0;
@@ -162,7 +167,14 @@
     width: 319px;
     border-radius: 1000px;
     overflow: hidden;
+    height: initial !important;
     position: relative;
+
+    &::before {
+        display: block;
+        content: '';
+        padding-bottom: 150%;
+    }
 
     img {
         position: absolute;
@@ -187,11 +199,11 @@
 
     &.swiper-slide-active {}
 
-    &:hover {
-        &::after {
-            opacity: 0;
-        }
-    }
+    // &:hover {
+    //     &::after {
+    //         opacity: 0;
+    //     }
+    // }
 }
 
 .mobmenu__gallery._left {
