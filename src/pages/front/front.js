@@ -124,22 +124,19 @@ $(function () {
 						$counter.val(`${val}`);
 					}
 				}
-				let adultsCounts = Number.parseInt(
-					$(".traveline__counter-inpt.adults").val()
-				);
-				let childrenCounts = Number.parseInt(
-					$(".traveline__counter-inpt.children").val()
-				);
+				let humanCounts =
+					Number.parseInt(
+						$(".traveline__counter-inpt.adults").val()
+					) +
+					Number.parseInt(
+						$(".traveline__counter-inpt.children").val()
+					);
 
 				$(".traveline__count").val(
-					`${adultsCounts} ${declination(adultsCounts, [
-						" взрослый",
-						" взрослых",
-						" взрослых",
-					])},${childrenCounts} ${declination(childrenCounts, [
-						" ребенок",
-						" ребенка",
-						" детей",
+					`${humanCounts} ${declination(humanCounts, [
+						" человек",
+						" человека",
+						" человека",
 					])}`
 				);
 				if ($counter.hasClass("children")) {
@@ -175,22 +172,19 @@ $(function () {
 					Number.parseInt(
 						$(".traveline__counter-inpt.children").val()
 					);
-				let adultsCounts = Number.parseInt(
-					$(".traveline__counter-inpt.adults").val()
-				);
-				let childrenCounts = Number.parseInt(
-					$(".traveline__counter-inpt.children").val()
-				);
+				let humanCounts =
+					Number.parseInt(
+						$(".traveline__counter-inpt.adults").val()
+					) +
+					Number.parseInt(
+						$(".traveline__counter-inpt.children").val()
+					);
 
 				$(".traveline__count").val(
-					`${adultsCounts} ${declination(adultsCounts, [
-						" взрослый",
-						" взрослых",
-						" взрослых",
-					])},${childrenCounts} ${declination(childrenCounts, [
-						" ребенок",
-						" ребенка",
-						" детей",
+					`${humanCounts} ${declination(humanCounts, [
+						" человек",
+						" человека",
+						" человека",
 					])}`
 				);
 
