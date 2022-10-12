@@ -90,21 +90,31 @@ $(function () {
 		);
 	});
 
+	let x = 0;
+	let offset = 0;
+	var smallScreen = window.matchMedia("(max-width: 992px)");
+	if (smallScreen.matches) {
+		offset = 0;
+	} else {
+		offset = -200;
+	}
 	$(".audio-player").each(function () {
 		let $th = $(this);
+		x++;
+
 		scenes.push(
 			new ScrollMagic.Scene({
 				triggerElement: this,
-				duration: 300,
+				duration: window.innerHeight - 100,
+				offset: offset,
 			})
-				.triggerHook(0.7)
-				// .addIndicators({ name: "2 (duration: 300)" }) // add indicators (requires plugin)
-				.on("enter", function () {
-					console.log("enter", $th);
-					$th.find(".audio-player__play").trigger("click");
-				})
+				.triggerHook(1)
+				// .addIndicators({ name: x + " (duration: 300)" }) // add indicators (requires plugin)
+				// .on("enter", function () {
+				// 	console.log("enter", $th);
+				// 	$th.find(".audio-player__play").trigger("click");
+				// })
 				.on("leave", function () {
-					console.log("leave", $th);
 					$th.find(".audio-player__stop").trigger("click");
 				})
 				.addTo(controller)
