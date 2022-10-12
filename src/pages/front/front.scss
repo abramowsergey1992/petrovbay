@@ -157,7 +157,12 @@
 	transform: translateX(-75px);
 	text-align: left;
 	background: #fff;
-	box-shadow: 0 0 6px 3px #0000003d
+	box-shadow: 0 0 6px 3px #0000003d;
+
+	@media(max-width:992px) {
+		transform: translateX(-50%);
+		left: 50%;
+	}
 }
 
 .front-top .traveline__popup._show {
@@ -762,15 +767,15 @@
 
 			@media(max-width:992px) {
 				mask-size: 94%;
-				mask-position: center 106px;
+				mask-position: center -96px;
 				mask-image: url("data:image/svg+xml,%3Csvg width='1002' height='1485' viewBox='0 0 1002 1485' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1002' height='1485' rx='541' fill='black'/%3E%3C/svg%3E%0A");
 			}
 
-			@media(max-height:600px) {
-				mask-size: 94%;
-				mask-position: center bottom 30px !important;
-				mask-image: url("data:image/svg+xml,%3Csvg width='1002' height='1485' viewBox='0 0 1002 1485' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1002' height='1485' rx='541' fill='black'/%3E%3C/svg%3E%0A");
-			}
+			// @media(max-height:600px) {
+			// 	mask-size: 94%;
+			// 	mask-position: center bottom 30px !important;
+			// 	mask-image: url("data:image/svg+xml,%3Csvg width='1002' height='1485' viewBox='0 0 1002 1485' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1002' height='1485' rx='541' fill='black'/%3E%3C/svg%3E%0A");
+			// }
 
 			@media (max-width:1100px) {
 				mask-size: 94%;
@@ -817,10 +822,11 @@
 			bottom: 210px;
 
 			@media(max-width:992px) {
-				margin-top: 39px !important;
+				margin-top: 0 !important;
 				max-width: 94%;
 				transform: translateX(-50%) scale(1.1);
-				top: 65px;
+				top: -105px;
+				bottom: initial;
 			}
 		}
 
@@ -921,6 +927,19 @@
 
 	&__slogan {
 		padding: 0px 20px;
+		transition: opacity 0.5s 0.5s,
+			transform 0.5s 0.5s;
+
+		.front-top[state="end"] & {
+			opacity: 0.5;
+			transform: translateY(-50px);
+
+			@media(min-width:992px) {
+
+				transform: translateY(-200px);
+			}
+
+		}
 	}
 
 	&__slogan-line {
@@ -931,16 +950,9 @@
 
 		opacity: 0;
 		// filter: blur(100px);
-		transition: opacity 0.5s 0.5s,
-		transform 0.5s 0.5s;
 
-		.front-top[state="end"] & {
-			@media(min-width:992px) {
-				opacity: 0.5;
-				transform: translateY(-200px);
-			}
 
-		}
+
 
 		&._it-1 {
 			animation-delay: 1s !important;
@@ -1260,7 +1272,7 @@
 			width: 80%;
 			right: 0%;
 			max-width: 500px;
-			top: 0
+			top: 7%
 		}
 	}
 

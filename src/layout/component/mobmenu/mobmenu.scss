@@ -102,6 +102,33 @@
                 text-transform: uppercase;
                 text-decoration: none;
                 transition: color 0.3s;
+                display: block;
+                position: relative;
+                padding-right: 50px;
+
+                &::after {
+                    display: block;
+                    content: '';
+                    background-image: url("data:image/svg+xml,%3Csvg width='28' height='28' xmlns='http://www.w3.org/2000/svg' fill='none'%3E%3Cpath stroke-width='3' stroke='%23F4CB78' d='M25.664 1.966H1.278M25.602.476l.062 25.877M24.04 3.09 1.278 26.353'/%3E%3C/svg%3E");
+                    width: 28px;
+                    height: 28px;
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    opacity: 0;
+                    transition: opacity 0.2s;
+
+                    @media(max-width:992px) {
+                        display: none;
+                    }
+                }
+
+                &:hover {
+                    &::after {
+                        opacity: 1;
+                    }
+                }
 
                 @media(max-width:992px) {
                     font-size: 24px;
