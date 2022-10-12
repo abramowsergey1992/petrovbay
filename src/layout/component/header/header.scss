@@ -106,8 +106,31 @@
         font-size: 16px;
         line-height: 20px;
         /* identical to box height, or 125% */
-
+        height: 20px;
+        position: relative;
         letter-spacing: -0.03em;
+        width: 120px;
+        overflow: hidden;
+
+        &-wrap {
+            transition: transform 0.3s;
+
+            .header__temp._water & {
+                transform: translateY(-20px);
+            }
+        }
+
+        span {
+            position: relative;
+            left: 0;
+            display: block;
+            top: 0;
+
+        }
+
+        ._water {
+            span {}
+        }
 
         color: #2F2F2F;
 

@@ -24,7 +24,7 @@
         flex-direction: column;
         min-height: initial;
 
-        padding-bottom: 370px;
+        padding-bottom: 300px;
 
         &._empty {
             padding-bottom: 30px;
@@ -183,6 +183,10 @@
         align-items: center;
         justify-items: center;
         justify-content: center;
+
+        @media(max-width:992px) {
+            height: 263px;
+        }
 
         .info-item__link-wrap+& {
             img {

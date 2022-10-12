@@ -85,7 +85,8 @@
         @media(max-width:992px) {
             width: 150px;
             right: 0;
-            top: 50%;
+            top: initial;
+            bottom: -202px;
         }
     }
 
