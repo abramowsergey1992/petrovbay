@@ -711,6 +711,14 @@
 			mask-image: url("data:image/svg+xml,%3Csvg width='1002' height='1485' viewBox='0 0 1002 1485' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1002' height='1485' rx='541' fill='black'/%3E%3C/svg%3E%0A") !important;
 		}
 
+		img {
+			z-index: 1;
+		}
+
+		video {
+			z-index: 3;
+		}
+
 		img,
 		video {
 			object-fit: cover;
