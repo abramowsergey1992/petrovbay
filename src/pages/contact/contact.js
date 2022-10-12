@@ -6,7 +6,7 @@ function createMap1() {
 	var myMap = new ymaps.Map("map", {
 		center: [43.26501443195482, 132.05784293338527],
 		zoom: 11,
-		// controls: ["zoom"],
+		controls: [],
 		// behaviors: [
 		// 	"drag",
 		// 	"dblClickZoom",
@@ -22,6 +22,7 @@ function createMap1() {
 			],
 			params: {
 				// viaIndexes: [1],
+				results: 1,
 				wayPointFinishIconContent: "sasd",
 			},
 		},
@@ -33,6 +34,7 @@ function createMap1() {
 	);
 	// Включение режима редактирования.
 	// multiRoute.editor.start();
+	console.log("multiRoute", multiRoute);
 	myMap.geoObjects.add(multiRoute);
 }
 
