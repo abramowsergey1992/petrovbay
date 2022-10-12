@@ -1,3 +1,72 @@
+ymaps.ready(function () {
+	createMap1();
+});
+
+function createMap1() {
+	var myMap = new ymaps.Map("map", {
+		center: [43.26501443195482, 132.05784293338527],
+		zoom: 11,
+		// controls: ["zoom"],
+		// behaviors: [
+		// 	"drag",
+		// 	"dblClickZoom",
+		// 	"multiTouch",
+		// 	"rightMouseButtonMagnifier",
+		// ],
+	});
+	var multiRoute = new ymaps.multiRouter.MultiRoute(
+		{
+			referencePoints: [
+				"Владивосток",
+				[42.87537418528538, 133.8031125095581],
+			],
+			params: {
+				// viaIndexes: [1],
+				wayPointFinishIconContent: "sasd",
+			},
+		},
+		{
+			wayPointFinishIconContent: "sasd",
+
+			boundsAutoApply: true,
+		}
+	);
+	// Включение режима редактирования.
+	// multiRoute.editor.start();
+	myMap.geoObjects.add(multiRoute);
+}
+
+$(function () {
+	if ($("#contact-form").length) {
+		let validContacnt = $("#contact-form").validate({
+			errorPlacement: function (error, element) {},
+			submitHandler: function (form) {
+				$(".contact-form__btn").attr("disabled", "disabled");
+				$.ajax({
+					url: $(form).attr("action"),
+					data: $(form).serialize(),
+					method: "POST",
+					headers: {
+						"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+							"content"
+						),
+					},
+					context: document.body,
+					success: function () {
+						alert("Форма отправленна успешно");
+						$(".contact-form__btn").removeAttr("disabled");
+					},
+					error: function () {
+						alert("Ошибка");
+						$(".contact-form__btn").removeAttr("disabled");
+					},
+				});
+			},
+		});
+	}
+});
+
+$(function(){})
 $(function () {
 	function declination(number, titles) {
 		cases = [2, 0, 1, 1, 1, 2];
@@ -404,37 +473,6 @@ $(function () {
 	}
 });
 
-$(function () {
-	if ($("#contact-form").length) {
-		let validContacnt = $("#contact-form").validate({
-			errorPlacement: function (error, element) {},
-			submitHandler: function (form) {
-				$(".contact-form__btn").attr("disabled", "disabled");
-				$.ajax({
-					url: $(form).attr("action"),
-					data: $(form).serialize(),
-					method: "POST",
-					headers: {
-						"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
-							"content"
-						),
-					},
-					context: document.body,
-					success: function () {
-						alert("Форма отправленна успешно");
-						$(".contact-form__btn").removeAttr("disabled");
-					},
-					error: function () {
-						alert("Ошибка");
-						$(".contact-form__btn").removeAttr("disabled");
-					},
-				});
-			},
-		});
-	}
-});
-
-$(function(){})
 $(function(){})
 $(function(){})
 $(function(){})
@@ -869,7 +907,6 @@ $(function () {
 	});
 });
 
-$(function(){})
 $(function () {
 	$(".btn").each(function () {
 		$(this).html(
@@ -888,15 +925,6 @@ $(function () {
 });
 
 $(function(){})
-$(function () {
-	$("._mask-phone").each(function () {
-		Inputmask("+7 (999) 999-99-99").mask(this);
-	});
-	$("._mask-date").each(function () {
-		Inputmask("99.99.9999").mask(this);
-	});
-});
-
 $(function () {
 	Fancybox.defaults.backFocus = false;
 	$(" .gallery-slider__padding ").css(
@@ -980,6 +1008,24 @@ $(function () {
 });
 
 $(function () {
+	if ($(".header__temp").length) {
+		setInterval(function () {
+			$(".header__temp").toggleClass("_water");
+		}, 5000);
+	}
+});
+
+$(function(){})
+$(function () {
+	$("._mask-phone").each(function () {
+		Inputmask("+7 (999) 999-99-99").mask(this);
+	});
+	$("._mask-date").each(function () {
+		Inputmask("99.99.9999").mask(this);
+	});
+});
+
+$(function () {
 	var mobGallery = new Swiper(".mobmenu__gallery", {
 		speed: 2000,
 		loop: true,
@@ -1027,108 +1073,6 @@ $(function () {
 });
 
 $(function () {
-	$("[data-popup]").click(function () {
-		let $popup = $($(this).data("popup"));
-		$popup.addClass("_display");
-		setTimeout(function () {
-			$popup.addClass("_animate");
-		}, 100);
-	});
-	$(".popup__close,.popup__overlay").click(function () {
-		let $popup = $(this).closest(".popup");
-		$popup.removeClass("_animate");
-		setTimeout(function () {
-			$popup.removeClass("_display");
-		}, 1000);
-	});
-});
-
-$(function () {
-	if ($(".header__temp").length) {
-		setInterval(function () {
-			$(".header__temp").toggleClass("_water");
-		}, 5000);
-	}
-});
-
-let step = 50;
-let timeM = 0;
-let timeMinutMax = 1000;
-let timeH = 0;
-let timeHoursMax = timeMinutMax * 12;
-let delta = 1;
-let start = false;
-let hours = document.querySelector(".preloader__arrow-hours");
-let minuts = document.querySelector(".preloader__arrow-minuts");
-let preloader = setInterval(function () {
-	minuts.style.transform = `rotate(${
-		(360 / 100) * (100 / (timeMinutMax / timeM))
-	}deg)`;
-	hours.style.transform = `rotate(${
-		(360 / 100) * (100 / (timeHoursMax / timeH))
-	}deg)`;
-	if (start) {
-		delta > 0 ? (delta -= step / 1000 / 2) : (delta = 0);
-	}
-	timeM < timeMinutMax ? (timeM += step * delta) : (timeM = 0);
-	timeH < timeHoursMax ? (timeH += step * delta) : (timeH = 0);
-}, step);
-$(function () {
-	setTimeout(function () {
-		start = true;
-		$(".preloader").addClass("_start");
-		setTimeout(function () {
-			$(".preloader").fadeOut(1000, function () {
-				$("body").addClass("load");
-				clearInterval(preloader);
-			});
-		}, 2000);
-	}, 2000);
-});
-
-$(function(){})
-var vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty("--vh", `${vh}px`);
-var width = window.innerWidth;
-window.addEventListener("resize", () => {
-	if (width != window.innerWidth) {
-		var vh = window.innerHeight * 0.01;
-		document.documentElement.style.setProperty("--vh", `${vh}px`);
-		width = window.innerWidth;
-	}
-});
-
-$(function () {
-	if ($(".residence-slider").length) {
-		$(".residence-slider").each(function () {
-			let i = 0;
-			$(this)
-				.find(".swiper-slide")
-				.each(function () {
-					i++;
-					$(this)
-						.find(".residence-slide__paginator-now")
-						.text(String(i).padStart(2, "0"));
-				});
-			$(".residence-slide__paginator-all").text(
-				String(i).padStart(2, "0")
-			);
-			const frontResidenceSlider = new Swiper(this, {
-				speed: 400,
-				spaceBetween: 0,
-				loop: true,
-				// effect: "fade",
-
-				navigation: {
-					nextEl: $(this).find(".residence-slider__nav-next")[0],
-					prevEl: $(this).find(".residence-slider__nav-prev")[0],
-				},
-			});
-		});
-	}
-});
-
-$(function () {
 	$.fn.plaxmove = function (options) {
 		this.defaults = {
 			ratioH: 0.013,
@@ -1169,3 +1113,98 @@ $(function () {
 		});
 	});
 });
+
+$(function () {
+	$("[data-popup]").click(function () {
+		let $popup = $($(this).data("popup"));
+		$popup.addClass("_display");
+		setTimeout(function () {
+			$popup.addClass("_animate");
+		}, 100);
+	});
+	$(".popup__close,.popup__overlay").click(function () {
+		let $popup = $(this).closest(".popup");
+		$popup.removeClass("_animate");
+		setTimeout(function () {
+			$popup.removeClass("_display");
+		}, 1000);
+	});
+});
+
+let step = 50;
+let timeM = 0;
+let timeMinutMax = 1000;
+let timeH = 0;
+let timeHoursMax = timeMinutMax * 12;
+let delta = 1;
+let start = false;
+let hours = document.querySelector(".preloader__arrow-hours");
+let minuts = document.querySelector(".preloader__arrow-minuts");
+let preloader = setInterval(function () {
+	minuts.style.transform = `rotate(${
+		(360 / 100) * (100 / (timeMinutMax / timeM))
+	}deg)`;
+	hours.style.transform = `rotate(${
+		(360 / 100) * (100 / (timeHoursMax / timeH))
+	}deg)`;
+	if (start) {
+		delta > 0 ? (delta -= step / 1000 / 2) : (delta = 0);
+	}
+	timeM < timeMinutMax ? (timeM += step * delta) : (timeM = 0);
+	timeH < timeHoursMax ? (timeH += step * delta) : (timeH = 0);
+}, step);
+$(function () {
+	setTimeout(function () {
+		start = true;
+		$(".preloader").addClass("_start");
+		setTimeout(function () {
+			$(".preloader").fadeOut(1000, function () {
+				$("body").addClass("load");
+				clearInterval(preloader);
+			});
+		}, 2000);
+	}, 2000);
+});
+
+$(function () {
+	if ($(".residence-slider").length) {
+		$(".residence-slider").each(function () {
+			let i = 0;
+			$(this)
+				.find(".swiper-slide")
+				.each(function () {
+					i++;
+					$(this)
+						.find(".residence-slide__paginator-now")
+						.text(String(i).padStart(2, "0"));
+				});
+			$(".residence-slide__paginator-all").text(
+				String(i).padStart(2, "0")
+			);
+			const frontResidenceSlider = new Swiper(this, {
+				speed: 400,
+				spaceBetween: 0,
+				loop: true,
+				// effect: "fade",
+
+				navigation: {
+					nextEl: $(this).find(".residence-slider__nav-next")[0],
+					prevEl: $(this).find(".residence-slider__nav-prev")[0],
+				},
+			});
+		});
+	}
+});
+
+var vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty("--vh", `${vh}px`);
+var width = window.innerWidth;
+window.addEventListener("resize", () => {
+	if (width != window.innerWidth) {
+		var vh = window.innerHeight * 0.01;
+		document.documentElement.style.setProperty("--vh", `${vh}px`);
+		width = window.innerWidth;
+	}
+});
+
+$(function(){})

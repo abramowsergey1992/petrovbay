@@ -1,3 +1,41 @@
+ymaps.ready(function () {
+	createMap1();
+});
+
+function createMap1() {
+	var myMap = new ymaps.Map("map", {
+		center: [43.26501443195482, 132.05784293338527],
+		zoom: 11,
+		// controls: ["zoom"],
+		// behaviors: [
+		// 	"drag",
+		// 	"dblClickZoom",
+		// 	"multiTouch",
+		// 	"rightMouseButtonMagnifier",
+		// ],
+	});
+	var multiRoute = new ymaps.multiRouter.MultiRoute(
+		{
+			referencePoints: [
+				"Владивосток",
+				[42.87537418528538, 133.8031125095581],
+			],
+			params: {
+				// viaIndexes: [1],
+				wayPointFinishIconContent: "sasd",
+			},
+		},
+		{
+			wayPointFinishIconContent: "sasd",
+
+			boundsAutoApply: true,
+		}
+	);
+	// Включение режима редактирования.
+	// multiRoute.editor.start();
+	myMap.geoObjects.add(multiRoute);
+}
+
 $(function () {
 	if ($("#contact-form").length) {
 		let validContacnt = $("#contact-form").validate({

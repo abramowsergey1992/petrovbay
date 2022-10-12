@@ -24,7 +24,7 @@
         flex-direction: column;
         min-height: initial;
 
-        padding-bottom: 300px;
+        padding-bottom: 270px;
 
         &._empty {
             padding-bottom: 30px;
@@ -185,7 +185,7 @@
         justify-content: center;
 
         @media(max-width:992px) {
-            height: 263px;
+            height: 243px;
         }
 
         .info-item__link-wrap+& {
