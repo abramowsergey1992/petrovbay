@@ -1,6 +1,6 @@
 $(function () {
 	var mobGallery = new Swiper(".mobmenu__gallery", {
-		speed: 2000,
+		speed: 5000,
 		loop: true,
 		loopAdditionalSlides: 5,
 		allowTouchMove: false,
@@ -10,7 +10,7 @@ $(function () {
 		direction: "vertical",
 		slidesPerView: "auto",
 		autoplay: {
-			delay: 3000,
+			delay: 2000,
 		},
 		breakpoints: {
 			991: {

@@ -3,39 +3,41 @@ ymaps.ready(function () {
 });
 
 function createMap1() {
-	var myMap = new ymaps.Map("map", {
-		center: [43.26501443195482, 132.05784293338527],
-		zoom: 11,
-		controls: [],
-		// behaviors: [
-		// 	"drag",
-		// 	"dblClickZoom",
-		// 	"multiTouch",
-		// 	"rightMouseButtonMagnifier",
-		// ],
-	});
-	var multiRoute = new ymaps.multiRouter.MultiRoute(
-		{
-			referencePoints: [
-				"Владивосток",
-				[42.87537418528538, 133.8031125095581],
-			],
-			params: {
-				// viaIndexes: [1],
-				results: 1,
-				wayPointFinishIconContent: "sasd",
+	if ($("#map").length) {
+		var myMap = new ymaps.Map("map", {
+			center: [43.26501443195482, 132.05784293338527],
+			zoom: 11,
+			controls: [],
+			// behaviors: [
+			// 	"drag",
+			// 	"dblClickZoom",
+			// 	"multiTouch",
+			// 	"rightMouseButtonMagnifier",
+			// ],
+		});
+		var multiRoute = new ymaps.multiRouter.MultiRoute(
+			{
+				referencePoints: [
+					"Владивосток",
+					[42.87537418528538, 133.8031125095581],
+				],
+				params: {
+					// viaIndexes: [1],
+					results: 1,
+					wayPointFinishIconContent: "sasd",
+				},
 			},
-		},
-		{
-			wayPointFinishIconContent: "sasd",
+			{
+				wayPointFinishIconContent: "sasd",
 
-			boundsAutoApply: true,
-		}
-	);
-	// Включение режима редактирования.
-	// multiRoute.editor.start();
-	console.log("multiRoute", multiRoute);
-	myMap.geoObjects.add(multiRoute);
+				boundsAutoApply: true,
+			}
+		);
+		// Включение режима редактирования.
+		// multiRoute.editor.start();
+		console.log("multiRoute", multiRoute);
+		myMap.geoObjects.add(multiRoute);
+	}
 }
 
 $(function () {

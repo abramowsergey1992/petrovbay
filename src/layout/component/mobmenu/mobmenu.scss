@@ -164,6 +164,7 @@
 
         &._right {
             transform: scaleY(-1);
+            margin-top: -200px;
 
             .mobmenu-gallery-it {
                 transform: scaleY(-1);
@@ -184,7 +185,7 @@
         }
 
         .swiper-wrapper {
-            transition-timing-function: linear !important;
+            // transition-timing-function: linear !important;
         }
 
     }

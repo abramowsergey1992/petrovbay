@@ -1,42 +1,45 @@
 $(function(){})
+$(function(){})
 ymaps.ready(function () {
 	createMap1();
 });
 
 function createMap1() {
-	var myMap = new ymaps.Map("map", {
-		center: [43.26501443195482, 132.05784293338527],
-		zoom: 11,
-		controls: [],
-		// behaviors: [
-		// 	"drag",
-		// 	"dblClickZoom",
-		// 	"multiTouch",
-		// 	"rightMouseButtonMagnifier",
-		// ],
-	});
-	var multiRoute = new ymaps.multiRouter.MultiRoute(
-		{
-			referencePoints: [
-				"Владивосток",
-				[42.87537418528538, 133.8031125095581],
-			],
-			params: {
-				// viaIndexes: [1],
-				results: 1,
-				wayPointFinishIconContent: "sasd",
+	if ($("#map").length) {
+		var myMap = new ymaps.Map("map", {
+			center: [43.26501443195482, 132.05784293338527],
+			zoom: 11,
+			controls: [],
+			// behaviors: [
+			// 	"drag",
+			// 	"dblClickZoom",
+			// 	"multiTouch",
+			// 	"rightMouseButtonMagnifier",
+			// ],
+		});
+		var multiRoute = new ymaps.multiRouter.MultiRoute(
+			{
+				referencePoints: [
+					"Владивосток",
+					[42.87537418528538, 133.8031125095581],
+				],
+				params: {
+					// viaIndexes: [1],
+					results: 1,
+					wayPointFinishIconContent: "sasd",
+				},
 			},
-		},
-		{
-			wayPointFinishIconContent: "sasd",
+			{
+				wayPointFinishIconContent: "sasd",
 
-			boundsAutoApply: true,
-		}
-	);
-	// Включение режима редактирования.
-	// multiRoute.editor.start();
-	console.log("multiRoute", multiRoute);
-	myMap.geoObjects.add(multiRoute);
+				boundsAutoApply: true,
+			}
+		);
+		// Включение режима редактирования.
+		// multiRoute.editor.start();
+		console.log("multiRoute", multiRoute);
+		myMap.geoObjects.add(multiRoute);
+	}
 }
 
 $(function () {
@@ -476,7 +479,6 @@ $(function () {
 	}
 });
 
-$(function(){})
 $(function(){})
 $(function(){})
 $(function(){})
@@ -1030,7 +1032,7 @@ $(function () {
 
 $(function () {
 	var mobGallery = new Swiper(".mobmenu__gallery", {
-		speed: 2000,
+		speed: 5000,
 		loop: true,
 		loopAdditionalSlides: 5,
 		allowTouchMove: false,
@@ -1040,7 +1042,7 @@ $(function () {
 		direction: "vertical",
 		slidesPerView: "auto",
 		autoplay: {
-			delay: 3000,
+			delay: 2000,
 		},
 		breakpoints: {
 			991: {

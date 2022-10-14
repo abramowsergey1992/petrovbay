@@ -372,7 +372,7 @@
 
 	&::after {
 		display: inline-block;
-		background-image: url("data:image/svg+xml,%3Csvg width='9' height='9' viewBox='0 0 9 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.62325 8.16876V1.29999M7.62325 1.29999H0.781318M7.62325 1.29999L0.781318 8.16876' stroke='white' stroke-width='2'/%3E%3C/svg%3E%0A");
+		background-image: url("data:image/svg+xml,%0A%3Csvg width='9' height='9' viewBox='0 0 9 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.781315 0.298039H8.62129V8.16876L6.62521 8.16876V3.71893L1.48704 8.87725L0.0755934 7.46027L5.21376 2.30195L0.781315 2.30195L0.781315 0.298039Z' fill='white'/%3E%3C/svg%3E%0A");
 		width: 9px;
 		height: 9px;
 		content: '';
@@ -768,6 +768,7 @@
 			width: 100%;
 			height: 100%;
 			background: rgba($color: #000000, $alpha: 0.2);
+			z-index: 10;
 		}
 
 		.front-top[state="top"] & {

@@ -8,6 +8,10 @@
     background: transparent;
     overflow: hidden;
 
+    .mobmenu & {
+        background: rgba(#fff, 0.5);
+    }
+
     &__logomob-wrapper {
         line-height: 0;
         position: absolute;
@@ -253,6 +257,7 @@
             color: #FFFFFF;
         }
 
+        .mobmenu &,
         .header._not-top & {
             color: #2F2F2F !important;
         }
