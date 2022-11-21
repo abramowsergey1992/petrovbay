@@ -16,6 +16,7 @@ $(function () {
 			const frontResidenceSlider = new Swiper(this, {
 				speed: 400,
 				spaceBetween: 0,
+				preventClicks: true,
 				loop: true,
 				// effect: "fade",
 

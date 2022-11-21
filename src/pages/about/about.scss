@@ -5,17 +5,33 @@
     &__stone-1 {
         right: 25%;
         top: -200px;
+
+        @media(max-width:992px) {
+            right: 0%;
+            max-width: 200px;
+            top: -200px;
+        }
     }
 
     &__stone-2 {
         right: 45%;
         bottom: -200px;
+
+        @media(max-width:992px) {
+            right: 0;
+            bottom: -200px;
+            width: 120px;
+        }
     }
 
     &__row {
         display: grid;
         grid-template-columns: 60% auto;
         grid-gap: 22px;
+
+        @media(max-width:992px) {
+            grid-template-columns: 1fr;
+        }
     }
 
     &__left {
@@ -25,13 +41,27 @@
             line-height: 117%;
             letter-spacing: -0.03em;
             color: #856F5D;
+
+            @media(max-width:992px) {
+                font-size: 24px;
+            }
         }
     }
 
     &__right {
         padding-top: 200px;
 
+        @media(max-width:992px) {
+            padding-top: 0;
+        }
+
         p {
+            @media(max-width:992px) {
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 20px;
+            }
+
             font-size: 24px;
             line-height: 133%;
             color: #856F5D;
@@ -45,9 +75,13 @@
 
 .about-map {
     position: relative;
-    padding-top: 75px;
-    padding-bottom: 90px;
+
     color: #fff;
+
+    .block {
+        padding-top: 75px;
+        padding-bottom: 90px;
+    }
 
     .sub-title {
         color: #fff;
@@ -61,6 +95,17 @@
         display: grid;
         grid-template-columns: auto 433px;
         grid-gap: 40px;
+
+        @media(max-width:992px) {
+            grid-template-columns: 1fr;
+            grid-gap: 20px;
+        }
+    }
+
+    &__text {
+        @media(max-width:992px) {
+            text-align: center
+        }
     }
 
     &__title {
@@ -102,10 +147,23 @@
     &__cone-1 {
         top: 40%;
         right: 140px;
+
+        @media(max-width:992px) {
+            top: -60px;
+            right: -70px;
+            width: 250px;
+        }
     }
 
     &__cone-2 {
         top: 65%;
         right: 2%;
+
+        @media(max-width:992px) {
+            top: initial;
+            right: 0;
+            bottom: -50px;
+            width: 140px;
+        }
     }
 }

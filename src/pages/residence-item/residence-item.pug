@@ -10,124 +10,130 @@ block content
 				li.icon-capacity вместимость до 12 человек 
 				li.icon-room 5 комнат
 		.residence-top.block
-			.residence-top__left 
-				+picture('resid','jpg')
+			.residence-top__left
+				.bg-scale.residence-top__photo
+					+picture('resid','jpg')
 			.residence-top__right
 				h1 5-ти комнатный коттедж из сруба
 				p Большой дом из сруба ели, вручную сложенный сибирскими мастерами. Настоящая сказка! Здесь очень сладко дышится и спится.
 				a.btn._dark(href="#") Забронировать номер
-				picture.residence-top__stump.parallax(data-rellax-speed="2")
-					source(type="image/webp", srcset="img/stump.webp")
-					img(alt="",src="img/stump.png" ,data-depth="0.2")
-		.text.block
-			.block__head
-				h2.sub-title в доме
-			.text
-				.h3
-					color 4 спальни с большими удобными кроватями и 2 ванные комнаты, что позволяет с комфортом разместится компании до 12 человек. Полы во всех комнатах тёплые. Просторная гостиная с камином, укомплектованная кухня, терраса с видом на море, а также отдельная зона в лесу с беседкой и мангалом.
-		.block
-			include ../../layout/component/gallery-slider/gallery-slider
-		.block 
-			.block__head
-				h2.sub-title о доме
-			.info-grid
-				.info-item._w-30._icon
-					.info-item__text
-						.info-item__title Современный и комфортный 
-						.info-item__desc  
-							p Телевизор со Smart TV
-								br
-								| Высокоскоростной Wi-Fi
-								br
-								| Кондиционер
-								br
-								| Тёплые полы
-					.info-item__icon
-						img(src="img/wifi.svg", alt="")
-				.info-item._w-70._img-left
-					.info-item__text
-						.info-item__title Укомплектованная кухня
-						.info-item__desc  
-							p Плита 
-								br
-								| Духовка
-								br
-								| Микроволновая печь 
-								br
-								| Двухкамерный холодильник 
-								br
-								| Чайник 
-								br
-								| Набор посуды 
-								br
-								| Питьевая вода
-					.info-item__img
-						+picture('aa-1','jpg')
-	
-				.info-item._w-25._blue-gray
-					.info-item__text
-						.info-item__title Спальня
-						.info-item__desc  
-							p Удобные кровати «King Size» 
-								br
-								| Шкаф для одежды 
-								br
-								| Зеркало 
-								br
-								| Тумбы
-					.info-item__img
-						+picture('aa-2','png')
-				.info-item._w-45._radius._img-left
-					.info-item__text
-						.info-item__title Ванная комната
-						.info-item__desc  
-							p Водонагреватель
-								br
-								| Душевая кабина
-								br
-								| Раковина
-								br
-								| Гигиенические средства
-								br
-								| Унитаз
-								br
-								| Банные полотенца 
-								br
-								| Тапочки
-					.info-item__img
-						+picture('aa-3','jpg')
-				.info-item._w-30._icon
-					.info-item__text
-						.info-item__title Зона отдыха
-						.info-item__desc  
-							p Камин 
-								br
-								| Обеденный стол на 12 персон 
-								br
-								| Раскладной диван
-					.info-item__icon
-						img(src="img/fire.svg", alt="")
+				.residence-top__stump.parallax(data-parallax="-150")
+					picture
+						source(type="image/webp", srcset="img/stump.webp")
+						img(alt="",src="img/stump.png" ,data-depth="0.2")
+		.anim-block.text
+			.block
+				.block__head
+					h2.sub-title в доме
+				.text
+					.h3
+						color 4 спальни с большими удобными кроватями и 2 ванные комнаты, что позволяет с комфортом разместится компании до 12 человек. Полы во всех комнатах тёплые. Просторная гостиная с камином, укомплектованная кухня, терраса с видом на море, а также отдельная зона в лесу с беседкой и мангалом.
+		.anim-block
+			.block
+				include ../../layout/component/gallery-slider/gallery-slider
+		.anim-block
+			.block 
+				.block__head
+					h2.sub-title о доме
+				.info-grid
+					.info-item._w-30._icon
+						.info-item__text
+							.info-item__title Современный и комфортный 
+							.info-item__desc  
+								p Телевизор со Smart TV
+									br
+									| Высокоскоростной Wi-Fi
+									br
+									| Кондиционер
+									br
+									| Тёплые полы
+						.info-item__icon
+							img(src="img/wifi.svg", alt="")
+					.info-item._w-70._img-left
+						.info-item__text
+							.info-item__title Укомплектованная кухня
+							.info-item__desc  
+								p Плита 
+									br
+									| Духовка
+									br
+									| Микроволновая печь 
+									br
+									| Двухкамерный холодильник 
+									br
+									| Чайник 
+									br
+									| Набор посуды 
+									br
+									| Питьевая вода
+						.info-item__img
+							+picture('aa-1','jpg')
+		
+					.info-item._w-25._blue-gray
+						.info-item__text
+							.info-item__title Спальня
+							.info-item__desc  
+								p Удобные кровати «King Size» 
+									br
+									| Шкаф для одежды 
+									br
+									| Зеркало 
+									br
+									| Тумбы
+						.info-item__img
+							+picture('aa-2','png')
+					.info-item._w-45._radius._img-left
+						.info-item__text
+							.info-item__title Ванная комната
+							.info-item__desc  
+								p Водонагреватель
+									br
+									| Душевая кабина
+									br
+									| Раковина
+									br
+									| Гигиенические средства
+									br
+									| Унитаз
+									br
+									| Банные полотенца 
+									br
+									| Тапочки
+						.info-item__img
+							+picture('aa-3','jpg')
+					.info-item._w-30._icon
+						.info-item__text
+							.info-item__title Зона отдыха
+							.info-item__desc  
+								p Камин 
+									br
+									| Обеденный стол на 12 персон 
+									br
+									| Раскладной диван
+						.info-item__icon
+							img(src="img/fire.svg", alt="")
 
-				.info-item._w-100._radius._img-left
-					.info-item__text
-						.info-item__title Внешняя территория и вид из окон
-						.info-item__desc  
-							p Лаунж зона с видом на море
-								br
-								| Мангальная зона с беседкой
-					.info-item__img
-						+picture('aa-4','jpg')
-		.block 
-			.block__head
-				h2.sub-title Другие номера
-			.other-numbers 
-				.other-number
-					.other-number__bg 
-						+picture('r-1','jpg')
-					.other-number__title 2-х комнатный коттедж из дерева
-					a.other-number__link(href="#")
-				.other-number
-					.other-number__bg 
-						+picture('r-2','jpg')
-					.other-number__title 3-х комнатный коттедж из дерева
-					a.other-number__link(href="#")
+					.info-item._w-100._radius._img-left
+						.info-item__text
+							.info-item__title Внешняя территория и вид из окон
+							.info-item__desc  
+								p Лаунж зона с видом на море
+									br
+									| Мангальная зона с беседкой
+						.info-item__img
+							+picture('aa-4','jpg')
+		.anim-block
+			.block 
+				.block__head
+					h2.sub-title Другие номера
+				.other-numbers 
+					.other-number
+						.other-number__bg 
+							+picture('r-1','jpg')
+						.other-number__title 2-х комнатный коттедж из дерева
+						a.other-number__link(href="#")
+					.other-number
+						.other-number__bg 
+							+picture('r-2','jpg')
+						.other-number__title 3-х комнатный коттедж из дерева
+						a.other-number__link(href="#")

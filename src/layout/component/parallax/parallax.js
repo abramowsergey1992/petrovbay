@@ -1,7 +1,4 @@
 $(function () {
-	var rellax = new Rellax(".parallax", {
-		center: true,
-	});
 	$.fn.plaxmove = function (options) {
 		this.defaults = {
 			ratioH: 0.013,
@@ -33,11 +30,10 @@ $(function () {
 		$("html").on("mousemove", function (e) {
 			x = eqH(e);
 			y = eqW(e);
-			$(layer).css("margin-left", y);
-			$(layer).css("margin-top", x);
+			$(layer).css("transform", `translateY(${y}px) translateX(${x}px)`);
 		});
 	};
-	$(".parallax img").each(function (indx, element) {
+	$(".parallax img, .mouseparallax img").each(function (indx, element) {
 		$(this).plaxmove({
 			reversed: true,
 		});

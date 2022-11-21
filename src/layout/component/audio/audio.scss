@@ -13,6 +13,7 @@
     padding-right: 67px;
     height: 54px;
     width: 100%;
+    margin-bottom: 16px;
 
     &._white {
         border: 1px solid #BBBBBB;
@@ -34,10 +35,79 @@
         width: 100%;
     }
 
+    &__play {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        width: 14px;
+        height: 14px;
+        transform: translateY(-50%);
+        line-height: 0%;
+        cursor: pointer;
+        transition: transform 0.3s;
+
+        .audio-player._stop & {
+            display: none;
+        }
+
+        svg path {
+            .audio-player._white & {
+                fill: #FFF !important;
+            }
+        }
+
+        svg {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        &:hover {
+            transform: translateY(-50%) scale(1.2);
+        }
+    }
+
+    &__stop {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        width: 14px;
+        height: 14px;
+        transform: translateY(-50%);
+        line-height: 0%;
+        cursor: pointer;
+        transition: transform 0.3s;
+        display: none;
+
+        .audio-player._stop & {
+            display: block;
+        }
+
+        svg path {
+            .audio-player._white & {
+                fill: #FFF !important;
+            }
+        }
+
+        svg {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        &:hover {
+            transform: translateY(-50%) scale(1.2);
+        }
+    }
+
     &__mute {
         position: absolute;
         left: 20px;
         top: 50%;
+        width: 14px;
+        height: 14px;
         transform: translateY(-50%);
         line-height: 0%;
         cursor: pointer;
@@ -47,6 +117,27 @@
             .audio-player._white & {
                 fill: #FFF !important;
             }
+        }
+
+        &-on {
+            display: none;
+        }
+
+        &._muted {
+            .audio-player__mute-off {
+                display: none;
+            }
+
+            .audio-player__mute-on {
+                display: block;
+            }
+        }
+
+        svg {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
         }
 
         &:hover {

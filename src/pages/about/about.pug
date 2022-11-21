@@ -6,15 +6,12 @@ block content
 		+breadcrumb(['Главная'], 'О курорте')
 		.page__head 
 			h1 О курорте
-			.full-img.block
-				+picture('about-1','png')
-			.about-text.block
-				picture.about-text__stone-1.parallax(data-rellax-speed="-2")
-					source(type="image/webp", srcset="img/stone-2.webp")
-					img(alt="",src="img/stone-2.png" ,data-depth="0.2")
-				picture.about-text__stone-2.parallax(data-rellax-speed="2")
-					source(type="image/webp", srcset="img/stone-3.webp")
-					img(alt="",src="img/stone-3.png" ,data-depth="0.2")
+			.page__down
+		.full-img.block._full-height
+			+picture('about-1','png')
+		.anim-block.about-text
+			.block
+
 				.about-text__row.text 
 					.about-text__left
 						.h3 
@@ -22,7 +19,16 @@ block content
 					.about-text__right
 						p
 							color  Кристально чистая вода лазурного цвета, белоснежный песчаный берег, острова на горизонте, высокое звёздное небо и таинственный лес. Создавая здесь курорт, мы постарались оставить место нетронутым, чтобы ничего не отвлекало от созерцания природы.
-			.about.block
+			.about-text__stone-1.parallax(data-parallax="-100")
+				picture
+					source(type="image/webp", srcset="img/stone-2.webp")
+				img(alt="",src="img/stone-2.png" ,data-depth="0.2")
+			.about-text__stone-2.parallax(data-parallax="-100")
+				picture
+					source(type="image/webp", srcset="img/stone-3.webp")
+					img(alt="",src="img/stone-3.png" ,data-depth="0.2")
+		.anim-block.about
+			.block
 				.block__head
 					h2.sub-title о курорте 
 				.about__row.info-grid
@@ -45,15 +51,17 @@ block content
 							.info-item__title 30 домов у моря
 							.info-item__desc  
 								p от 30 до 200 метров от кромки воды
-						.info-item__img
+						.info-item__img.mouseparallax
 							+picture('a-3','png')
 					.info-item._w-25._blue-gray
 						.info-item__text
 							.info-item__title Спокойствие и тишина
 							.info-item__desc  
 								p нас выбирают люди, которые уважают комфорт и сон
-						.info-item__img
-							+picture('a-4','png')
+						.info-item__img.mouseparallax
+							picture
+								source(type="image/webp", srcset="img/a-4.webp")
+								img(alt="",src="img/a-4.png" ,data-depth="0.5")
 					.info-item._w-30._radius
 						.info-item__text
 							.info-item__title Семейный отдых
@@ -80,7 +88,7 @@ block content
 							.info-item__title Романтический отдых
 							.info-item__desc  
 								p прекрасное место, чтобы получить незабываемые впечатления и укрепить отношения
-						.info-item__img
+						.info-item__img.mouseparallax
 							+picture('a-88','png')
 					.info-item._w-30._radius
 						.info-item__text
@@ -103,218 +111,42 @@ block content
 								p от 30 до 200 метров от кромки воды
 						.info-item__img
 							+picture('a-10','jpg')
-					.info-item._w-25._blue-color._radius
+					.info-item._w-25._blue-color
 						.info-item__text
 							.info-item__title Есть скважина с питьевой водой
 							.info-item__desc  
 								p Свою воду везти не нужно!
-						.info-item__img
+						.info-item__img.mouseparallax
 							+picture('a-11','png')
-			.about-map.block 
+		.anim-block.about-map
+			.block 
 				.about-map__bg
 				.about-map__relative
 					.block__head 
 						h2.sub-title  карта местности 
 					.about-map__row 
-						.about-map__map 
+						.about-map__map.full-img
 							+picture('map','jpg')
 						.about-map__text 
 							.about-map__title все ключевые объекты курорта на одной карте 
 							a.btn._brown-wh(href="#") Подробнее об инфраструктуре курорта
-				picture.about-map__cone-1.parallax(data-rellax-speed="-2")
+			.about-map__cone-1.parallax(data-parallax="100")
+				picture
 					source(type="image/webp", srcset="img/cone-2.webp")
 					img(alt="",src="img/cone-2.png" ,data-depth="0.2")
-				picture.about-map__cone-2.parallax(data-rellax-speed="2")
+			.about-map__cone-2.parallax(data-parallax="150")
+				picture
 					source(type="image/webp", srcset="img/cone-3.webp")
 					img(alt="",src="img/cone-3.png" ,data-depth="0.2")
-
-			.photogallery.block 
+		.anim-block.photogallery
+			.block 
 				.block__head 
 					h2.sub-title Фото
 				include ../../layout/component/gallery-slider/gallery-slider
-			.residence-slide.block
+			
+		.anim-block.residence-slide
+			.block
 				.block__head 
 					h2.sub-title  варианты размещения  
 					a(href="#").btn._dark Все номера 
-				.residence-slider.swiper(data-aos="fade-up")
-					.swiper-wrapper 
-						.swiper-slide.residence-slide
-							.residence-slide__bg 
-								+picture('aframe','jpg') 
-							.residence-slide__content
-								.residence-slide__head
-									ul.residence-slide__parametrs 
-										li.icon-square Площадь номера 30 м2
-										li.icon-capacity вместимость до трех мест 
-										li.icon-room 1 комната
-									.residence-slide__paginator 
-										.residence-slide__paginator-now
-										.residence-slide__divider
-										.residence-slide__paginator-all
-								.residence-slide__body
-									.residence-slide__title АФРЕЙМ
-									.residence-slide__desc 
-										p A-frame дом для уединённого отдыха с панорамным видом на море. 
-								.residence-slide__footer 
-										a(href="#").btn._white Забронировать
-										a(href="#").link-arrow._white Подробнее о номере
-					
-						.swiper-slide.residence-slide
-							.residence-slide__bg 
-								+picture('aframe','jpg') 
-							.residence-slide__content
-								.residence-slide__head
-									ul.residence-slide__parametrs 
-										li.icon-square Площадь номера 30 м2
-										li.icon-capacity вместимость до трех мест 
-										li.icon-room 1 комната
-									.residence-slide__paginator 
-										.residence-slide__paginator-now
-										.residence-slide__divider
-										.residence-slide__paginator-all
-								.residence-slide__body(data-aos="fade-up")
-									.residence-slide__title АФРЕЙМ 2
-									.residence-slide__desc 
-										p A-frame дом для уединённого отдыха с панорамным видом на море. 
-								.residence-slide__footer 
-										a(href="#").btn._white Забронировать
-										a(href="#").link-arrow._white Подробнее о номере
-						
-						.swiper-slide.residence-slide
-							.residence-slide__bg 
-								+picture('aframe','jpg') 
-							.residence-slide__content
-								.residence-slide__head
-									ul.residence-slide__parametrs 
-										li.icon-square Площадь номера 30 м2
-										li.icon-capacity вместимость до трех мест 
-										li.icon-room 1 комната
-									.residence-slide__paginator 
-										.residence-slide__paginator-now
-										.residence-slide__divider
-										.residence-slide__paginator-all
-								.residence-slide__body(data-aos="fade-up")
-									.residence-slide__title АФРЕЙМ 3
-									.residence-slide__desc 
-										p A-frame дом для уединённого отдыха с панорамным видом на море. 
-								.residence-slide__footer 
-										a(href="#").btn._white Забронировать
-										a(href="#").link-arrow._white Подробнее о номере
-						
-						.swiper-slide.residence-slide
-							.residence-slide__bg 
-								+picture('aframe','jpg') 
-							.residence-slide__content
-								.residence-slide__head
-									ul.residence-slide__parametrs 
-										li.icon-square Площадь номера 30 м2
-										li.icon-capacity вместимость до трех мест 
-										li.icon-room 1 комната
-									.residence-slide__paginator 
-										.residence-slide__paginator-now
-										.residence-slide__divider
-										.residence-slide__paginator-all
-								.residence-slide__body(data-aos="fade-up")
-									.residence-slide__title АФРЕЙМ
-									.residence-slide__desc 
-										p A-frame дом для уединённого отдыха с панорамным видом на море. 
-								.residence-slide__footer 
-										a(href="#").btn._white Забронировать
-										a(href="#").link-arrow._white Подробнее о номере
-						
-						.swiper-slide.residence-slide
-							.residence-slide__bg 
-								+picture('aframe','jpg') 
-							.residence-slide__content
-								.residence-slide__head
-									ul.residence-slide__parametrs 
-										li.icon-square Площадь номера 30 м2
-										li.icon-capacity вместимость до трех мест 
-										li.icon-room 1 комната
-									.residence-slide__paginator 
-										.residence-slide__paginator-now
-										.residence-slide__divider
-										.residence-slide__paginator-all
-								.residence-slide__body(data-aos="fade-up")
-									.residence-slide__title АФРЕЙМ
-									.residence-slide__desc 
-										p A-frame дом для уединённого отдыха с панорамным видом на море. 
-								.residence-slide__footer 
-										a(href="#").btn._white Забронировать
-										a(href="#").link-arrow._white Подробнее о номере
-						
-						.swiper-slide.residence-slide
-							.residence-slide__bg 
-								+picture('aframe','jpg') 
-							.residence-slide__content
-								.residence-slide__head
-									ul.residence-slide__parametrs 
-										li.icon-square Площадь номера 30 м2
-										li.icon-capacity вместимость до трех мест 
-										li.icon-room 1 комната
-									.residence-slide__paginator 
-										.residence-slide__paginator-now
-										.residence-slide__divider
-										.residence-slide__paginator-all
-								.residence-slide__body(data-aos="fade-up")
-									.residence-slide__title АФРЕЙМ
-									.residence-slide__desc 
-										p A-frame дом для уединённого отдыха с панорамным видом на море. 
-								.residence-slide__footer 
-										a(href="#").btn._white Забронировать
-										a(href="#").link-arrow._white Подробнее о номере
-						
-						.swiper-slide.residence-slide
-							.residence-slide__bg 
-								+picture('aframe','jpg') 
-							.residence-slide__content
-								.residence-slide__head
-									ul.residence-slide__parametrs 
-										li.icon-square Площадь номера 30 м2
-										li.icon-capacity вместимость до трех мест 
-										li.icon-room 1 комната
-									.residence-slide__paginator 
-										.residence-slide__paginator-now
-										.residence-slide__divider
-										.residence-slide__paginator-all
-								.residence-slide__body(data-aos="fade-up")
-									.residence-slide__title АФРЕЙМ
-									.residence-slide__desc 
-										p A-frame дом для уединённого отдыха с панорамным видом на море. 
-								.residence-slide__footer 
-										a(href="#").btn._white Забронировать
-										a(href="#").link-arrow._white Подробнее о номере
-						
-						.swiper-slide.residence-slide
-							.residence-slide__bg 
-								+picture('aframe','jpg') 
-							.residence-slide__content
-								.residence-slide__head
-									ul.residence-slide__parametrs 
-										li.icon-square Площадь номера 30 м2
-										li.icon-capacity вместимость до трех мест 
-										li.icon-room 1 комната
-									.residence-slide__paginator 
-										.residence-slide__paginator-now
-										.residence-slide__divider
-										.residence-slide__paginator-all
-								.residence-slide__body(data-aos="fade-up")
-									.residence-slide__title АФРЕЙМ
-									.residence-slide__desc 
-										p A-frame дом для уединённого отдыха с панорамным видом на море. 
-								.residence-slide__footer 
-										a(href="#").btn._white Забронировать
-										a(href="#").link-arrow._white Подробнее о номере
-						
-
-						
-					.residence-slider__nav 
-						.residence-slider__nav-prev
-							<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M2.2998 11.5L8.43314 5.3667M2.2998 11.5L8.43314 17.6334M2.2998 11.5H21.4665"  stroke-width="2"/>
-							</svg>
-
-						.residence-slider__nav-next
-							<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M20.7002 11.5L14.5669 5.3667M20.7002 11.5L14.5669 17.6334M20.7002 11.5H1.53353" stroke="" stroke-width="2"/>
-							</svg>
+				include ../../layout/component/residence-slider/residence-slider
