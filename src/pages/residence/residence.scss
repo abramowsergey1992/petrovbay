@@ -47,7 +47,8 @@
 
     &__content {
         position: relative;
-        min-height: 765px;
+        max-height: calc((var(--vh, 1vh)*100) - 140px);
+        height: 765px;
         padding: 50px;
         display: flex;
         flex-direction: column;

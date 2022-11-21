@@ -306,6 +306,7 @@ color {
 
 	&._full-height img {
 		min-height: 584px;
+		max-height: 80vh;
 		object-fit: cover;
 	}
 

@@ -150,6 +150,14 @@ $(function () {
 	} else {
 		$(".header").removeClass("_not-top");
 	}
+
+	$(window).scroll(function () {
+		if ($(this).scrollTop() >= scrollHeader) {
+			$(".header").addClass("_not-top");
+		} else {
+			$(".header").removeClass("_not-top");
+		}
+	});
 	// listener smooth-scrollbar, update controller
 	scroll.addListener(function (status) {
 		y = status.offset.y;

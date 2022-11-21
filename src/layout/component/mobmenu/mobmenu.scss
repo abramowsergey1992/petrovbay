@@ -60,7 +60,29 @@
         letter-spacing: -0.03em;
 
         color: #2F2F2F;
+        height: 20px;
 
+        overflow: hidden;
+
+        &-wrap {
+            transition: transform 0.3s;
+
+            .mobmenu__weather._water & {
+                transform: translateY(-20px);
+            }
+        }
+
+        span {
+            position: relative;
+            left: 0;
+            display: block;
+            top: 0;
+
+        }
+
+        ._water {
+            span {}
+        }
 
     }
 

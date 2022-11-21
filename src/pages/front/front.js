@@ -58,9 +58,7 @@ $(function () {
 				inline: true,
 				autoClose: true,
 			});
-			console.log("sx");
 
-			console.log("zzzz");
 			var container = $(".traveline__popup");
 			$(".traveline__go").click(function () {
 				var url = new URL($(this).data("link"));
@@ -331,6 +329,7 @@ $(function () {
 			allowTouchMove: true,
 			spaceBetween: 500,
 			loop: true,
+			allowTouchMove: false,
 			watchSlidesProgress: true,
 			thumbs: {
 				swiper: frontServicesSlider,
@@ -390,6 +389,22 @@ $(function () {
 					$(".front-environ__content ").offset().top
 			);
 		}
+		setTimeout(function () {
+			if (mediaQuery.matches) {
+				$(".front-environ__white-block").css(
+					"height",
+					$(".front-environ__row-2 .front-environ__left").height() +
+						300
+				);
+			} else {
+				$(".front-environ__white-block").css(
+					"height",
+					$(".front-environ__divider").offset().top -
+						50 -
+						$(".front-environ__content ").offset().top
+				);
+			}
+		}, 1000);
 		$(window).on("resize", function () {
 			if (mediaQuery.matches) {
 			} else {

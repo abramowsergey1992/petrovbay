@@ -800,13 +800,18 @@
 		}
 
 		.front-top[state="end"] & {
-			mask-position: center bottom 210px;
+			mask-position: center calc((100vh - 1496px) - 200px);
 			mask-size: 1002px;
 
 			@media(max-width:992px) {
 				mask-size: 94%;
 				mask-position: center -96px;
 				mask-image: url("data:image/svg+xml,%3Csvg width='1002' height='1485' viewBox='0 0 1002 1485' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1002' height='1485' rx='541' fill='black'/%3E%3C/svg%3E%0A");
+			}
+
+			.firefox & {
+				mask-position: center calc((100vh - 1496px) - 210px);
+				mask-size: 1002px;
 			}
 
 			// @media(max-height:600px) {
@@ -1037,7 +1042,7 @@
 	&__shell {
 		max-width: 265px;
 		right: 45%;
-		bottom: -180px;
+		bottom: -265px;
 		z-index: 10;
 
 		@media(max-width:992px) {
@@ -1787,11 +1792,15 @@
 	}
 
 
+	&__link {
+		margin-top: 30px;
+	}
+
 	&__content {
 		position: relative;
 		margin-top: 314px;
 		background: #fff;
-		padding: 50px 30px;
+		padding: 50px 30px 35px;
 		min-height: 405px;
 		width: 503px;
 		display: flex;
