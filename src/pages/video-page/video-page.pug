@@ -1,0 +1,30 @@
+extends ../../layout/layout
+block title
+	title Бухта Петрова
+block content
+	.inner
+		+breadcrumb(['Главная'], 'видео')
+		.page__head 
+			h1 видео
+		.video-row 
+			.video-preview
+				.video-preview__head
+					.video-preview__title Актуальные камеры курорта
+						br
+						| в онлайн режиме
+					.video-preview__link.link-arrow Смотреть видео
+				.video-preview__frame 
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/jfKfPfyJRdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				.video-preview__img 
+					img(src="img/video-prev.jpg", alt="")
+			.video-preview
+				.video-preview__head
+					.video-preview__title Актуальные камеры курорта
+						br
+						| в онлайн режиме
+					.video-preview__link.link-arrow Смотреть видео
+				.video-preview__frame 
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/jfKfPfyJRdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				.video-preview__img 
+					img(src="img/video-prev.jpg", alt="")
+		

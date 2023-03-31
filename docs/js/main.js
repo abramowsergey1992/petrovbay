@@ -1,5 +1,4 @@
-$(function () {});
-$(function () {});
+$(function(){})
 ymaps.ready(function () {
 	createMap1();
 });
@@ -493,11 +492,35 @@ $(function () {
 	}
 });
 
-$(function () {});
-$(function () {});
-$(function () {});
-$(function () {});
-$(function () {});
+$(function(){})
+$(function(){})
+$(function(){})
+$(function(){})
+$(function(){})
+$(function(){})
+$(function(){})
+$(function () {
+	let videowrap = $(".video-popup__video-wrap");
+	$(".video-popup__close,.video-popup__overlay ").click(function () {
+		$(".video-popup ").fadeOut();
+	});
+	$(".video-preview__link").click(function () {
+		$(".video-popup ").fadeIn();
+		console.log(
+			$(this)
+				.closest(".video-preview ")
+				.find(".video-preview__frame ")
+				.html()
+		);
+		videowrap.html(
+			$(this)
+				.closest(".video-preview ")
+				.find(".video-preview__frame ")
+				.html()
+		);
+	});
+});
+
 $(function () {
 	// $(".text p,.text ul").each(function () {
 	// 	$(this).attr("data-aos", "fade-up");
@@ -683,11 +706,6 @@ $(function () {
 		} else {
 			$(".page").removeClass("_page-end ");
 		}
-	});
-	$(".page__down").click(function () {
-		scroll.scrollTo(0, window.innerHeight, 1000, {
-			callback: () => console.log("done!"),
-		});
 	});
 	$(".page-up").click(function () {
 		scroll.scrollTo(0, 0, 1000, {
@@ -878,6 +896,15 @@ $(function () {
 });
 
 $(function () {
+	if ($(".header__temp").length) {
+		setInterval(function () {
+			$(".header__temp").toggleClass("_water");
+			$(".mobmenu__weather").toggleClass("_water");
+		}, 5000);
+	}
+});
+
+$(function () {
 	$(".audio-player").each(function () {
 		$(this).html(
 			`<div class="audio-player__stop"><svg  width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.6667 7.25343V10.7557M15 4.91857V13.0906M4.5 12.5H2.16667C1.52267 12.5 1 11.9785 1 11.3333V6.66667C1 6.0215 1.52267 5.5 2.16667 5.5H4.5L10.3333 2V16L4.5 12.5Z" stroke="#2F2F2F" /></svg></div>
@@ -940,24 +967,6 @@ $(function () {
 	});
 });
 
-$(function () {
-	$(".btn").each(function () {
-		$(this).html(
-			`<span class="btn__bg"></span><span class="btn__text">${$(
-				this
-			).text()}</span>`
-		);
-	});
-	$(".link-arrow").each(function () {
-		$(this).html(
-			`${$(
-				this
-			).text()}<svg width="14" height="14" xmlns="http://www.w3.org/2000/svg" fill="none"><path stroke-width="2"  d="M12.188 1.597H1.38M12.232.61l-.044 11.792m-.045-10.851L1.38 12.403"/></svg>`
-		);
-	});
-});
-
-$(function () {});
 $(function () {
 	Fancybox.defaults.backFocus = false;
 	$(" .gallery-slider__padding ").css(
@@ -1041,104 +1050,23 @@ $(function () {
 });
 
 $(function () {
-	if ($(".header__temp").length) {
-		setInterval(function () {
-			$(".header__temp").toggleClass("_water");
-			$(".mobmenu__weather").toggleClass("_water");
-		}, 5000);
-	}
-});
-
-$(function () {});
-$(function () {
-	var mobGallery = new Swiper(".mobmenu__gallery", {
-		speed: 5000,
-		loop: true,
-		loopAdditionalSlides: 5,
-		allowTouchMove: false,
-		centeredSlides: true,
-		observer: true,
-		observeParents: true,
-		direction: "vertical",
-		slidesPerView: "auto",
-		autoplay: {
-			delay: 2000,
-		},
-		breakpoints: {
-			991: {
-				spaceBetween: 45,
-			},
-		},
+	$(".btn").each(function () {
+		$(this).html(
+			`<span class="btn__bg"></span><span class="btn__text">${$(
+				this
+			).text()}</span>`
+		);
 	});
-	$(".header__burger").click(function () {
-		$(".mobmenu").fadeIn();
-		var mobGallery = new Swiper(".mobmenu__gallery", {
-			speed: 2000,
-			loop: true,
-			centeredSlides: true,
-			loopAdditionalSlides: 5,
-			allowTouchMove: false,
-			observer: true,
-			observeParents: true,
-			direction: "vertical",
-			slidesPerView: "auto",
-			autoplay: {
-				delay: 3000,
-			},
-			breakpoints: {
-				991: {
-					spaceBetween: 45,
-				},
-			},
-		});
-	});
-	$(".header__burger-close").click(function () {
-		$(".mobmenu").fadeOut();
+	$(".link-arrow").each(function () {
+		$(this).html(
+			`${$(
+				this
+			).text()}<svg width="14" height="14" xmlns="http://www.w3.org/2000/svg" fill="none"><path stroke-width="2"  d="M12.188 1.597H1.38M12.232.61l-.044 11.792m-.045-10.851L1.38 12.403"/></svg>`
+		);
 	});
 });
 
-$(function () {
-	$.fn.plaxmove = function (options) {
-		this.defaults = {
-			ratioH: 0.013,
-			ratioV: 0.013,
-			reversed: true,
-		};
-
-		var settings = $.extend({}, this.defaults, options),
-			layer = $(this),
-			center = {
-				x: $("html").width() / 2 - layer.width() / 2,
-				y: $("html").height() / 2 - layer.height() / 2,
-			};
-
-		var eqH = function (e) {
-			return (e.pageX - center.x) * settings.ratioH;
-		};
-
-		var eqW = function (e) {
-			return (e.pageY - center.y) * settings.ratioV;
-		};
-
-		if (settings.reversed) {
-			var t = eqH;
-			eqH = eqW;
-			eqW = t;
-		}
-
-		$("html").on("mousemove", function (e) {
-			x = eqH(e);
-			y = eqW(e);
-			$(layer).css("transform", `translateY(${y}px) translateX(${x}px)`);
-		});
-	};
-	$(".parallax img, .mouseparallax img").each(function (indx, element) {
-		$(this).plaxmove({
-			reversed: true,
-		});
-	});
-});
-
+$(function(){})
 $(function () {
 	$("._mask-phone").each(function () {
 		Inputmask("+7 (999) 999-99-99").mask(this);
@@ -1148,6 +1076,7 @@ $(function () {
 	});
 });
 
+$(function(){})
 $(function () {
 	$("[data-popup]").click(function () {
 		let $popup = $($(this).data("popup"));
@@ -1191,6 +1120,48 @@ $(function () {
 			},
 		});
 	}
+});
+
+$(function () {
+	$.fn.plaxmove = function (options) {
+		this.defaults = {
+			ratioH: 0.013,
+			ratioV: 0.013,
+			reversed: true,
+		};
+
+		var settings = $.extend({}, this.defaults, options),
+			layer = $(this),
+			center = {
+				x: $("html").width() / 2 - layer.width() / 2,
+				y: $("html").height() / 2 - layer.height() / 2,
+			};
+
+		var eqH = function (e) {
+			return (e.pageX - center.x) * settings.ratioH;
+		};
+
+		var eqW = function (e) {
+			return (e.pageY - center.y) * settings.ratioV;
+		};
+
+		if (settings.reversed) {
+			var t = eqH;
+			eqH = eqW;
+			eqW = t;
+		}
+
+		$("html").on("mousemove", function (e) {
+			x = eqH(e);
+			y = eqW(e);
+			$(layer).css("transform", `translateY(${y}px) translateX(${x}px)`);
+		});
+	};
+	$(".parallax img, .mouseparallax img").each(function (indx, element) {
+		$(this).plaxmove({
+			reversed: true,
+		});
+	});
 });
 
 function getCookie(e, t = !1) {
@@ -1272,15 +1243,51 @@ if (getCookie("firstload")) {
 	});
 }
 
-var vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty("--vh", `${vh}px`);
-var width = window.innerWidth;
-window.addEventListener("resize", () => {
-	if (width != window.innerWidth) {
-		var vh = window.innerHeight * 0.01;
-		document.documentElement.style.setProperty("--vh", `${vh}px`);
-		width = window.innerWidth;
-	}
+$(function () {
+	var mobGallery = new Swiper(".mobmenu__gallery", {
+		speed: 5000,
+		loop: true,
+		loopAdditionalSlides: 5,
+		allowTouchMove: false,
+		centeredSlides: true,
+		observer: true,
+		observeParents: true,
+		direction: "vertical",
+		slidesPerView: "auto",
+		autoplay: {
+			delay: 2000,
+		},
+		breakpoints: {
+			991: {
+				spaceBetween: 45,
+			},
+		},
+	});
+	$(".header__burger").click(function () {
+		$(".mobmenu").fadeIn();
+		var mobGallery = new Swiper(".mobmenu__gallery", {
+			speed: 2000,
+			loop: true,
+			centeredSlides: true,
+			loopAdditionalSlides: 5,
+			allowTouchMove: false,
+			observer: true,
+			observeParents: true,
+			direction: "vertical",
+			slidesPerView: "auto",
+			autoplay: {
+				delay: 3000,
+			},
+			breakpoints: {
+				991: {
+					spaceBetween: 45,
+				},
+			},
+		});
+	});
+	$(".header__burger-close").click(function () {
+		$(".mobmenu").fadeOut();
+	});
 });
 
 $(function () {
@@ -1314,4 +1321,15 @@ $(function () {
 	}
 });
 
-$(function () {});
+var vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty("--vh", `${vh}px`);
+var width = window.innerWidth;
+window.addEventListener("resize", () => {
+	if (width != window.innerWidth) {
+		var vh = window.innerHeight * 0.01;
+		document.documentElement.style.setProperty("--vh", `${vh}px`);
+		width = window.innerWidth;
+	}
+});
+
+$(function(){})

@@ -1,0 +1,19 @@
+.videoframe {
+	position: relative;
+	margin: 0 auto;
+	max-width: calc(150vh - 100px);
+
+	&::after {
+		display: block;
+		content: '';
+		padding-bottom: 56%;
+	}
+
+	iframe {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
