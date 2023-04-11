@@ -1,9 +1,19 @@
 $(function () {
+	function declination(number, titles) {
+		cases = [2, 0, 1, 1, 1, 2];
+		return titles[
+			number % 100 > 4 && number % 100 < 20
+				? 2
+				: cases[number % 10 < 5 ? number % 10 : 5]
+		];
+	}
 	// var controller = new ScrollMagic.Controller();
 	l = window.innerHeight;
 	if ($(".front-top").length) {
 		$(".traveline__date").click(function () {
 			$(".traveline__date-wrap").removeClass("_open");
+
+			$(".traveline__popup").removeClass("_show");
 			$(this).closest(".traveline__date-wrap").addClass("_open");
 		});
 		if ($(".traveline").length) {
@@ -48,9 +58,7 @@ $(function () {
 				inline: true,
 				autoClose: true,
 			});
-			console.log("sx");
 
-			console.log("zzzz");
 			var container = $(".traveline__popup");
 			$(".traveline__go").click(function () {
 				var url = new URL($(this).data("link"));
@@ -82,6 +90,7 @@ $(function () {
 			});
 			$(".traveline__count").click(function () {
 				container.addClass("_show");
+				$(".traveline__date-wrap").removeClass("_open");
 			});
 			$(".traveline__child-finish").click(function (e) {
 				container.removeClass("_show");
@@ -113,18 +122,21 @@ $(function () {
 						$counter.val(`${val}`);
 					}
 				}
-				var count =
+				let humanCounts =
 					Number.parseInt(
 						$(".traveline__counter-inpt.adults").val()
 					) +
 					Number.parseInt(
 						$(".traveline__counter-inpt.children").val()
 					);
-				if (count < 10) {
-					$(".traveline__count").val("0" + count);
-				} else {
-					$(".traveline__count").val(count);
-				}
+
+				$(".traveline__count").val(
+					`${humanCounts} ${declination(humanCounts, [
+						" человек",
+						" человека",
+						" человека",
+					])}`
+				);
 				if ($counter.hasClass("children")) {
 					var i = 1,
 						child = Number.parseInt(
@@ -158,11 +170,21 @@ $(function () {
 					Number.parseInt(
 						$(".traveline__counter-inpt.children").val()
 					);
-				if (count < 10) {
-					$(".traveline__count").val("0" + count);
-				} else {
-					$(".traveline__count").val(count);
-				}
+				let humanCounts =
+					Number.parseInt(
+						$(".traveline__counter-inpt.adults").val()
+					) +
+					Number.parseInt(
+						$(".traveline__counter-inpt.children").val()
+					);
+
+				$(".traveline__count").val(
+					`${humanCounts} ${declination(humanCounts, [
+						" человек",
+						" человека",
+						" человека",
+					])}`
+				);
 
 				if ($counter.hasClass("children")) {
 					var i = 1,
@@ -182,171 +204,6 @@ $(function () {
 			});
 		}
 
-		class rotationOfTheObjectTowardsTheCursor {
-			constructor() {
-				this.circle = Object;
-				this.line = Object;
-
-				this.circleRect = Object;
-
-				this.centerPosition = { x: 0, y: 0 };
-				this.angels = { actual: 0, target: 0 };
-
-				this.init();
-			}
-
-			init() {
-				this.circle = document.querySelector(".front-top__bg-blur");
-				this.line = document.querySelector(".front-top__bg-blur-point");
-
-				this.onResize();
-				window.onresize = (e) => this.onResize(e);
-
-				window.onmousemove = (e) => this.onMouseMove(e);
-
-				requestAnimationFrame(() => this.loop());
-			}
-
-			onResize() {
-				this.circleRect = this.circle.getBoundingClientRect();
-				this.centerPosition = {
-					x: this.circleRect.x + this.circleRect.width / 2,
-					y: this.circleRect.y + this.circleRect.height / 2,
-				};
-			}
-
-			onMouseMove(e) {
-				const atan2 = Math.atan2(
-					e.pageY - this.centerPosition.y,
-					e.pageX - this.centerPosition.x
-				);
-
-				this.angels.target = atan2;
-			}
-
-			loop() {
-				this.angels.actual = this.angleLerp(
-					this.angels.actual,
-					this.angels.target,
-					0.1
-				);
-
-				this.line.style.transform = `rotate(${this.angels.actual}rad)`;
-
-				requestAnimationFrame(() => this.loop());
-			}
-
-			angleLerp(a0, a1, t) {
-				const max = Math.PI * 2;
-				const da = (a1 - a0) % max;
-				return a0 + (((2 * da) % max) - da) * t;
-			}
-		}
-
-		let animateplay = false;
-		new rotationOfTheObjectTowardsTheCursor();
-		$("body").addClass("_no-scroll");
-		setTimeout(function () {
-			$("html, body").scrollTop(0);
-			console.log("sadasd");
-		}, 1000);
-		$("html, body").scrollTop(0);
-		$(".front-top").attr("state", "top");
-
-		$(".front-top__down").click(function () {
-			if (animateplay == false) {
-				animateplay = true;
-				$("#front-top").attr("state", "static");
-				setTimeout(function () {
-					animateplay = false;
-					console.log("as");
-				}, 1000);
-			}
-		});
-		$("#front-top").swipe({
-			//Generic swipe handler for all directions
-			swipe: function (
-				event,
-				direction,
-				distance,
-				duration,
-				fingerCount,
-				fingerData
-			) {
-				console.log("You swiped " + direction);
-				if (direction == "up") {
-					if (animateplay == false) {
-						animateplay = true;
-						if (state == "static") {
-							$("#front-top").attr("state", "top");
-						}
-						if (state == "end") {
-							$("html, body").animate({ scrollTop: 0 });
-							$("body").addClass("_no-scroll");
-							$("#front-top").attr("state", "static");
-						}
-						setTimeout(function () {
-							animateplay = false;
-						}, 1000);
-					}
-				} else if (direction == "down") {
-					if (animateplay == false) {
-						animateplay = true;
-
-						if (state == "end") {
-							$("body").removeClass("_no-scroll");
-						}
-						if (state == "static") {
-							$("#front-top").attr("state", "end");
-						}
-						if (state == "top") {
-							$("#front-top").attr("state", "static");
-						}
-						setTimeout(function () {
-							animateplay = false;
-						}, 1000);
-					}
-				}
-			},
-		});
-
-		$("#front-top").bind("mousewheel", function (e) {
-			let state = $("#front-top").attr("state");
-
-			if (e.originalEvent.wheelDelta / 120 > 0) {
-				if (animateplay == false) {
-					animateplay = true;
-					if (state == "static") {
-						$("#front-top").attr("state", "top");
-					}
-					if (state == "end") {
-						$("html, body").animate({ scrollTop: 0 });
-						$("body").addClass("_no-scroll");
-						$("#front-top").attr("state", "static");
-					}
-					setTimeout(function () {
-						animateplay = false;
-					}, 1000);
-				}
-			} else {
-				if (animateplay == false) {
-					animateplay = true;
-
-					if (state == "end") {
-						$("body").removeClass("_no-scroll");
-					}
-					if (state == "static") {
-						$("#front-top").attr("state", "end");
-					}
-					if (state == "top") {
-						$("#front-top").attr("state", "static");
-					}
-					setTimeout(function () {
-						animateplay = false;
-					}, 1000);
-				}
-			}
-		});
 		// const frontTop = new Swiper(".front-top-slider", {
 		// 	// slidesPerView: 1,
 		// 	direction: "vertical",
@@ -449,47 +306,115 @@ $(function () {
 				.text(String(i).padStart(2, "0"));
 		});
 		$(".front-service__count").text(String(i).padStart(2, "0"));
+		let slide = 1;
+		let slideLenght = $(".front-service-bg__bg").length;
+
 		const frontServicesSlider = new Swiper(
 			".front-services-slider-content",
 			{
-				speed: 400,
-				spaceBetween: 500,
+				speed: 1,
+				spaceBetween: 0,
 				loop: true,
-				effect: "fade",
-				fadeEffect: {
-					crossFade: true,
-				},
+				allowTouchMove: false,
+				// effect: "fade",
+
+				// fadeEffect: {
+				// 	crossFade: true,
+				// },
 			}
 		);
+
 		const frontServicesSliderBg = new Swiper(".front-services-slider-bg", {
 			speed: 800,
+			allowTouchMove: true,
 			spaceBetween: 500,
 			loop: true,
+			allowTouchMove: false,
+			watchSlidesProgress: true,
+			thumbs: {
+				swiper: frontServicesSlider,
+			},
+			// effect: "creative",
+			// creativeEffect: {
+			// 	prev: {
+			// 		shadow: false,
+			// 		translate: ["-120%", 0, -500],
+			// 	},
+			// 	next: {
+			// 		shadow: false,
+			// 		translate: ["120%", 0, -500],
+			// 	},
+			// },
 		});
-		frontServicesSlider.on("slideChange", function (swiper) {
-			frontServicesSliderBg.slideTo(swiper.activeIndex);
+		frontServicesSliderBg.on("slideChange", function (swiper) {
+			frontServicesSlider.slideTo(swiper.realIndex + 1);
+			// console.log(
+			// 	frontServicesSlider.activeIndex,
+			// 	frontServicesSliderBg.activeIndex
+			// );
 		});
-		$(".front-service__prev").click(function () {
-			frontServicesSlider.slidePrev();
+		$(document).on("click", ".front-service__prev", function () {
+			// console.log("front-service__prev", slide);
+			// frontServicesSlider.slidePrev();
+			frontServicesSliderBg.slidePrev();
+			// slide--;
+			// slide == -1 ? (slide = slideLenght - 1) : (slide = slide);
+			// frontServicesSliderBg.slideTo(slide);
+			// frontServicesSlider.slideTo(slide);
+			// console.log("slide", slide);
 		});
-		$(".front-service__next").click(function () {
-			frontServicesSlider.slideNext();
+		$(document).on("click", ".front-service__next", function () {
+			// frontServicesSlider.slideNext();
+			frontServicesSliderBg.slideNext();
+			// slide++;
+			// slide == slideLenght ? (slide = 0) : (slide = slide);
+
+			// frontServicesSliderBg.slideTo(slide);
+			// frontServicesSlider.slideTo(slide);
+			// console.log("slide", slide);
 		});
 	}
 	if ($(".front-environ").length) {
-		$(".front-environ__white-block").css(
-			"height",
-			$(".front-environ__divider").offset().top -
-				50 -
-				$(".front-environ__content ").offset().top
-		);
-		$(window).on("resize", function () {
+		const mediaQuery = window.matchMedia("(max-width: 992px)");
+		if (mediaQuery.matches) {
+			$(".front-environ__white-block").css(
+				"height",
+				$(".front-environ__row-2 .front-environ__left").height() + 300
+			);
+		} else {
 			$(".front-environ__white-block").css(
 				"height",
 				$(".front-environ__divider").offset().top -
 					50 -
 					$(".front-environ__content ").offset().top
 			);
+		}
+		setTimeout(function () {
+			if (mediaQuery.matches) {
+				$(".front-environ__white-block").css(
+					"height",
+					$(".front-environ__row-2 .front-environ__left").height() +
+						300
+				);
+			} else {
+				$(".front-environ__white-block").css(
+					"height",
+					$(".front-environ__divider").offset().top -
+						50 -
+						$(".front-environ__content ").offset().top
+				);
+			}
+		}, 1000);
+		$(window).on("resize", function () {
+			if (mediaQuery.matches) {
+			} else {
+				$(".front-environ__white-block").css(
+					"height",
+					$(".front-environ__divider").offset().top -
+						50 -
+						$(".front-environ__content ").offset().top
+				);
+			}
 		});
 	}
 });

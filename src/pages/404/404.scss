@@ -1,0 +1,64 @@
+.p404 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #DDDDDD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+    &::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, #A19D9A -3.58%, #DDDDDD 100%);
+        z-index: 1;
+    }
+
+    .btn {
+        // background-color: #fff;
+        // ;
+        padding: 10px 16px;
+    }
+
+    &__header {
+        padding: 14px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 4;
+    }
+
+    &__content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 4;
+    }
+
+    &__footer {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        /* identical to box height, or 150% */
+        position: absolute;
+        bottom: 81px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        letter-spacing: -0.02em;
+        z-index: 4;
+        color: #2F2F2F;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}

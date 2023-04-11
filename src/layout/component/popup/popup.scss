@@ -67,10 +67,15 @@
             display: flex;
             align-items: center;
             transition: left 0.5s;
+
+            @media(max-width:992px) {
+                width: 100%;
+                left: -100%;
+            }
         }
 
         .popup._slide._animate & {
-            left: 0;
+            left: 0 !important;
         }
 
         h2,
@@ -78,10 +83,15 @@
             font-weight: 400;
             font-size: 48px;
             line-height: 57px;
+            @include lh(48, 57);
             letter-spacing: -0.03em;
             margin: 0;
             margin-bottom: 20px;
             text-transform: initial;
+
+            @media(max-width:992px) {
+                font-size: 24px;
+            }
         }
     }
 

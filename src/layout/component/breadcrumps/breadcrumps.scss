@@ -5,6 +5,10 @@
 	border-bottom: 1px solid #BBBBBB;
 	margin-bottom: 20px;
 
+	@media(max-width:992px) {
+		display: none
+	}
+
 	&__list {
 		display: flex;
 		flex-direction: row;

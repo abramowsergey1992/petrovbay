@@ -1,3 +1,8 @@
+#mobmenu .header__left .header__burger-close {
+    cursor: pointer;
+    border-color: #f4cb78 !important;
+}
+
 .mobmenu {
     position: fixed;
     left: 0;
@@ -5,8 +10,81 @@
     width: 100%;
     height: 100%;
     background: #fff;
+    z-index: 1111;
+
+    &__weather {
+        position: absolute;
+        left: 00px;
+        bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        align-items: center;
+    }
+
+    &__cam {
+        min-width: 36px;
+        height: 36px;
+        border: 1.5px solid #2F2F2F;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: background 0.6s;
 
 
+
+        &:hover {
+            background-color: #fff;
+
+            path,
+            circle {
+                stroke: #2F2F2F;
+            }
+        }
+
+        path,
+        circle {
+            transition: stroke 0.6s;
+            stroke: #2F2F2F;
+        }
+    }
+
+    &__temp {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        /* identical to box height, or 125% */
+
+        letter-spacing: -0.03em;
+
+        color: #2F2F2F;
+        height: 20px;
+
+        overflow: hidden;
+
+        &-wrap {
+            transition: transform 0.3s;
+
+            .mobmenu__weather._water & {
+                transform: translateY(-20px);
+            }
+        }
+
+        span {
+            position: relative;
+            left: 0;
+            display: block;
+            top: 0;
+
+        }
+
+        ._water {
+            span {}
+        }
+
+    }
 
     .header__burger-close {
         border-color: rgba(244, 203, 120, 1);
@@ -19,9 +97,18 @@
     &__menu {
         max-width: 50%;
 
+        @media(max-width:992px) {
+            max-width: 100%;
+        }
+
         li {
             border-bottom: 1px solid #BBBBBB;
             padding: 10px 0;
+
+            @media(max-width:992px) {
+
+                padding: 20px 0;
+            }
 
             &:last-child {
                 border: 0 solid;
@@ -37,6 +124,39 @@
                 text-transform: uppercase;
                 text-decoration: none;
                 transition: color 0.3s;
+                display: block;
+                position: relative;
+                padding-right: 50px;
+
+                &::after {
+                    display: block;
+                    content: '';
+                    background-image: url("data:image/svg+xml,%3Csvg width='28' height='28' xmlns='http://www.w3.org/2000/svg' fill='none'%3E%3Cpath stroke-width='3' stroke='%23F4CB78' d='M25.664 1.966H1.278M25.602.476l.062 25.877M24.04 3.09 1.278 26.353'/%3E%3C/svg%3E");
+                    width: 28px;
+                    height: 28px;
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    opacity: 0;
+                    transition: opacity 0.2s;
+
+                    @media(max-width:992px) {
+                        display: none;
+                    }
+                }
+
+                &:hover {
+                    &::after {
+                        opacity: 1;
+                    }
+                }
+
+                @media(max-width:992px) {
+                    font-size: 24px;
+                    line-height: 28px;
+
+                }
 
                 &:hover {
                     color: rgba(244, 203, 120, 1);
@@ -66,6 +186,7 @@
 
         &._right {
             transform: scaleY(-1);
+            margin-top: -200px;
 
             .mobmenu-gallery-it {
                 transform: scaleY(-1);
@@ -81,8 +202,12 @@
         max-width: calc(50% - 22px);
         width: 100%;
 
+        @media(max-width:992px) {
+            display: none;
+        }
+
         .swiper-wrapper {
-            transition-timing-function: linear !important;
+            // transition-timing-function: linear !important;
         }
 
     }
@@ -92,7 +217,14 @@
     width: 319px;
     border-radius: 1000px;
     overflow: hidden;
+    height: initial !important;
     position: relative;
+
+    &::before {
+        display: block;
+        content: '';
+        padding-bottom: 150%;
+    }
 
     img {
         position: absolute;
@@ -115,9 +247,17 @@
         background: rgba($color: #fff, $alpha: 0.7)
     }
 
-    &:hover {
-        &::after {
-            opacity: 0;
-        }
+    &.swiper-slide-active {}
+
+    // &:hover {
+    //     &::after {
+    //         opacity: 0;
+    //     }
+    // }
+}
+
+.mobmenu__gallery._left {
+    .swiper-slide-active::after {
+        opacity: 0 !important;
     }
 }

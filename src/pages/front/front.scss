@@ -1,16 +1,18 @@
 @keyframes mask-play {
 	from {
-		mask-size: 100% 0%;
+		// filter: blur(100px);
+		opacity: 0;
 	}
 
 	to {
-		mask-size: 100% 100%;
+		opacity: 1;
+		// filter: blur(0px);
 	}
 }
 
 .front-top__traveline-wrapper {
 	width: 100%;
-	max-width: 976px;
+	max-width: 976px + 30px;
 	display: flex;
 	padding: 0 15px;
 	flex-direction: row;
@@ -21,6 +23,11 @@
 	bottom: -244px;
 	opacity: 0;
 	transition: bottom 0.4s, opacity 0.4s;
+
+	button,
+	input {
+		font-family: "Manrope", sans-serif;
+	}
 
 	.front-top[state="static"] & {
 		bottom: 44px;
@@ -40,6 +47,14 @@
 	z-index: 40;
 	align-items: center;
 
+	@media(max-width:992px) {
+		border-bottom: 0 solid;
+		padding: 12px 0 0;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 10px 17px;
+	}
+
 	.air-datepicker-cell.-day- {
 		font-weight: 400;
 	}
@@ -54,8 +69,8 @@
 }
 
 .front-top .traveline__count {
-
-	cursor: pointer
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .front-top.traveline__children {
@@ -103,14 +118,14 @@
 	align-items: center;
 	text-align: center;
 	cursor: pointer;
-	border-radius: 3px;
-	font-size: 14px;
-	height: 40px;
-	width: 120px;
-	margin-left: auto;
-	background: #6639b6 !important;
-	color: #fff !important;
-	font-weight: 600
+	// border-radius: 3px;
+	// font-size: 14px;
+	// height: 40px;
+	// width: 120px;
+	// margin-left: auto;
+	// background: #6639b6 !important;
+	// color: #fff !important;
+	// font-weight: 600
 }
 
 .front-top .traveline__popup-head {
@@ -137,11 +152,17 @@
 	display: none;
 	width: 300px;
 	padding: 20px;
+	bottom: 53px;
 	border-radius: 5px;
 	transform: translateX(-75px);
 	text-align: left;
 	background: #fff;
-	box-shadow: 0 0 6px 3px #0000003d
+	box-shadow: 0 0 6px 3px #0000003d;
+
+	@media(max-width:992px) {
+		transform: translateX(-50%);
+		left: 50%;
+	}
 }
 
 .front-top .traveline__popup._show {
@@ -204,14 +225,88 @@
 	max-width: 25%;
 	padding: 0 24px;
 	width: 100%;
-	position: relative
+	position: relative;
+
+	@media(max-width:992px) {
+		max-width: initial;
+		padding: 0;
+	}
 }
 
-.front-top.traveline__block._counter,
+.front-top .traveline__block._arrival {
+	&::after {
+		right: -8px;
+	}
+}
+
+.front-top .traveline__block._departure {
+	&::after {}
+}
+
+.traveline__block._submit {
+	@media(max-width:992px) {
+		padding-top: 10px;
+	}
+}
+
+.front-top .traveline__block._counter {
+	@media(max-width:992px) {
+
+		padding: 12px 0;
+
+		&::after,
+		&::before {
+			width: 100%;
+			height: 1px;
+			position: absolute;
+			right: 0;
+			background: rgba(255, 255, 255, .3);
+			top: 50%;
+			transform: translateY(-50%);
+			display: block;
+			content: '';
+		}
+
+		.traveline__count {
+			text-align: center;
+		}
+
+		&::after {
+			top: 0;
+		}
+
+		&::before {
+			top: 100%;
+		}
+	}
+}
+
+.traveline__go {
+	white-space: nowrap;
+}
+
 .front-top .traveline__block._submit {
+	max-width: initial;
+	width: initial;
+
+	text-align: center;
+
+	@media(max-width:992px) {
+		grid-column: span 2;
+		max-width: 100%;
+		width: 100%;
+	}
+}
+
+.front-top .traveline__block._counter {
 	max-width: 100%;
 	width: 100%;
-	text-align: center
+
+	text-align: center;
+
+	@media(max-width:992px) {
+		grid-column: span 2;
+	}
 }
 
 .front-top .traveline__block::after {
@@ -237,6 +332,11 @@
 	margin-bottom: 4px;
 	letter-spacing: -.04em;
 	text-transform: uppercase;
+	text-align: left;
+
+	@media(max-width:992px) {
+		font-size: 10px;
+	}
 }
 
 .front-top .traveline__label ._mob {
@@ -251,8 +351,13 @@
 	cursor: pointer;
 	font-weight: 600;
 	font-size: 20px;
+	letter-spacing: -0.03em;
 	line-height: 24px;
 	background: transparent;
+
+	@media(max-width:992px) {
+		font-size: 16px;
+	}
 
 }
 
@@ -267,7 +372,7 @@
 
 	&::after {
 		display: inline-block;
-		background-image: url("data:image/svg+xml,%3Csvg width='9' height='9' viewBox='0 0 9 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.62325 8.16876V1.29999M7.62325 1.29999H0.781318M7.62325 1.29999L0.781318 8.16876' stroke='white' stroke-width='2'/%3E%3C/svg%3E%0A");
+		background-image: url("data:image/svg+xml,%0A%3Csvg width='9' height='9' viewBox='0 0 9 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.781315 0.298039H8.62129V8.16876L6.62521 8.16876V3.71893L1.48704 8.87725L0.0755934 7.46027L5.21376 2.30195L0.781315 2.30195L0.781315 0.298039Z' fill='white'/%3E%3C/svg%3E%0A");
 		width: 9px;
 		height: 9px;
 		content: '';
@@ -331,6 +436,35 @@
 	}
 }
 
+.traveline__block-counter-wrap {
+
+	input {
+		padding-right: 42px;
+	}
+
+	&:hover {
+		&::after {
+			transform: scale(1.1);
+		}
+	}
+
+	position: relative;
+	cursor: pointer;
+
+	&::after {
+		transition: transform 0.3s;
+		background-image: url("data:image/svg+xml,%3Csvg width='40' height='32' viewBox='0 0 40 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg filter='url(%23filter0_d_102_798)'%3E%3Crect width='40' height='30' rx='15' fill='white' fill-opacity='0.2'/%3E%3Cpath d='M26 12L20 18L14 12' stroke='white' stroke-width='2'/%3E%3Crect x='1' y='1' width='38' height='28' rx='14' stroke='white' stroke-width='2'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_d_102_798' x='0' y='0' width='40' height='32' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E%3CfeOffset dy='2'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.043 0'/%3E%3CfeBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_102_798'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_102_798' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E%0A");
+		display: block;
+		width: 40px;
+		height: 32px;
+		content: '';
+		pointer-events: none;
+		position: absolute;
+		right: 0;
+		top: 50%;
+		margin-top: -16px;
+	}
+}
 
 
 
@@ -341,31 +475,28 @@
 	position: relative;
 	overflow: hidden;
 
+	@media(max-width:992px) {
+		overflow: visible;
+	}
+
 	&__bottom {
 		overflow: hidden;
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 300px;
-	}
-
-	&::after {
-		position: absolute;
 		left: 0;
 		bottom: 0;
+		position: absolute;
+		height: 450px;
 		width: 100%;
-		display: block;
-		background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 19.21%, rgba(0, 0, 0, 0) 100%);
-		transform: rotate(-180deg);
-		content: '';
-		height: 265px;
-		opacity: 0;
-		transition: opacity 0.3s;
 
-		.front-top[state="static"] & {
-			opacity: 1;
+		[state="static"] & {
+			z-index: 100;
+		}
+
+		@media(max-width:992px) {
+			height: 600px
 		}
 	}
+
+
 
 	body._no-scroll & {
 		overflow: hidden;
@@ -386,6 +517,31 @@
 		transition: opacity 0.3s, border 0.3s, background 0.3s;
 		opacity: 0;
 		pointer-events: none;
+		z-index: 111;
+
+		&._mob {
+			display: none;
+		}
+
+		@media(max-width:992px) {
+			width: 48px;
+			height: 48px;
+			border-width: 1px;
+			left: 12px;
+			bottom: 12px;
+
+			&._desc {
+				display: none;
+			}
+
+			&._mob {
+				display: flex;
+
+				svg {
+					width: 10px;
+				}
+			}
+		}
 
 		.front-top[state="top"] & {
 			opacity: 1;
@@ -433,6 +589,10 @@
 		height: calc(var(--vh, 1vh)*100);
 		overflow-x: hidden;
 		position: relative;
+
+		@media(max-width:992px) {
+			overflow: visible;
+		}
 	}
 
 	&__desc {
@@ -444,8 +604,16 @@
 		top: 145px;
 
 		@media(max-width:992px) {
-			top: 90px;
-			right: 20px;
+			top: initial;
+			bottom: 100px;
+			right: initial;
+			left: 20px;
+			opacity: 0;
+
+			.front-top[state="end"] &,
+			.front-top[state="top"] & {
+				opacity: 1;
+			}
 		}
 
 		ul {
@@ -456,6 +624,10 @@
 				font-size: 14px;
 				letter-spacing: -0.03em;
 				font-weight: 600;
+
+				@media(max-width:992px) {
+					font-size: 12px;
+				}
 
 				img {
 					position: absolute;
@@ -477,6 +649,15 @@
 		padding-top: 100px;
 		transform: translateX(-50%);
 		transition: max-width 0.3s, top 0.3s;
+		z-index: 12;
+
+		@media(max-width:992px) {
+			padding-top: 0;
+		}
+
+		@media(max-width:1450px) and(max-height:800px) {
+			padding-top: 0;
+		}
 
 		#front-top._animate & {
 			max-width: 100%;
@@ -540,19 +721,55 @@
 	}
 
 	&__bg {
-		object-fit: cover;
+
 		width: 100vw;
 		max-width: 100vw;
 		height: calc(var(--vh, 1vh)*100);
 		position: absolute;
 		left: 0%;
 		top: 0;
-		mask-image: url("data:image/svg+xml,%3Csvg width='1002' height='1485' viewBox='0 0 1002 1485' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1002' height='1485' rx='501' fill='black'/%3E%3C/svg%3E%0A");
+		mask-image: url("data:image/svg+xml,%3Csvg width='1002' height='1485' viewBox='0 0 1002 1485' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1002' height='1485' rx='491' fill='black'/%3E%3C/svg%3E%0A");
 
 		mask-mode: alpha;
 		mask-repeat: no-repeat;
 		mask-position: center 210px;
 		transition: mask 1s;
+		will-change: mask-size, mask-position;
+
+		@media(max-width:992px) {
+			mask-image: url("data:image/svg+xml,%3Csvg width='1002' height='1485' viewBox='0 0 1002 1485' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1002' height='1485' rx='541' fill='black'/%3E%3C/svg%3E%0A") !important;
+		}
+
+		img {
+			z-index: 1;
+		}
+
+		video {
+			z-index: 3;
+		}
+
+		img,
+		video {
+			object-fit: cover;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+
+		}
+
+		&::after {
+			display: block;
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba($color: #000000, $alpha: 0.2);
+			z-index: 10;
+		}
 
 		.front-top[state="top"] & {
 			mask-position: center 210px;
@@ -560,6 +777,12 @@
 
 			@media (max-width:1100px) {
 				mask-size: 94%;
+			}
+
+			@media(max-width:992px) {
+				mask-size: 94%;
+				mask-position: center 106px;
+
 			}
 		}
 
@@ -570,11 +793,32 @@
 			@media (max-width:1100px) {
 				mask-size: 180vw;
 			}
+
+			@media(max-width:992px) {
+				mask-size: 200vw;
+			}
 		}
 
 		.front-top[state="end"] & {
-			mask-position: center bottom 210px;
+			mask-position: center calc((100vh - 1496px) - 200px);
 			mask-size: 1002px;
+
+			@media(max-width:992px) {
+				mask-size: 94%;
+				mask-position: center -96px;
+				mask-image: url("data:image/svg+xml,%3Csvg width='1002' height='1485' viewBox='0 0 1002 1485' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1002' height='1485' rx='541' fill='black'/%3E%3C/svg%3E%0A");
+			}
+
+			.firefox & {
+				mask-position: center calc((100vh - 1496px) - 210px);
+				mask-size: 1002px;
+			}
+
+			// @media(max-height:600px) {
+			// 	mask-size: 94%;
+			// 	mask-position: center bottom 30px !important;
+			// 	mask-image: url("data:image/svg+xml,%3Csvg width='1002' height='1485' viewBox='0 0 1002 1485' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1002' height='1485' rx='541' fill='black'/%3E%3C/svg%3E%0A");
+			// }
 
 			@media (max-width:1100px) {
 				mask-size: 94%;
@@ -583,60 +827,96 @@
 
 	}
 
+	&__bg-blur._top {
+		.front-top[state="top"] & {
+			opacity: 1;
+		}
+
+	}
+
+	&__bg-blur._down {
+		.front-top[state="end"] & {
+			opacity: 1;
+		}
+	}
+
+
 	&__bg-blur {
 		position: absolute;
 		left: 0;
 		top: 0;
+		opacity: 0;
 		width: 100%;
 		height: 100%;
 		background: #F4CB78;
-		filter: blur(125px);
+		// Проблема с блюром
+		// backdrop-filter: blur(145px);
 		width: 1002px;
-
-		border-radius: 1000px;
+		border-radius: 1100px;
 		left: 50%;
-		top: 50%;
-		margin-top: 210px;
-		transform: translateX(-50%) translateY(-50%);
-		transition: margin 2s, width 2s;
+		top: 210px;
+		height: initial;
+		transform: translateX(-50%) scale(1.1);
+
+
+
+		&._down {
+			top: initial;
+			bottom: 210px;
+
+			@media(max-width:992px) {
+				margin-top: 0 !important;
+				max-width: 94%;
+				transform: translateX(-50%) scale(1.1);
+				top: -105px;
+				bottom: initial;
+			}
+		}
+
+
+		&::after {
+			display: block;
+			content: '';
+			padding-bottom: 147%;
+		}
+
+		@media(max-width:992px) {
+			margin-top: 39px !important;
+			max-width: 94%;
+			transform: translateX(-50%);
+			top: 65px;
+		}
+
+		filter: blur(44px);
+		box-shadow: 0 0 200px 0 #F4CB78;
+		transform: translateX(-50%) scale(1.1);
+		transition: opacity 0.5s,
+		bottom 1s,
+		width 1s;
+		will-change:opacity;
 
 		&-point {
-			width: 65%;
-			height: 10%;
+			width: 58%;
+			height: 30%;
 			background-color: #f4cb78;
 			position: absolute;
 			left: 50%;
 			top: 50%;
 			transform: rotate(30deg);
+			filter: blur(60px);
 			transform-origin: left;
-		}
 
-		.front-top[state="top"] & {
-			margin-top: 210px;
-			mask-size: 1002px;
+			.front-top[state="end"] &,
+			.front-top[state="static"] & {
+				display: none
+			}
 
-			@media (max-width:1100px) {
-				width: 94%;
+			@media(max-width:992px) {
+				display: none;
 			}
 		}
 
-		.front-top[state="static"] & {
-			margin-top: 0px;
-			width: 103vw;
 
-			@media (max-width:1100px) {
-				width: 200%;
-			}
-		}
-
-		.front-top[state="end"] & {
-			margin-top: -210px;
-			width: 1002px;
-
-			@media (max-width:1100px) {
-				width: 94%;
-			}
-		}
 	}
 
 	&__bg-wrap {
@@ -648,6 +928,27 @@
 
 		body._no-scroll & {
 			overflow: hidden;
+		}
+
+
+
+		&::after {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			display: block;
+			background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 19.21%, rgba(0, 0, 0, 0) 100%);
+			transform: rotate(-180deg);
+			content: '';
+			height: 265px;
+
+			opacity: 0;
+			transition: opacity 0.3s;
+
+			.front-top[state="static"] & {
+				opacity: 1;
+			}
 		}
 
 		&::before {
@@ -669,39 +970,51 @@
 
 	&__slogan {
 		padding: 0px 20px;
+		transition: opacity 0.5s 0.5s,
+			transform 0.5s 0.5s;
+
+		.front-top[state="end"] & {
+			opacity: 0.5;
+			transform: translateY(-50px);
+
+			@media(min-width:992px) {
+
+				transform: translateY(-200px);
+			}
+
+		}
 	}
 
 	&__slogan-line {
 		body.load & {
-			animation: mask-play 0.4s ease-in-out;
+			animation: mask-play 1s ease-out;
 			animation-fill-mode: forwards;
 		}
 
-		transition: opacity 0.5s 0.5s,
-		transform 0.5s 0.5s;
+		opacity: 0;
+		// filter: blur(100px);
 
-		.front-top[state="end"] & {
-			opacity: 0.5;
-			transform: translateY(-200px);
-		}
+
+
 
 		&._it-1 {
-			animation-delay: 0.5s !important;
+			animation-delay: 1s !important;
 		}
 
 		&._it-2 {
-			animation-delay: 1s !important;
+			animation-delay: 1.5s !important;
 		}
 
 		&._it-3 {
 			margin-top: -3%;
-			animation-delay: 1.5s !important;
+			animation-delay: 0s !important;
+			animation-duration: 0 !important;
 		}
 
-		mask-image: url('data: image/jpeg;base64,/9j/4AAQSkZJRgABAgEASABIAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAFcA+gDAREAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD/AD/6ACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoAk2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KADYPf8AT/CgA2D3/T/CgA2D3/T/AAoANg9/0/woANg9/wBP8KADYPf9P8KADYPf9P8ACgA2D3/T/CgA2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KADYPf8AT/CgA2D3/T/CgA2D3/T/AAoANg9/0/woANg9/wBP8KADYPf9P8KADYPf9P8ACgA2D3/T/CgA2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KADYPf8AT/CgA2D3/T/CgA2D3/T/AAoANg9/0/woANg9/wBP8KADYPf9P8KADYPf9P8ACgA2D3/T/CgA2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KADYPf8AT/CgA2D3/T/CgA2D3/T/AAoANg9/0/woANg9/wBP8KADYPf9P8KADYPf9P8ACgA2D3/T/CgA2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KADYPf8AT/CgA2D3/T/CgA2D3/T/AAoANg9/0/woANg9/wBP8KADYPf9P8KADYPf9P8ACgA2D3/T/CgA2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KADYPf8AT/CgA2D3/T/CgA2D3/T/AAoANg9/0/woANg9/wBP8KADYPf9P8KADYPf9P8ACgA2D3/T/CgA2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KADYPf8AT/CgA2D3/T/CgA2D3/T/AAoANg9/0/woANg9/wBP8KADYPf9P8KADYPf9P8ACgA2D3/T/CgA2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KADYPf8AT/CgA2D3/T/CgA2D3/T/AAoANg9/0/woANg9/wBP8KADYPf9P8KADYPf9P8ACgA2D3/T/CgA2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KADYPf8AT/CgA2D3/T/CgA2D3/T/AAoANg9/0/woANg9/wBP8KADYPf9P8KADYPf9P8ACgA2D3/T/CgA2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KADYPf8AT/CgA2D3/T/CgA2D3/T/AAoANg9/0/woANg9/wBP8KADYPf9P8KADYPf9P8ACgA2D3/T/CgA2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KAFCDI69R6ev0oAA/9k=');
-		mask-position: 0% 0%;
-		mask-size: 100% 0%;
-		mask-repeat: repeat-x;
+		// mask-image: url('data: image/jpeg;base64,/9j/4AAQSkZJRgABAgEASABIAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAFcA+gDAREAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD/AD/6ACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoASgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgBR1H1H86AEoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAUdR9R/OgBKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAFHUfUfzoAk2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KADYPf8AT/CgA2D3/T/CgA2D3/T/AAoANg9/0/woANg9/wBP8KADYPf9P8KADYPf9P8ACgA2D3/T/CgA2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KADYPf8AT/CgA2D3/T/CgA2D3/T/AAoANg9/0/woANg9/wBP8KADYPf9P8KADYPf9P8ACgA2D3/T/CgA2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KADYPf8AT/CgA2D3/T/CgA2D3/T/AAoANg9/0/woANg9/wBP8KADYPf9P8KADYPf9P8ACgA2D3/T/CgA2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KADYPf8AT/CgA2D3/T/CgA2D3/T/AAoANg9/0/woANg9/wBP8KADYPf9P8KADYPf9P8ACgA2D3/T/CgA2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KADYPf8AT/CgA2D3/T/CgA2D3/T/AAoANg9/0/woANg9/wBP8KADYPf9P8KADYPf9P8ACgA2D3/T/CgA2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KADYPf8AT/CgA2D3/T/CgA2D3/T/AAoANg9/0/woANg9/wBP8KADYPf9P8KADYPf9P8ACgA2D3/T/CgA2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KADYPf8AT/CgA2D3/T/CgA2D3/T/AAoANg9/0/woANg9/wBP8KADYPf9P8KADYPf9P8ACgA2D3/T/CgA2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KADYPf8AT/CgA2D3/T/CgA2D3/T/AAoANg9/0/woANg9/wBP8KADYPf9P8KADYPf9P8ACgA2D3/T/CgA2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KADYPf8AT/CgA2D3/T/CgA2D3/T/AAoANg9/0/woANg9/wBP8KADYPf9P8KADYPf9P8ACgA2D3/T/CgA2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KADYPf8AT/CgA2D3/T/CgA2D3/T/AAoANg9/0/woANg9/wBP8KADYPf9P8KADYPf9P8ACgA2D3/T/CgA2D3/AE/woANg9/0/woANg9/0/wAKADYPf9P8KAFCDI69R6ev0oAA/9k=');
+		// mask-position: 0% 0%;
+		// mask-size: 100% 0%;
+		// mask-repeat: repeat-x;
 		// clip: rect(0%, 0%, 100px, 50px)
 	}
 
@@ -716,22 +1029,28 @@
 		right: 300px;
 		top: -80px;
 		z-index: 10;
+		max-width: 227px;
 
 		@media(max-width:992px) {
 			right: 0;
-			width: 25%;
+			top: -80px;
+			max-width: 227px;
+
 		}
 	}
 
 	&__shell {
 		max-width: 265px;
 		right: 45%;
-		bottom: -180px;
+		bottom: -265px;
 		z-index: 10;
 
 		@media(max-width:992px) {
-			right: 0;
+			right: initial;
+			bottom: -60px;
 			width: 25%;
+			left: 0%;
+
 		}
 	}
 
@@ -767,6 +1086,7 @@
 
 		@media(max-width:992px) {
 			padding: 0;
+			padding-left: 120px;
 		}
 
 		p {
@@ -779,6 +1099,11 @@
 			b {
 				font-weight: 600;
 				color: $brown
+			}
+
+			@media(max-width:992px) {
+				font-size: 14px;
+				line-height: 20px;
 			}
 		}
 	}
@@ -802,7 +1127,9 @@
 		width: calc(597px / 2);
 
 		@media(max-width:992px) {
-			width: 20%;
+			right: -30px;
+			width: 150px;
+			top: -300px
 		}
 	}
 
@@ -845,6 +1172,11 @@
 
 	&__content {
 		position: relative;
+
+		@media(max-width:992px) {
+			margin-top: 20px;
+			padding: 0 20px;
+		}
 	}
 
 	&__white-block {
@@ -897,7 +1229,7 @@
 
 		@media(max-width:992px) {
 			padding: 0;
-			padding-left: 10px;
+
 		}
 	}
 
@@ -951,6 +1283,7 @@
 
 		@media(max-width:992px) {
 			grid-template-columns: 1fr;
+			padding: 40px 0;
 		}
 	}
 
@@ -978,13 +1311,13 @@
 	&__cone {
 		width: 530px;
 		right: 15%;
-		top: 30%;
+		top: 45%;
 
 		@media(max-width:992px) {
-			width: 40%;
-			right: 5%;
+			width: 80%;
+			right: 0%;
 			max-width: 500px;
-			;
+			top: 7%
 		}
 	}
 
@@ -1037,8 +1370,10 @@
 	flex-direction: column;
 
 	@media(max-width:992px) {
+		min-height: calc(var(--vh, 1vh) * 100);
 		padding: 20px;
-		min-height: initial;
+		padding-bottom: 56px;
+
 	}
 
 	&__bg {
@@ -1096,7 +1431,8 @@
 
 	&__alert {
 		@media(max-width:992px) {
-			font-size: 14px
+			font-size: 14px;
+			margin-top: 40px;
 		}
 
 		font-weight: 700;
@@ -1132,7 +1468,8 @@
 		grid-gap: 30px;
 
 		@media(max-width:992px) {
-			grid-template-columns: 1fr;
+			display: flex;
+			flex-direction: column-reverse;
 		}
 	}
 
@@ -1147,6 +1484,11 @@
 		position: relative;
 		z-index: 10;
 		line-height: 0;
+
+		@media(max-width:992px) {
+			margin: 0 20px;
+			width: calc(100% - 40px);
+		}
 
 		img,
 		video {
@@ -1188,13 +1530,26 @@
 		flex-direction: column;
 		min-height: 775px;
 		margin-top: 185px;
+		position: relative;
 
 		@media(max-width:992px) {
 			min-height: initial;
 			margin-top: 50px;
 			padding: 20px;
 			margin-left: 0;
+			text-align: left;
 			width: initial;
+
+			&::before {
+				display: block;
+				content: '';
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				bottom: -200px;
+				background: #fff;
+				left: 0;
+			}
 		}
 
 	}
@@ -1223,7 +1578,7 @@
 
 	@media(max-width:992px) {
 		padding: 20px;
-		min-height: initial;
+		min-height: 425px;
 	}
 
 	&__bg {
@@ -1269,7 +1624,7 @@
 		margin-bottom: auto;
 
 		@media(max-width:992px) {
-			font-size: 32px;
+			font-size: 24px;
 		}
 	}
 
@@ -1285,10 +1640,16 @@
 
 .front-services-slider-bg {
 	overflow: visible;
+	position: relative;
+
 }
 
 .front-service-bg {
 	padding-left: 150px;
+
+	@media(max-width:992px) {
+		padding-left: 0;
+	}
 
 	&__bg {
 		display: block;
@@ -1312,8 +1673,14 @@
 		}
 
 		@media(max-width:992px) {
+			&::after {
+				display: block;
+				content: '';
+				padding-bottom: 50%;
+			}
+
 			width: 100%;
-			min-height: initial;
+			min-height: 180px;
 			position: relative;
 		}
 	}
@@ -1326,16 +1693,40 @@
 	z-index: 10;
 	max-width: 503px;
 
+	@media(max-width:992px) {
+		max-width: 100%;
+		position: relative;
+	}
+
 }
 
 .front-services-sliders {
 	position: relative;
 }
 
+.front-services-slider-content {
+	@media(max-width:992px) {
+		margin-bottom: -60px;
+	}
+}
+
+.front-services-slider-bg {
+	@media(max-width:992px) {
+		position: relative;
+		z-index: 10;
+		margin-left: 20px;
+		max-width: calc(100% - 40px);
+	}
+}
+
 .front-service {
 	min-height: 718px;
 	position: relative;
 	padding-top: 1px;
+
+	@media(max-width:992px) {
+		min-height: initial;
+	}
 
 	&__divider {
 		width: 44px;
@@ -1359,7 +1750,7 @@
 
 
 		@media(max-width:992px) {
-			top: 10px;
+			top: -40px;
 			left: 20px;
 		}
 	}
@@ -1401,11 +1792,15 @@
 	}
 
 
+	&__link {
+		margin-top: 30px;
+	}
+
 	&__content {
 		position: relative;
 		margin-top: 314px;
 		background: #fff;
-		padding: 50px 30px;
+		padding: 50px 30px 35px;
 		min-height: 405px;
 		width: 503px;
 		display: flex;
@@ -1415,9 +1810,11 @@
 			width: 100%;
 			padding: 20px;
 			margin: 0;
-			transform: translateY(-10%);
+			transform: translateY(60px);
 			padding-top: 50px;
 			min-height: initial;
+			padding-bottom: 150px;
+
 		}
 	}
 
@@ -1467,4 +1864,12 @@
 
 .front-services-slider {
 	overflow: visible;
+}
+
+.front-top[state="end"] {
+	overflow: visible;
+
+	.front-top__relative {
+		overflow: visible;
+	}
 }
