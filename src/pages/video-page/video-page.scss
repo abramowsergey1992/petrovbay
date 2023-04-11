@@ -15,10 +15,13 @@
 	background: #fff;
 	padding: 22px;
 	position: relative;
+	display: flex;
+	flex-direction: column;
 
 	&__head {
 		display: flex;
 		flex-direction: row;
+		margin-bottom: auto;
 
 	}
 
